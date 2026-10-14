@@ -11,3 +11,7 @@ Canonical 5-role triage label vocabulary. See `docs/agents/triage-labels.md`.
 ### Domain docs
 
 Single-context layout (`GLOSSARY.md` + `docs/adr/`). See `docs/agents/domain.md`.
+
+### Grilling
+
+Only ask 1 question from me at each grilling session.
