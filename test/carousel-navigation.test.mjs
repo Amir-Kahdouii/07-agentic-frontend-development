@@ -247,14 +247,14 @@ test('02: initCarousel wires up button clicks, dot clicks, and keyboard events',
   instance.destroy();
 });
 
-test('02: HTML Integration - index.html links carousel.js and renders 8 slide containers', async () => {
+test('02: HTML Integration - index.html links carousel.js and renders 9 slide containers', async () => {
   const fs = await import('node:fs');
   const path = await import('node:path');
   const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
 
   assert.match(html, /<script[^>]*src=["'](?:\.\/)?carousel\.js["'][^>]*><\/script>/, 'index.html must include carousel.js script');
 
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 9; i++) {
     assert.match(html, new RegExp(`id=["']slide-${i}["']`), `Slide ${i} container with id="slide-${i}" must exist`);
     assert.match(html, new RegExp(`data-slide-index=["']${i}["']`), `Slide ${i} must have data-slide-index="${i}"`);
   }

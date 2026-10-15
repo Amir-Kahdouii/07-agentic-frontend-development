@@ -1,6 +1,6 @@
 /**
  * Slide Navigation Controller for Frontend AI Presentation Carousel
- * Strictly bounded between slide 1 and slide 8 (or custom totalSlides).
+ * Strictly bounded between slide 1 and slide 9 (or custom totalSlides).
  */
 
 export function toPersianNumber(n) {
@@ -8,7 +8,7 @@ export function toPersianNumber(n) {
   return String(n).replace(/\d/g, (d) => persianDigits[Number(d)]);
 }
 
-export function createCarouselController({ totalSlides = 8, initialSlide = 1 } = {}) {
+export function createCarouselController({ totalSlides = 9, initialSlide = 1 } = {}) {
   let currentSlide = Math.min(Math.max(initialSlide, 1), totalSlides);
   const listeners = [];
 
@@ -244,7 +244,7 @@ export function initClipboardCopy({
 export function initCarousel({
   root = typeof document !== 'undefined' ? document : null,
   window: win = typeof window !== 'undefined' ? window : null,
-  totalSlides = 8,
+  totalSlides = 9,
   initialSlide = 1,
 } = {}) {
   if (!root) return null;

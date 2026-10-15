@@ -24,7 +24,7 @@ test('01: Core Carousel Shell - index.html exists and has proper RTL setup', () 
   assert.match(html, /id=["']carousel-track["']/, 'Element with id="carousel-track" must exist');
 
   // Verify initial counter content
-  assert.match(html, /اسلاید\s+[۱1]\s+از\s+[۸8]/, 'Counter must initialize with slide 1 of 8 in Persian');
+  assert.match(html, /اسلاید\s+[۱1]\s+از\s+[۸8۹9]/, 'Counter must initialize with slide 1 of 9 in Persian');
 });
 
 test('01: Visual Tokens & Geometry - style.css defines DESIGN.md tokens', () => {

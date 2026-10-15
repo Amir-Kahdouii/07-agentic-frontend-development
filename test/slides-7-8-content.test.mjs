@@ -70,7 +70,7 @@ test('06: Slide 7 - Step 5: Quality Assurance, Code Review & Visual Polish', () 
   );
 });
 
-test('06: Slide 8 - Five-step frontend roadmap with table and CTA', () => {
+test('06: Slide 8 - Five-step frontend roadmap centered matrix', () => {
   const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
@@ -105,10 +105,38 @@ test('06: Slide 8 - Five-step frontend roadmap with table and CTA', () => {
     'Slide 8 must not repeat the four resource cards'
   );
 
+  // Slide 8 should NOT contain the CTA banner anymore (moved to Slide 9 to prevent overflow)
+  assert.ok(
+    !slide8Content.includes('playbook-cta-banner'),
+    'Slide 8 must not contain playbook-cta-banner (moved to dedicated Slide 9)'
+  );
+});
+
+test('06: Slide 9 - Dedicated community feedback and closing deck', () => {
+  const htmlPath = path.join(rootDir, 'index.html');
+  const html = fs.readFileSync(htmlPath, 'utf8');
+
+  // Slide 9 section check
+  const slide9Match = html.match(/<article[^>]*id="slide-9"[^>]*>([\s\S]*?)<\/article>/i);
+  assert.ok(slide9Match, 'Slide 9 article element must exist in index.html');
+  const slide9Content = slide9Match[1];
+
   // Strong Call-To-Action (CTA) for community feedback
   assert.ok(
-    slide8Content.includes('cta') || slide8Content.includes('بازخورد') || slide8Content.includes('دیدگاه') || slide8Content.includes('بحث') || slide8Content.includes('اشتراک‌گذاری'),
-    'Slide 8 must include a strong closing call-to-action (CTA) for community feedback'
+    slide9Content.includes('playbook-cta-banner') || slide9Content.includes('cta'),
+    'Slide 9 must include the closing call-to-action (CTA) banner'
+  );
+  assert.ok(
+    slide9Content.includes('بازخورد') || slide9Content.includes('دیدگاه') || slide9Content.includes('بحث') || slide9Content.includes('اشتراک‌گذاری'),
+    'Slide 9 must include community feedback and discussion copy'
+  );
+  assert.ok(
+    slide9Content.includes('restart-deck-btn'),
+    'Slide 9 must include restart presentation button'
+  );
+  assert.ok(
+    slide9Content.includes('feedback-prompts-grid'),
+    'Slide 9 must include interactive reflection / feedback cards'
   );
 });
 

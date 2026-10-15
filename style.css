@@ -2395,19 +2395,26 @@ code, pre, [dir="ltr"], .ltr-text {
    Slide 8: The Complete Engineering Playbook Cheat Sheet Styles
    ========================================================================== */
 
+#slide-8 .slide-container {
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(16px, 2.8vh, 28px);
+  max-width: 1280px;
+}
+
 /* Playbook Matrix Wrapper & Table */
 .playbook-matrix-wrapper {
   background-color: var(--color-paper-white);
-  border: 1px solid var(--color-border);
+  border: 1px solid #dce4ed;
   border-radius: var(--radius-card);
-  padding: clamp(16px, 2.2vh, 24px) clamp(18px, 2vw, 24px);
+  padding: clamp(16px, 2.4vh, 26px) clamp(18px, 2vw, 28px);
   box-shadow: var(--shadow-subtle-2);
   margin-block-end: 0;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-10);
-  flex: 1;
-  min-height: 0;
+  flex: 0 0 auto;
+  width: 100%;
   justify-content: flex-start;
 }
 
@@ -2480,8 +2487,8 @@ code, pre, [dir="ltr"], .ltr-text {
   background-color: #f6f8fb;
   color: var(--color-obsidian);
   font-weight: 700;
-  font-size: 12.5px;
-  padding: 9px 12px;
+  font-size: 13px;
+  padding: 11px 16px;
   border-block-end: 1px solid #dce4ed;
   white-space: nowrap;
 }
@@ -2504,7 +2511,7 @@ code, pre, [dir="ltr"], .ltr-text {
 
 .playbook-matrix-table tbody th,
 .playbook-matrix-table tbody td {
-  padding: 8px 12px;
+  padding: clamp(10px, 1.6vh, 15px) 16px;
   border-block-end: 1px solid #edf1f6;
   vertical-align: middle;
 }
@@ -2770,6 +2777,91 @@ code, pre, [dir="ltr"], .ltr-text {
 }
 
 /* ==========================================================================
+   Slide 9: Dedicated Community Feedback & Closing Deck Styles
+   ========================================================================== */
+
+#slide-9 .slide-container {
+  justify-content: center;
+  align-items: stretch;
+  gap: clamp(14px, 2.2vh, 22px);
+  max-width: 1280px;
+}
+
+.feedback-prompts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(12px, 1.4vw, 20px);
+  width: 100%;
+}
+
+.feedback-prompt-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: clamp(14px, 1.8vh, 20px) clamp(14px, 1.4vw, 18px);
+  box-shadow: var(--shadow-subtle-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  transition: all var(--transition-fast);
+}
+
+.feedback-prompt-card:hover {
+  border-color: rgba(37, 151, 208, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 151, 208, 0.1);
+  transform: translateY(-2px);
+}
+
+.feedback-prompt-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-icon);
+  background-color: rgba(37, 151, 208, 0.08);
+  color: var(--color-surgical-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.feedback-prompt-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.feedback-prompt-tag {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+  background-color: rgba(37, 151, 208, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+  margin-block-end: 2px;
+}
+
+.feedback-prompt-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--color-obsidian);
+  margin-block-end: 2px;
+}
+
+.feedback-prompt-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-charcoal);
+}
+
+.feedback-prompt-desc .code-pill {
+  font-size: 11px;
+  padding: 1px 5px;
+}
+
+/* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 
@@ -2821,7 +2913,8 @@ code, pre, [dir="ltr"], .ltr-text {
 
   /* 2-column tablet layout for token cards and playbook resources */
   .tokens-cards-grid,
-  .playbook-resources-grid {
+  .playbook-resources-grid,
+  .feedback-prompts-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-14);
   }
@@ -2965,7 +3058,8 @@ code, pre, [dir="ltr"], .ltr-text {
   }
 
   .tokens-cards-grid,
-  .playbook-resources-grid {
+  .playbook-resources-grid,
+  .feedback-prompts-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-12);
   }
