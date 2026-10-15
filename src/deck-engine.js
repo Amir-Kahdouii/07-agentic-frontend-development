@@ -215,6 +215,47 @@ export function createDeckController({
     return false;
   }
 
+  let touchStartX = null;
+  let touchStartY = null;
+
+  function handleTouchStart(event) {
+    if (!event || !event.touches || event.touches.length === 0) return false;
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+    return true;
+  }
+
+  function handleTouchEnd(event, threshold = 40) {
+    if (
+      touchStartX === null ||
+      !event ||
+      !event.changedTouches ||
+      event.changedTouches.length === 0
+    ) {
+      return false;
+    }
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchEndY = event.changedTouches[0].clientY;
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+    touchStartX = null;
+    touchStartY = null;
+
+    // Must be predominantly horizontal gesture and exceed distance threshold
+    if (Math.abs(deltaX) >= threshold && Math.abs(deltaX) > Math.abs(deltaY)) {
+      // In Persian RTL presentation, swiping finger left (deltaX < 0) advances to next step/slide
+      if (deltaX < 0) {
+        return next().moved;
+      }
+      // Swiping finger right (deltaX > 0) rewinds to previous step/slide
+      if (deltaX > 0) {
+        return prev().moved;
+      }
+    }
+
+    return false;
+  }
+
   function subscribe(listener) {
     listeners.add(listener);
     return () => listeners.delete(listener);
@@ -226,6 +267,8 @@ export function createDeckController({
     prev,
     goToSlide,
     handleKeyDown,
+    handleTouchStart,
+    handleTouchEnd,
     subscribe,
   };
 }

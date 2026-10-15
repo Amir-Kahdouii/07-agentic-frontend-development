@@ -18,6 +18,7 @@ import {
   Compass,
   FileCode2,
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   createDeckController,
   toPersianDigits,
@@ -117,6 +118,8 @@ export default function App() {
       data-fullscreen={isFullscreen}
       data-slide-index={slideIndex}
       data-step-index={stepIndex}
+      onTouchStart={(e) => controller.handleTouchStart(e)}
+      onTouchEnd={(e) => controller.handleTouchEnd(e)}
     >
       <div className="deck-atmospheric-bar" />
 
@@ -161,41 +164,53 @@ export default function App() {
 
       {/* Main Presentation Canvas */}
       <main className="deck-canvas">
-        <article
-          className="slide-frame"
-          id="presenter-deck-container"
-          data-slide-index={slideIndex}
-          data-step-index={stepIndex}
-          data-total-steps={totalSteps}
-        >
-          {/* Top category label */}
-          <div className="slide-top-bar">
-            <span className="slide-category-badge">
-              <SlideIcon size={14} />
-              <span>{currentSlide.badge}</span>
-            </span>
+        <AnimatePresence mode="wait">
+          <motion.article
+            key={slideIndex}
+            className="slide-frame"
+            id="presenter-deck-container"
+            data-slide-index={slideIndex}
+            data-step-index={stepIndex}
+            data-total-steps={totalSteps}
+            initial={{ opacity: 0, y: 14, scale: 0.995 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.995 }}
+            transition={{
+              type: 'spring',
+              stiffness: 380,
+              damping: 32,
+              mass: 0.8,
+            }}
+          >
+            {/* Top category label */}
+            <div className="slide-top-bar">
+              <span className="slide-category-badge">
+                <SlideIcon size={14} />
+                <span>{currentSlide.badge}</span>
+              </span>
 
-            <span className="slide-step-counter-pill">
-              مرحلهٔ {toPersianDigits(stepIndex)} از {toPersianDigits(totalSteps)}
-            </span>
-          </div>
+              <span className="slide-step-counter-pill">
+                مرحلهٔ {toPersianDigits(stepIndex)} از {toPersianDigits(totalSteps)}
+              </span>
+            </div>
 
-          {/* Title and subtitle */}
-          <h1 className="slide-main-title">{currentSlide.title}</h1>
-          <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
+            {/* Title and subtitle */}
+            <h1 className="slide-main-title">{currentSlide.title}</h1>
+            <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
 
-          {/* Hero Artifact Container */}
-          <div className="slide-content-area">
-            {slideIndex === 0 && <Slide1ParadigmShift stepIndex={stepIndex} />}
-            {slideIndex === 1 && <Slide2SkillsTerminal stepIndex={stepIndex} />}
-            {slideIndex === 2 && <Slide3GrillingFrontier stepIndex={stepIndex} />}
-            {slideIndex === 3 && <Slide4DesignGrounding stepIndex={stepIndex} />}
-            {slideIndex === 4 && <Slide5McpVibeFarsi stepIndex={stepIndex} />}
-            {slideIndex === 5 && <Slide6FrontendDesign stepIndex={stepIndex} />}
-            {slideIndex === 6 && <Slide7QualityGates stepIndex={stepIndex} />}
-            {slideIndex === 7 && <Slide8FullPlaybook stepIndex={stepIndex} />}
-          </div>
-        </article>
+            {/* Hero Artifact Container */}
+            <div className="slide-content-area">
+              {slideIndex === 0 && <Slide1ParadigmShift stepIndex={stepIndex} />}
+              {slideIndex === 1 && <Slide2SkillsTerminal stepIndex={stepIndex} />}
+              {slideIndex === 2 && <Slide3GrillingFrontier stepIndex={stepIndex} />}
+              {slideIndex === 3 && <Slide4DesignGrounding stepIndex={stepIndex} />}
+              {slideIndex === 4 && <Slide5McpVibeFarsi stepIndex={stepIndex} />}
+              {slideIndex === 5 && <Slide6FrontendDesign stepIndex={stepIndex} />}
+              {slideIndex === 6 && <Slide7QualityGates stepIndex={stepIndex} />}
+              {slideIndex === 7 && <Slide8FullPlaybook stepIndex={stepIndex} />}
+            </div>
+          </motion.article>
+        </AnimatePresence>
       </main>
 
       {/* Presentation Footer */}
