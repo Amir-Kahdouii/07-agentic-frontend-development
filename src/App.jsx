@@ -29,6 +29,8 @@ import Slide3GrillingFrontier from './components/slides/Slide3GrillingFrontier.j
 import Slide4DesignGrounding from './components/slides/Slide4DesignGrounding.jsx';
 import Slide5McpVibeFarsi from './components/slides/Slide5McpVibeFarsi.jsx';
 import Slide6FrontendDesign from './components/slides/Slide6FrontendDesign.jsx';
+import Slide7QualityGates from './components/slides/Slide7QualityGates.jsx';
+import Slide8FullPlaybook from './components/slides/Slide8FullPlaybook.jsx';
 
 // Slide icon mapping for distinct visual identity
 const SLIDE_ICONS = [
@@ -190,47 +192,8 @@ export default function App() {
             {slideIndex === 3 && <Slide4DesignGrounding stepIndex={stepIndex} />}
             {slideIndex === 4 && <Slide5McpVibeFarsi stepIndex={stepIndex} />}
             {slideIndex === 5 && <Slide6FrontendDesign stepIndex={stepIndex} />}
-            {slideIndex > 5 && (
-              <div className="hero-artifact-placeholder">
-                <div className="artifact-status-header">
-                  <span className="artifact-dot" />
-                  <span className="artifact-dot" />
-                  <span className="artifact-dot" />
-                  <span className="artifact-title">شبیه‌ساز گام‌های تعاملی اسلاید</span>
-                </div>
-
-                <div className="artifact-body">
-                  <p className="artifact-lead-text">
-                    اسلاید فعال: <strong>{currentSlide.title}</strong>
-                  </p>
-
-                  <div className="build-steps-list">
-                    {Array.from({ length: totalSteps + 1 }).map((_, stepNum) => {
-                      const isPassed = stepNum <= stepIndex;
-                      const isCurrent = stepNum === stepIndex;
-                      return (
-                        <div
-                          key={stepNum}
-                          className={`build-step-item ${isPassed ? 'is-passed' : ''} ${
-                            isCurrent ? 'is-current' : ''
-                          }`}
-                        >
-                          <div className="build-step-marker">
-                            {toPersianDigits(stepNum)}
-                          </div>
-                          <div className="build-step-text">
-                            {stepNum === 0
-                              ? 'نمای کلی و تبیین مسئله اولیه'
-                              : `زیرمرحلهٔ شمارهٔ ${toPersianDigits(stepNum)}: افشا و متحرک‌سازی تدریجی مؤلفه`}
-                          </div>
-                          {isCurrent && <span className="current-step-tag">فعال</span>}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            )}
+            {slideIndex === 6 && <Slide7QualityGates stepIndex={stepIndex} />}
+            {slideIndex === 7 && <Slide8FullPlaybook stepIndex={stepIndex} />}
           </div>
         </article>
       </main>
