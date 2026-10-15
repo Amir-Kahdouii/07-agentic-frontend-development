@@ -15,29 +15,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Bar -->
-  <header class="app-header">
-    <div class="brand-wrapper">
-      <div class="brand-icon-box" aria-hidden="true">
-        <!-- Minimal surgical blue layer icon -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-          <polyline points="2 17 12 22 22 17"></polyline>
-          <polyline points="2 12 12 17 22 12"></polyline>
-        </svg>
-      </div>
-      <div class="brand-title-group">
-        <h1 class="brand-title">توسعه فرانت‌اند با هوش مصنوعی</h1>
-        <span class="brand-subtitle">متدولوژی و چرخه مهندسی رابط کاربری برای مهندسان نرم‌افزار</span>
-      </div>
-    </div>
-
-    <div class="badge-pill">
-      <span class="badge-dot" aria-hidden="true"></span>
-      <span>ارائه تعاملی در ۸ اسلاید</span>
-    </div>
-  </header>
-
   <!-- Main Carousel Stage -->
   <main class="main-stage">
     <section class="carousel-card" aria-label="ارائه اسلایدهای فرانت‌اند با هوش مصنوعی" aria-roledescription="carousel">
@@ -57,7 +34,7 @@
         </div>
 
         <div class="badge-pill" style="font-size: 12px;">
-          <span>راهنمای گام‌به‌گام</span>
+          <span>راهنمای تجربه‌محور</span>
         </div>
       </div>
 
@@ -71,7 +48,7 @@
               <header class="slide-header">
                 <div class="slide-badge-pill">
                   <span class="badge-dot" aria-hidden="true"></span>
-                  <span>پارادوکس فرانت‌اند برای مهندسان نرم‌افزار</span>
+                  <span>استفاده از ایجنت در توسعهٔ فرانت‌اند</span>
                 </div>
                 <h2 class="slide-headline">
                   چگونه بدون تخصص UI، رابط‌های کاربری چشم‌نواز و پروداکشن بسازیم؟
@@ -195,25 +172,27 @@
 
                   <div class="terminal-block">
                     <div class="terminal-bar">
+                      <div class="terminal-actions" dir="ltr">
+                        <button class="copy-btn terminal-copy-btn" data-copy="npx skills add mattpocock/skills" aria-label="Copy Matt Pocock skills installation command">
+                          <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg>
+                          <span>Copy</span>
+                        </button>
+                      </div>
+                      <span class="terminal-label" dir="ltr">Terminal / Bash</span>
                       <div class="terminal-dots" aria-hidden="true">
                         <span class="terminal-dot dot-red"></span>
                         <span class="terminal-dot dot-yellow"></span>
                         <span class="terminal-dot dot-green"></span>
                       </div>
-                      <span class="terminal-label">Terminal / Bash</span>
                     </div>
                     <div class="terminal-body">
                       <div class="terminal-code-row" dir="ltr">
                         <span class="terminal-prompt">$</span>
                         <code class="terminal-command">npx skills add mattpocock/skills</code>
                       </div>
-                      <button class="copy-btn btn-pill-primary" data-copy="npx skills add mattpocock/skills" aria-label="کپی دستور نصب مهارت‌های مت پوکاک">
-                        <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        <span>کپی دستور</span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -235,25 +214,27 @@
 
                   <div class="terminal-block">
                     <div class="terminal-bar">
+                      <div class="terminal-actions" dir="ltr">
+                        <button class="copy-btn terminal-copy-btn" data-copy="npx skills add anthropics/skills --skill frontend-design" aria-label="Copy frontend-design installation command">
+                          <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                          </svg>
+                          <span>Copy</span>
+                        </button>
+                      </div>
+                      <span class="terminal-label" dir="ltr">Terminal / Bash</span>
                       <div class="terminal-dots" aria-hidden="true">
                         <span class="terminal-dot dot-red"></span>
                         <span class="terminal-dot dot-yellow"></span>
                         <span class="terminal-dot dot-green"></span>
                       </div>
-                      <span class="terminal-label">Terminal / Bash</span>
                     </div>
                     <div class="terminal-body">
                       <div class="terminal-code-row" dir="ltr">
                         <span class="terminal-prompt">$</span>
                         <code class="terminal-command">npx skills add anthropics/skills --skill frontend-design</code>
                       </div>
-                      <button class="copy-btn btn-pill-primary" data-copy="npx skills add anthropics/skills --skill frontend-design" aria-label="کپی دستور نصب مهارت طراحی فرانت‌اند">
-                        <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                        </svg>
-                        <span>کپی دستور</span>
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -1057,7 +1038,7 @@
                   پلی‌بوک جامع مهندسی فرانت‌اند با هوش مصنوعی؛ از ایده خام تا محصول پایدار
                 </h2>
                 <p class="slide-subheadline">
-                  یک متدولوژی مهندسی کامل و تکرارپذیر برای ساخت رابط‌های کاربری چشم‌نواز. این ماتریس اجرایی و جعبه منابع کلیدی، کل چرخه ۵ مرحله‌ای را در یک نگاه در اختیارتان می‌گذارد.
+                  یک روش عملی و تکرارپذیر برای ساخت رابط‌های کاربری چشم‌نواز. این نقشه راه، چرخهٔ پنج‌مرحله‌ای کار با ایجنت را از آماده‌سازی تا بازبینی، یک‌جا نشان می‌دهد.
                 </p>
               </header>
 
@@ -1065,10 +1046,10 @@
               <div class="playbook-matrix-wrapper">
                 <div class="matrix-header-bar">
                   <div class="matrix-title-group">
-                    <span class="matrix-tag">Pipeline Matrix</span>
-                    <h3 class="matrix-heading">ماتریس خلاصه پایپ‌لاین ۵ مرحله‌ای توسعه</h3>
+                    <span class="matrix-tag">نقشهٔ اجرا</span>
+                    <h3 class="matrix-heading">رودمپ پنج‌مرحله‌ای توسعهٔ فرانت‌اند با AI</h3>
                   </div>
-                  <span class="matrix-flow-pill">گردش کار تکرارپذیر مهندسی</span>
+                  <span class="matrix-flow-pill">از آماده‌سازی ایجنت تا بازبینی</span>
                 </div>
 
                 <div class="table-responsive-box">
@@ -1088,7 +1069,7 @@
                           <span>گام ۱</span>
                         </th>
                         <td class="phase-cell">
-                          <strong>پایه‌ریزی ابزارها</strong>
+                          <strong>آماده‌سازی ابزارها</strong>
                           <span class="cell-sub">Tools Foundation</span>
                         </td>
                         <td class="tools-cell">
@@ -1096,7 +1077,7 @@
                           <span class="tool-name">mattpocock/skills &amp; anthropics/skills</span>
                         </td>
                         <td class="outcome-cell">
-                          تجهیز ایجنت به دانشنامه‌های مهندسی، معماری ماژولار و پروتکل‌های رسمی طراحی
+                          افزودن مهارت‌های مهندسی، معماری ماژولار و طراحی به زمینهٔ کار ایجنت
                         </td>
                       </tr>
                       <tr>
@@ -1105,7 +1086,7 @@
                           <span>گام ۲</span>
                         </th>
                         <td class="phase-cell">
-                          <strong>استخراج مشخصات</strong>
+                          <strong>شفاف‌سازی نیازمندی‌ها</strong>
                           <span class="cell-sub">Spec &amp; Grilling</span>
                         </td>
                         <td class="tools-cell">
@@ -1113,7 +1094,7 @@
                           <span class="tool-name">Decision Frontier Interview</span>
                         </td>
                         <td class="outcome-cell">
-                          رفع کامل ابهامات با سوالات متوالی تک‌سوالی و خلق مدل ذهنی مشترک قبل از نوشتن کد
+                          برطرف‌کردن ابهام‌ها با پرسش‌های تک‌به‌تک و رسیدن به درک مشترک پیش از کدنویسی
                         </td>
                       </tr>
                       <tr>
@@ -1122,7 +1103,7 @@
                           <span>گام ۳</span>
                         </th>
                         <td class="phase-cell">
-                          <strong>زمین‌گیر کردن استایل‌ها</strong>
+                          <strong>تعریف استایل و زمینه</strong>
                           <span class="cell-sub">Aesthetic &amp; MCP</span>
                         </td>
                         <td class="tools-cell">
@@ -1130,7 +1111,7 @@
                           <span class="tool-name">vibefarsi.ir &amp; DESIGN.md</span>
                         </td>
                         <td class="outcome-cell">
-                          سند دترمینیستیک دیزاین سیستم، پالت اختصاصی و مالکیت مستقیم کامپوننت‌های بهینه RTL
+                          ثبت توکن‌ها، پالت و قواعد RTL در DESIGN.md؛ با ورودی‌های مرجع و MCP
                         </td>
                       </tr>
                       <tr>
@@ -1139,7 +1120,7 @@
                           <span>گام ۴</span>
                         </th>
                         <td class="phase-cell">
-                          <strong>پیاده‌سازی تیکت‌ها</strong>
+                          <strong>اجرای تیکت‌ها</strong>
                           <span class="cell-sub">Vertical Execution</span>
                         </td>
                         <td class="tools-cell">
@@ -1147,7 +1128,7 @@
                           <span class="tool-name">TDD + Vertical Slices</span>
                         </td>
                         <td class="outcome-cell">
-                          خلق رابط کاربری استودیویی بدون کلیشه‌های بد هوش مصنوعی و کدهای تمیز بدون وابستگی زائد
+                          ساخت رابط تیکت‌به‌تیکت، با کد تمیز و بدون وابستگی‌های غیرضروری
                         </td>
                       </tr>
                       <tr>
@@ -1156,7 +1137,7 @@
                           <span>گام ۵</span>
                         </th>
                         <td class="phase-cell">
-                          <strong>تضمین کیفیت و پولیش</strong>
+                          <strong>بازبینی و پرداخت نهایی</strong>
                           <span class="cell-sub">QA &amp; Code Review</span>
                         </td>
                         <td class="tools-cell">
@@ -1164,7 +1145,7 @@
                           <span class="tool-name">Highest Seam + Browser Audit</span>
                         </td>
                         <td class="outcome-cell">
-                          راستی‌آزمایی دولایه استانداردهای کد و انطباق با spec، پایداری ۳۶۰px و استانداردهای A11y
+                          بررسی استاندارد کد و انطباق با مشخصات، رفتار ۳۶۰px و دسترس‌پذیری
                         </td>
                       </tr>
                     </tbody>
@@ -1172,108 +1153,7 @@
                 </div>
               </div>
 
-              <!-- Section 2: Key Resources Grid with Copy Actions -->
-              <div class="playbook-resources-grid">
-                <!-- Resource 1: mattpocock/skills -->
-                <div class="resource-card">
-                  <div class="resource-card-head">
-                    <span class="resource-icon">⚡</span>
-                    <div class="resource-meta">
-                      <h4 class="resource-name">mattpocock/skills</h4>
-                      <span class="resource-desc">پکیج اسکیل‌های پایه‌ای مهندسی نرم‌افزار (grilling, tdd, code-review)</span>
-                    </div>
-                  </div>
-                  <div class="resource-card-action">
-                    <code class="resource-code" dir="ltr">npx skills add mattpocock/skills</code>
-                    <button class="copy-btn btn-pill-primary" data-copy="npx skills add mattpocock/skills" aria-label="کپی دستور نصب مهارت‌های مت پوکاک">
-                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                      <span>کپی دستور</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Resource 2: styles.refero.design -->
-                <div class="resource-card">
-                  <div class="resource-card-head">
-                    <span class="resource-icon">✨</span>
-                    <div class="resource-meta">
-                      <h4 class="resource-name">styles.refero.design</h4>
-                      <span class="resource-desc">پلتفرم استخراج توکن‌های استایل واقعی و تدوین سند DESIGN.md</span>
-                    </div>
-                  </div>
-                  <div class="resource-card-action">
-                    <a href="https://styles.refero.design" target="_blank" rel="noopener noreferrer" class="resource-link" dir="ltr">
-                      <span>styles.refero.design</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
-                    <button class="copy-btn btn-pill-primary" data-copy="https://styles.refero.design" aria-label="کپی لینک پلتفرم رفرئو">
-                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                      <span>کپی لینک</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Resource 3: vibefarsi.ir -->
-                <div class="resource-card">
-                  <div class="resource-card-head">
-                    <span class="resource-icon">🌐</span>
-                    <div class="resource-meta">
-                      <h4 class="resource-name">vibefarsi.ir</h4>
-                      <span class="resource-desc">سرور پروتکل MCP برای کامپوننت‌ها، تم‌ها و قوانین وب فارسی</span>
-                    </div>
-                  </div>
-                  <div class="resource-card-action">
-                    <a href="https://vibefarsi.ir" target="_blank" rel="noopener noreferrer" class="resource-link" dir="ltr">
-                      <span>vibefarsi.ir</span>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
-                    <button class="copy-btn btn-pill-primary" data-copy="https://vibefarsi.ir" aria-label="کپی آدرس سرور وایب‌فارسی">
-                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                      <span>کپی آدرس</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Resource 4: anthropics/skills frontend-design -->
-                <div class="resource-card">
-                  <div class="resource-card-head">
-                    <span class="resource-icon">🎨</span>
-                    <div class="resource-meta">
-                      <h4 class="resource-name">anthropics/skills</h4>
-                      <span class="resource-desc">مهارت frontend-design برای تضمین استانداردهای بصری و تعاملی</span>
-                    </div>
-                  </div>
-                  <div class="resource-card-action">
-                    <code class="resource-code" dir="ltr">npx skills add anthropics/skills --skill frontend-design</code>
-                    <button class="copy-btn btn-pill-primary" data-copy="npx skills add anthropics/skills --skill frontend-design" aria-label="کپی دستور نصب مهارت فرانت‌اند دیزاین آنتروپیک">
-                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                      </svg>
-                      <span>کپی دستور</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Section 3: Strong Closing Community CTA -->
+              <!-- Section 2: Strong Closing Community CTA -->
               <div class="playbook-cta-banner">
                 <div class="cta-content-wrap">
                   <div class="cta-pill-badge">
@@ -1324,30 +1204,6 @@
           <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۶" data-index="6"></button>
           <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۷" data-index="7"></button>
           <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۸" data-index="8"></button>
-        </div>
-
-        <!-- Keyboard hints -->
-        <div class="keyboard-hints" aria-hidden="true">
-          <span>کلیدهای جهت‌نما:</span>
-          <kbd class="kbd-badge">→</kbd>
-          <kbd class="kbd-badge">←</kbd>
-        </div>
-
-        <!-- Prev / Next Navigation Buttons (in RTL: Next points Left, Prev points Right) -->
-        <div class="carousel-buttons">
-          <button id="prev-btn" class="btn-pill-ghost" disabled aria-label="اسلاید قبلی">
-            <span>قبلی</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-
-          <button id="next-btn" class="btn-pill-primary" aria-label="اسلاید بعدی">
-            <span>بعدی</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
         </div>
       </footer>
     </section>
