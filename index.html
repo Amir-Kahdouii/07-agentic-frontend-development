@@ -618,17 +618,291 @@
             </div>
           </article>
 
-          <!-- Slide 5 Container -->
+          <!-- Slide 5: Supercharging with MCP & vibefarsi.ir -->
           <article class="slide-item" id="slide-5" data-slide-index="5" aria-label="اسلاید ۵ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۳: اتصال زنده به ابزارها با MCP</span>
+                </div>
+                <h2 class="slide-headline">
+                  پروتکل MCP و مخزن VibeFarsi؛ اتصال مستقیم ایجنت به مؤلفه‌ها و قوانین وب فارسی
+                </h2>
+                <p class="slide-subheadline">
+                  پروتکل کانتکست مدل (Model Context Protocol) ایجنت را مستقیماً به مخزن کامپوننت‌های بومی <code>vibefarsi.ir</code> متصل می‌کند. به جای تحمیل پکیج‌های حجیم npm و تداخل کتابخانه‌ها، ایجنت کامپوننت‌های بهینه با تایپوگرافی وزیرمتن را کپی کرده و مالکیت کامل کد را به شما می‌سپارد.
+                </p>
+              </header>
+
+              <!-- VibeFarsi Server Hero Banner -->
+              <div class="vibefarsi-hero-banner">
+                <div class="vibefarsi-brand-info">
+                  <div class="vibefarsi-logo-pill">
+                    <span class="status-indicator-dot pulse" aria-hidden="true"></span>
+                    <span class="vibefarsi-name">VibeFarsi MCP Server</span>
+                  </div>
+                  <div class="vibefarsi-text-wrap">
+                    <h3 class="vibefarsi-banner-title">رجیستری زنده مؤلفه‌ها و تم‌های وب فارسی</h3>
+                    <p class="vibefarsi-banner-desc">
+                      پروتکل استانداردی که به ایجنت امکان اجرای ابزارهای تخصصی، استخراج قوانین RTL و دریافت مستقیم کد منبع را بدون هیچ واسطه‌ای می‌دهد.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="vibefarsi-action-row">
+                  <a href="https://vibefarsi.ir" target="_blank" rel="noopener noreferrer" class="vibefarsi-direct-link" dir="ltr" aria-label="مشاهده وب‌سایت vibefarsi.ir">
+                    <span>vibefarsi.ir</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+
+                  <button class="copy-btn btn-pill-primary" data-copy="https://vibefarsi.ir" aria-label="کپی آدرس سرور MCP وایب‌فارسی">
+                    <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>کپی آدرس سرور MCP</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- MCP Tools Capabilities Grid -->
+              <div class="mcp-tools-grid">
+                <!-- Tool 1: get_design_rules -->
+                <div class="mcp-tool-card">
+                  <div class="mcp-card-header">
+                    <div class="tool-badge-row">
+                      <code class="tool-fn-badge" dir="ltr">get_design_rules</code>
+                      <span class="tool-category-chip">قوانین و تایپوگرافی</span>
+                    </div>
+                    <h4 class="mcp-tool-title">استخراج هوشمند قوانین طراحی RTL</h4>
+                  </div>
+                  <p class="mcp-tool-desc">
+                    تعیین جهت‌گیری دقیق، نسبت‌های طلایی تایپوگرافی وزیرمتن (Line-Height 1.8 برای بدنه)، اعداد فارسی، فواصل شبکه ۴ پیکسلی و اعتبارسنجی فیلدهای بومی ایران (کد ملی، شبا).
+                  </p>
+                  <div class="tool-tags-group">
+                    <span class="tool-tag">RTL Native</span>
+                    <span class="tool-tag">وزیرمتن</span>
+                    <span class="tool-tag">شبکه ۴px</span>
+                    <span class="tool-tag">Iran Form Validation</span>
+                  </div>
+                </div>
+
+                <!-- Tool 2: search_registry -->
+                <div class="mcp-tool-card">
+                  <div class="mcp-card-header">
+                    <div class="tool-badge-row">
+                      <code class="tool-fn-badge" dir="ltr">search_registry</code>
+                      <span class="tool-category-chip">کاوش کامپوننت‌ها</span>
+                    </div>
+                    <h4 class="mcp-tool-title">جستجوی بلادرنگ در رجیستری</h4>
+                  </div>
+                  <p class="mcp-tool-desc">
+                    پیدا کردن آنی قطعات UI مورد نیاز مانند مودال‌ها، دراور، فیلدهای فرم پیشرفته و تقویم جلالی بدون نیاز به جستجو در وب یا تکیه بر حدسیات مدل.
+                  </p>
+                  <div class="tool-tags-group">
+                    <span class="tool-tag">مودال و دیالوگ</span>
+                    <span class="tool-tag">دراور کشویی</span>
+                    <span class="tool-tag">تقویم شمسی</span>
+                    <span class="tool-tag">انیمیشن‌های واکنش‌گرا</span>
+                  </div>
+                </div>
+
+                <!-- Tool 3: get_component & get_theme -->
+                <div class="mcp-tool-card">
+                  <div class="mcp-card-header">
+                    <div class="tool-badge-row">
+                      <code class="tool-fn-badge" dir="ltr">get_component</code>
+                      <span class="tool-category-chip">مالکیت کد</span>
+                    </div>
+                    <h4 class="mcp-tool-title">کپی مستقیم سورس‌کد به جای npm</h4>
+                  </div>
+                  <p class="mcp-tool-desc">
+                    ایجنت سورس‌کد تمیز را مستقیماً داخل پروژه شما می‌نشاند (Copy-Paste). خداحافظی با پکیج‌های فوق‌سنگین npm، تداخل پکیج‌ها و باگ‌های نسخه کتابخانه‌ها.
+                  </p>
+                  <div class="tool-tags-group">
+                    <span class="tool-tag">مالکیت ۱۰۰٪ کد</span>
+                    <span class="tool-tag">Zero npm Bloat</span>
+                    <span class="tool-tag">کد خالص و ماژولار</span>
+                    <span class="tool-tag">تم گرافیت</span>
+                  </div>
+                </div>
+
+                <!-- Tool 4: scaffold_page -->
+                <div class="mcp-tool-card">
+                  <div class="mcp-card-header">
+                    <div class="tool-badge-row">
+                      <code class="tool-fn-badge" dir="ltr">scaffold_page</code>
+                      <span class="tool-category-chip">معماری صفحه</span>
+                    </div>
+                    <h4 class="mcp-tool-title">اسکلت‌بندی صفحات وب با Zero Layout Shift</h4>
+                  </div>
+                  <p class="mcp-tool-desc">
+                    ایجاد ساختار اولیه کامل صفحات وب همراه با اسکلت بارگذاری (Skeleton)، تعیین aspect-ratio برای جلوگیری از پرش چیدمان و ساختار بهینه موبایل.
+                  </p>
+                  <div class="tool-tags-group">
+                    <span class="tool-tag">Zero Layout Shift</span>
+                    <span class="tool-tag">Skeleton UI</span>
+                    <span class="tool-tag">Mobile First</span>
+                    <span class="tool-tag">سازگاری ابعاد لمسی</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Philosophy Callout -->
+              <div class="mcp-philosophy-callout">
+                <div class="callout-icon-box" aria-hidden="true">💡</div>
+                <div class="callout-content">
+                  <strong class="callout-title">تغییر اساسی پارادایم: مالکیت کد (Owned Code) به جای وابستگی سنگین</strong>
+                  <p class="callout-desc">
+                    با پروتکل MCP، ایجنت دیگر یک مصرف‌کننده کورِ کتابخانه‌های خارجی نیست؛ بلکه یک مهندس هوشمند است که کامپوننت‌های بومی و بدون وابستگی را مستقیماً بر مبنای نیاز پروژه پیاده‌سازی می‌کند.
+                  </p>
+                </div>
+              </div>
             </div>
           </article>
 
-          <!-- Slide 6 Container -->
+          <!-- Slide 6: Implementing Tickets with frontend-design Skill -->
           <article class="slide-item" id="slide-6" data-slide-index="6" aria-label="اسلاید ۶ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۴: پیاده‌سازی با ظرافت استودیویی</span>
+                </div>
+                <h2 class="slide-headline">
+                  مهارت frontend-design؛ پیاده‌سازی تیکت‌ها و نجات از دیفالت‌های کلیشه‌ای AI
+                </h2>
+                <p class="slide-subheadline">
+                  وقتی مشخصات با Grilling قفل شد و توکن‌ها در <code>DESIGN.md</code> نشستند، مهارت رسمی <code>frontend-design</code> شرکت آنتروپیک اجرای تیکت‌ها را رهبری می‌کند. این مهارت مانع ظاهر کلیشه‌ای و کدهای جنریک هوش مصنوعی شده و استانداردهای طراحی باکیفیت، ریزانیمیشن‌های واکنشی و انطباق کامل با سیستم طراحی را تضمین می‌کند.
+                </p>
+              </header>
+
+              <!-- Two Column Grid: Anti-Generic Rules vs Ticket Execution Flow -->
+              <div class="frontend-design-grid">
+                <!-- Column 1: Anti-Generic Clichés Card -->
+                <div class="fd-card fd-anti-generic-card">
+                  <div class="fd-card-header">
+                    <div class="fd-badge-wrap">
+                      <span class="fd-danger-dot" aria-hidden="true"></span>
+                      <span class="fd-header-badge">مهار تله‌های کلیشه‌ای هوش مصنوعی (Anti-Generic)</span>
+                    </div>
+                    <h3 class="fd-card-title">تفاوت خروجی ماشینی با طراحی استودیویی</h3>
+                  </div>
+
+                  <ul class="fd-contrast-list">
+                    <li class="fd-contrast-item">
+                      <div class="contrast-row-head">
+                        <span class="cross-tag">تله کلیشه AI</span>
+                        <strong class="cliche-title">کارت‌های یکدست با گرادیان‌های تکراری</strong>
+                      </div>
+                      <p class="cliche-text">
+                        تقسیم کل صفحه به کارت‌های یک‌شکل با گرادیان‌های بنفش یا سفالی کلیشه‌ای و سایه‌های خاکستری تار که فریاد می‌زند «تولید شده با هوش مصنوعی»!
+                      </p>
+                      <div class="solution-box">
+                        <span class="craft-tag">اصل frontend-design</span>
+                        <p class="solution-text">
+                          <strong>تمرکز جسارت بصری (Spend Boldness):</strong> جسارت و نوآوری را در یک بخش یادمان‌برانگیز متمرکز کنید و سایر المان‌ها را آرام، هماهنگ و منظم نگه دارید.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="fd-contrast-item">
+                      <div class="contrast-row-head">
+                        <span class="cross-tag">تله کلیشه AI</span>
+                        <strong class="cliche-title">برچسب‌های بی‌دلیل و تایپوگرافی شلخته</strong>
+                      </div>
+                      <p class="cliche-text">
+                        افزودن برچسب‌های بی‌فایده با حروف بزرگ (ALL-CAPS) بالای هر عنوان و فواصل خطوط غیرطبیعی که خوانایی متن فارسی را تخریب می‌کند.
+                      </p>
+                      <div class="solution-box">
+                        <span class="craft-tag">اصل frontend-design</span>
+                        <p class="solution-text">
+                          <strong>سلسله‌مراتب صریح و ارگونومیک:</strong> خطوط متن با ارتفاع هدفمند (Body 1.8 و عناوین 1.2)، بدون حروف بزرگ نمایشی و حذف هر برچسب غیرضروری.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="fd-contrast-item">
+                      <div class="contrast-row-head">
+                        <span class="cross-tag">تله کلیشه AI</span>
+                        <strong class="cliche-title">انیمیشن‌های سرگردان و بی‌هدف</strong>
+                      </div>
+                      <p class="cliche-text">
+                        لودینگ‌ها و ترنزیشن‌های شناور تصادفی روی همه کارت‌ها بدون هیچ کنش کاربردی.
+                      </p>
+                      <div class="solution-box">
+                        <span class="craft-tag">اصل frontend-design</span>
+                        <p class="solution-text">
+                          <strong>ریزانیمیشن‌های واکنشی (Micro-interactions):</strong> موشن‌های هدفمند فقط در پاسخ به رفتار کاربر (هاور، کلیک، اکاردئون) با فیدبک آنی و نرم.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Column 2: Ticket Implementation Flow Card -->
+                <div class="fd-card fd-workflow-card">
+                  <div class="fd-card-header">
+                    <div class="fd-badge-wrap">
+                      <span class="status-indicator-dot" aria-hidden="true"></span>
+                      <span class="fd-header-badge">چرخه اجرای تیکت‌به‌تیکت (Execution Pipeline)</span>
+                    </div>
+                    <h3 class="fd-card-title">۴ گام پیاده‌سازی حرفه‌ای هر تیکت</h3>
+                  </div>
+
+                  <div class="fd-steps-list">
+                    <!-- Step 1 -->
+                    <div class="fd-step-item">
+                      <div class="step-num-badge">۱</div>
+                      <div class="step-content">
+                        <h4 class="step-title">برش عمودی ایزوله (Vertical Slice)</h4>
+                        <p class="step-desc">
+                          هر تیکت به یک وظیفه منفرد و قابل تست محدود می‌شود. از تغییرات گسترده و همزمان در چند بخش پرهیز شده و روی یک درز عمومی (Seam) تمرکز می‌شود.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="fd-step-item">
+                      <div class="step-num-badge">۲</div>
+                      <div class="step-content">
+                        <h4 class="step-title">وفاداری ۱۰۰٪ به توکن‌های DESIGN.md</h4>
+                        <p class="step-desc">
+                          هیچ رنگ، فونت یا کلاسی خارج از سیستم توکن‌های توافق‌شده تعریف نمی‌شود. صفر مقادیر جادویی (No Arbitrary Values) و پایبندی کامل به پالت مشخص‌شده.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="fd-step-item">
+                      <div class="step-num-badge">۳</div>
+                      <div class="step-content">
+                        <h4 class="step-title">آزمون‌محوری (TDD) و دسترس‌پذیری (A11y)</h4>
+                        <p class="step-desc">
+                          آزمون‌های رفتار رابط کاربری قبل از پیاده‌سازی نوشته می‌شوند. کلیدهای جهت‌نما، استیت‌های فوکوس، تگ‌های معنایی و واکنش‌گرایی تا عرض ۳۶۰px موبایل تضمین می‌گردند.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="fd-step-item">
+                      <div class="step-num-badge">۴</div>
+                      <div class="step-content">
+                        <h4 class="step-title">نقد طراحانه و خودارزیابی (Self-Critique)</h4>
+                        <p class="step-desc">
+                          بازبینی نهایی با نگاه یک راهبر طراحی: آیا المانی زاید است؟ آیا ریزانیمیشن‌ها ارگانیک هستند؟ حذف زوائد و پولیش کامل قبل از علامت‌گذاری تیکت به عنوان انجام‌شده.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 

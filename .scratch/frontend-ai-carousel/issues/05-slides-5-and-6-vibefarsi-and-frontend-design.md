@@ -8,10 +8,10 @@ Includes badges for MCP tools (`get_design_rules`, `search_registry`, `scaffold_
 
 **Blocked by:** 02: Slide Navigation & Interactive Controller
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Slide 5 introduces `vibefarsi.ir` as an MCP server with copyable server URL
-- [ ] Feature tags for MCP capabilities (`get_design_rules`, `search_registry`, `get_component`, `scaffold_page`) rendered
-- [ ] Slide 6 details ticket implementation flow using Anthropic's `frontend-design` skill
-- [ ] Explains how `frontend-design` prevents generic LLM code and enforces high aesthetic fidelity
-- [ ] Responsive design and interactive badges on both slides
+- [x] Slide 5 introduces `vibefarsi.ir` as an MCP server with copyable server URL
+- [x] Feature tags for MCP capabilities (`get_design_rules`, `search_registry`, `get_component`, `scaffold_page`) rendered
+- [x] Slide 6 details ticket implementation flow using Anthropic's `frontend-design` skill
+- [x] Explains how `frontend-design` prevents generic LLM code and enforces high aesthetic fidelity
+- [x] Responsive design and interactive badges on both slides

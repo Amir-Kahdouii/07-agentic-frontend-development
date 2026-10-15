@@ -1548,6 +1548,415 @@ code, pre, [dir="ltr"], .ltr-text {
   color: var(--color-slate);
   font-family: var(--font-mono);
 }
+/* ==========================================================================
+   Slide 5: vibefarsi.ir MCP Server Styles
+   ========================================================================== */
+
+.vibefarsi-hero-banner {
+  background: linear-gradient(135deg, rgba(37, 151, 208, 0.08) 0%, rgba(245, 245, 245, 0.95) 100%);
+  border: 1px solid rgba(37, 151, 208, 0.22);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-20);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-20);
+  box-shadow: 0 4px 20px rgba(37, 151, 208, 0.06);
+  margin-block-end: var(--spacing-20);
+}
+
+.vibefarsi-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  flex: 1;
+}
+
+.vibefarsi-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 4px 12px;
+  background-color: var(--color-paper-white);
+  border: 1px solid rgba(37, 151, 208, 0.25);
+  border-radius: var(--radius-pill);
+  width: fit-content;
+}
+
+.vibefarsi-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+  font-family: var(--font-mono);
+}
+
+.vibefarsi-banner-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-obsidian);
+  line-height: 1.35;
+}
+
+.vibefarsi-banner-desc {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+  max-width: 680px;
+}
+
+.vibefarsi-action-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex-shrink: 0;
+}
+
+.vibefarsi-direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background-color: var(--color-paper-white);
+  color: var(--color-surgical-blue);
+  border: 1px solid rgba(37, 151, 208, 0.28);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.vibefarsi-direct-link:hover {
+  background-color: var(--color-surgical-blue);
+  color: var(--color-paper-white);
+  box-shadow: 0 4px 12px rgba(37, 151, 208, 0.25);
+  transform: translateY(-1px);
+}
+
+/* MCP Tools Grid */
+.mcp-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-16);
+  margin-block-end: var(--spacing-20);
+}
+
+.mcp-tool-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-10);
+  box-shadow: var(--shadow-subtle-2);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.mcp-tool-card:hover {
+  border-color: rgba(37, 151, 208, 0.35);
+  box-shadow: 0 6px 18px rgba(37, 151, 208, 0.08);
+  transform: translateY(-2px);
+}
+
+.mcp-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tool-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tool-fn-badge {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+  background-color: rgba(37, 151, 208, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(37, 151, 208, 0.2);
+}
+
+.tool-category-chip {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-slate);
+  background-color: var(--color-cloud-gray);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.mcp-tool-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+  line-height: 1.4;
+}
+
+.mcp-tool-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+  flex: 1;
+}
+
+.tool-tags-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-block-start: 4px;
+}
+
+.tool-tag {
+  font-size: 11px;
+  color: var(--color-charcoal);
+  background-color: #f0f3f7;
+  border: 1px solid #e1e6ed;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-weight: 500;
+}
+
+/* MCP Philosophy Callout */
+.mcp-philosophy-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-14);
+  background: linear-gradient(135deg, #ffffff 0%, #f6f8fb 100%);
+  border: 1px solid #dbe4ee;
+  border-radius: var(--radius-card);
+  padding: var(--spacing-16);
+  box-shadow: var(--shadow-subtle-2);
+}
+
+.callout-icon-box {
+  font-size: 20px;
+  line-height: 1;
+  padding: 8px;
+  background-color: rgba(37, 151, 208, 0.1);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.callout-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.callout-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.callout-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+}
+
+/* ==========================================================================
+   Slide 6: frontend-design Skill Styles
+   ========================================================================== */
+
+.frontend-design-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-20);
+}
+
+.fd-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  box-shadow: var(--shadow-subtle-2);
+}
+
+.fd-anti-generic-card {
+  border-color: rgba(239, 68, 68, 0.2);
+  background: linear-gradient(180deg, #ffffff 0%, #fffdfd 100%);
+}
+
+.fd-workflow-card {
+  border-color: rgba(37, 151, 208, 0.25);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.fd-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-block-end: 1px solid #edf1f6;
+  padding-block-end: var(--spacing-12);
+}
+
+.fd-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fd-danger-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ef4444;
+}
+
+.fd-header-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-slate);
+}
+
+.fd-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-obsidian);
+  line-height: 1.35;
+}
+
+/* Contrast items in Anti-generic card */
+.fd-contrast-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+}
+
+.fd-contrast-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: var(--color-cloud-gray);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-input);
+  padding: var(--spacing-12);
+}
+
+.contrast-row-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cross-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #dc2626;
+  background-color: #fee2e2;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.cliche-title {
+  font-size: 13px;
+  color: var(--color-obsidian);
+  font-weight: 700;
+}
+
+.cliche-text {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: var(--color-charcoal);
+}
+
+.solution-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-block-start: 4px;
+  background-color: var(--color-paper-white);
+  border: 1px solid rgba(37, 151, 208, 0.22);
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.craft-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+  width: fit-content;
+}
+
+.solution-text {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--color-obsidian);
+}
+
+.solution-text strong {
+  color: var(--color-surgical-blue);
+}
+
+/* Steps list in Workflow Card */
+.fd-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.fd-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  background-color: var(--color-paper-white);
+  border: 1px solid #edf1f6;
+  border-radius: var(--radius-input);
+  padding: var(--spacing-12);
+  transition: all var(--transition-fast);
+}
+
+.fd-step-item:hover {
+  border-color: rgba(37, 151, 208, 0.3);
+  box-shadow: 0 3px 12px rgba(37, 151, 208, 0.05);
+  transform: translateX(-2px);
+}
+
+.step-num-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-surgical-blue) 0%, #1a7ab5 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(37, 151, 208, 0.25);
+}
+
+.step-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.step-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.step-desc {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+}
 
 /* ==========================================================================
    Responsive Adaptations
@@ -1586,7 +1995,9 @@ code, pre, [dir="ltr"], .ltr-text {
   .paradigm-comparison-grid,
   .skills-grid,
   .grilling-grid,
-  .tokens-cards-grid {
+  .tokens-cards-grid,
+  .mcp-tools-grid,
+  .frontend-design-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-16);
   }
@@ -1595,18 +2006,21 @@ code, pre, [dir="ltr"], .ltr-text {
   .skill-card,
   .frontier-dialog-card,
   .grilling-benefits-card,
-  .tokens-breakdown-wrapper {
+  .tokens-breakdown-wrapper,
+  .fd-card {
     padding: var(--spacing-16);
   }
 
-  .refero-hero-banner {
+  .refero-hero-banner,
+  .vibefarsi-hero-banner {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-14);
     padding: var(--spacing-16);
   }
 
-  .refero-action-row {
+  .refero-action-row,
+  .vibefarsi-action-row {
     width: 100%;
     justify-content: space-between;
   }
