@@ -8,11 +8,12 @@ import {
   initCarousel,
   initClipboardCopy,
   toPersianNumber,
-} from '../carousel.js';
+} from '../companion/carousel.js';
 
 const rootDir = process.cwd();
-const htmlPath = path.join(rootDir, 'index.html');
-const cssPath = path.join(rootDir, 'style.css');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
+const cssPath = path.join(companionDir, 'style.css');
 
 test('07: Visual Craft Audit - 100% Adherence to DESIGN.md Tokens', () => {
   assert.ok(fs.existsSync(cssPath), 'style.css must exist');

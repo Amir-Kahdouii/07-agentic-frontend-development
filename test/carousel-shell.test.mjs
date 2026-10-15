@@ -4,11 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const rootDir = process.cwd();
-const htmlPath = path.join(rootDir, 'index.html');
-const cssPath = path.join(rootDir, 'style.css');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
+const cssPath = path.join(companionDir, 'style.css');
 
 test('01: Core Carousel Shell - index.html exists and has proper RTL setup', () => {
-  assert.ok(fs.existsSync(htmlPath), 'index.html should exist');
+  assert.ok(fs.existsSync(htmlPath), 'companion/index.html should exist');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Verify HTML lang and dir attributes

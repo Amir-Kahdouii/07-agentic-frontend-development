@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
 
 test('05: Slide 5 - vibefarsi.ir MCP server integration and capabilities', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 5 section check
@@ -59,7 +60,6 @@ test('05: Slide 5 - vibefarsi.ir MCP server integration and capabilities', () =>
 });
 
 test('05: Slide 6 - Anthropic frontend-design skill and ticket execution craft', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   const slide6Match = html.match(/<article[^>]*id="slide-6"[^>]*>([\s\S]*?)<\/article>/i);
@@ -98,7 +98,7 @@ test('05: Slide 6 - Anthropic frontend-design skill and ticket execution craft',
 });
 
 test('05: Clipboard interaction on Slide 5 - Copies vibefarsi.ir MCP server URL', async () => {
-  const { initClipboardCopy } = await import('../carousel.js');
+  const { initClipboardCopy } = await import('../companion/carousel.js');
   assert.equal(typeof initClipboardCopy, 'function');
 
   let copiedText = '';

@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
 
 test('03: Slide 1 - Content structure & paradigm comparison card', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 1 section check
@@ -39,7 +40,6 @@ test('03: Slide 1 - Content structure & paradigm comparison card', () => {
 });
 
 test('03: Slide 2 - Skills explanation and terminal commands with copy triggers', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   const slide2Match = html.match(/<article[^>]*id="slide-2"[^>]*>([\s\S]*?)<\/article>/i);
@@ -74,7 +74,7 @@ test('03: Slide 2 - Skills explanation and terminal commands with copy triggers'
 });
 
 test('03: Clipboard interaction - Copies text and transitions to "کپی شد! ✓" for 2 seconds', async () => {
-  const { initClipboardCopy } = await import('../carousel.js');
+  const { initClipboardCopy } = await import('../companion/carousel.js');
   assert.equal(typeof initClipboardCopy, 'function', 'initClipboardCopy must be exported by carousel.js');
 
   let clipboardText = '';

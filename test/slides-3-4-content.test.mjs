@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
 
 test('04: Slide 3 - Content structure & Grilling Frontier Q&A simulation', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 3 section check
@@ -53,7 +54,6 @@ test('04: Slide 3 - Content structure & Grilling Frontier Q&A simulation', () =>
 });
 
 test('04: Slide 4 - Refero introduction, copyable link, and DESIGN.md token breakdown', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   const slide4Match = html.match(/<article[^>]*id="slide-4"[^>]*>([\s\S]*?)<\/article>/i);
@@ -100,7 +100,7 @@ test('04: Slide 4 - Refero introduction, copyable link, and DESIGN.md token brea
 });
 
 test('04: Clipboard interaction on Slide 4 - Copies styles.refero.design link', async () => {
-  const { initClipboardCopy } = await import('../carousel.js');
+  const { initClipboardCopy } = await import('../companion/carousel.js');
   assert.equal(typeof initClipboardCopy, 'function');
 
   let copiedText = '';

@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "start": "npx -y serve -p 3000 .",
-    "dev": "npx -y serve -p 3000 .",
-    "test": "node --test"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "vite",
+    "test": "npm run build && node --test"
+  },
+  "dependencies": {
+    "lucide-react": "^1.57.0",
+    "motion": "^14.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "vite": "^8.3.4"
   }
 }

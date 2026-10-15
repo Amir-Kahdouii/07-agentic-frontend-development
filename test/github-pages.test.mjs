@@ -4,20 +4,21 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const rootDir = process.cwd();
-const htmlPath = path.join(rootDir, 'index.html');
-const cssPath = path.join(rootDir, 'style.css');
-const jsPath = path.join(rootDir, 'carousel.js');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
+const cssPath = path.join(companionDir, 'style.css');
+const jsPath = path.join(companionDir, 'carousel.js');
 const nojekyllPath = path.join(rootDir, '.nojekyll');
 const workflowPath = path.join(rootDir, '.github', 'workflows', 'deploy-pages.yml');
 
-test('08: GitHub Pages - Required deployment assets exist in root', () => {
-  assert.ok(fs.existsSync(htmlPath), 'index.html must exist in root');
-  assert.ok(fs.existsSync(cssPath), 'style.css must exist in root');
-  assert.ok(fs.existsSync(jsPath), 'carousel.js must exist in root');
+test('08: GitHub Pages - Required deployment assets exist in companion', () => {
+  assert.ok(fs.existsSync(htmlPath), 'index.html must exist in companion');
+  assert.ok(fs.existsSync(cssPath), 'style.css must exist in companion');
+  assert.ok(fs.existsSync(jsPath), 'carousel.js must exist in companion');
   assert.ok(fs.existsSync(nojekyllPath), '.nojekyll file must exist in root to disable Jekyll');
 });
 
-test('08: GitHub Pages - Asset links in index.html use relative paths', () => {
+test('08: GitHub Pages - Asset links in companion/index.html use relative paths', () => {
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Verify stylesheet link is relative

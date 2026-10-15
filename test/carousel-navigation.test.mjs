@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createCarouselController } from '../carousel.js';
+import { createCarouselController } from '../companion/carousel.js';
 
 test('02: Carousel Controller - State initialization and boundaries', () => {
   const controller = createCarouselController({ totalSlides: 8 });
@@ -72,14 +72,14 @@ test('02: Carousel Controller - onSlideChange notifications', () => {
 });
 
 test('02: toPersianNumber converts standard digits to Persian glyphs', async () => {
-  const { toPersianNumber } = await import('../carousel.js');
+  const { toPersianNumber } = await import('../companion/carousel.js');
   assert.equal(toPersianNumber(1), '۱');
   assert.equal(toPersianNumber(8), '۸');
   assert.equal(toPersianNumber(42), '۴۲');
 });
 
 test('02: updateCarouselUI correctly updates DOM elements', async () => {
-  const { updateCarouselUI } = await import('../carousel.js');
+  const { updateCarouselUI } = await import('../companion/carousel.js');
 
   const counterText = { textContent: '' };
   const progressFill = { style: { width: '' } };
@@ -135,7 +135,7 @@ test('02: updateCarouselUI correctly updates DOM elements', async () => {
 });
 
 test('02: initCarousel wires up button clicks, dot clicks, and keyboard events', async () => {
-  const { initCarousel } = await import('../carousel.js');
+  const { initCarousel } = await import('../companion/carousel.js');
 
   function makeMockElement(dataset = {}) {
     let classes = new Set();
@@ -250,7 +250,7 @@ test('02: initCarousel wires up button clicks, dot clicks, and keyboard events',
 test('02: HTML Integration - index.html links carousel.js and renders 9 slide containers', async () => {
   const fs = await import('node:fs');
   const path = await import('node:path');
-  const html = fs.readFileSync(path.join(process.cwd(), 'index.html'), 'utf8');
+  const html = fs.readFileSync(path.join(process.cwd(), 'companion', 'index.html'), 'utf8');
 
   assert.match(html, /<script[^>]*src=["'](?:\.\/)?carousel\.js["'][^>]*><\/script>/, 'index.html must include carousel.js script');
 

@@ -7,9 +7,10 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
+const companionDir = path.join(rootDir, 'companion');
+const htmlPath = path.join(companionDir, 'index.html');
 
 test('06: Slide 7 - Step 5: Quality Assurance, Code Review & Visual Polish', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 7 section check
@@ -71,7 +72,6 @@ test('06: Slide 7 - Step 5: Quality Assurance, Code Review & Visual Polish', () 
 });
 
 test('06: Slide 8 - Five-step frontend roadmap centered matrix', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 8 section check
@@ -113,7 +113,6 @@ test('06: Slide 8 - Five-step frontend roadmap centered matrix', () => {
 });
 
 test('06: Slide 9 - Dedicated community feedback and closing deck', () => {
-  const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
   // Slide 9 section check
@@ -141,7 +140,7 @@ test('06: Slide 9 - Dedicated community feedback and closing deck', () => {
 });
 
 test('06: Clipboard interaction - Copies quick commands and URLs', async () => {
-  const { initClipboardCopy } = await import('../carousel.js');
+  const { initClipboardCopy } = await import('../companion/carousel.js');
   assert.equal(typeof initClipboardCopy, 'function');
 
   let copiedText = '';
