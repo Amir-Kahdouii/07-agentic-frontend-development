@@ -5,10 +5,10 @@ Deliver the visual and interactive centerpiece for Slide 5 (Dynamic MCP Integrat
 
 **Blocked by:** 02: Presenter Deck Engine and Reversible Step Controller
 
-**Status:** ready-for-agent
+**Status:** closed
 
-- [ ] Implement Slide 5 Hero Artifact: Interactive MCP inspector card demonstrating `vibefarsi` tool calls (`get_design_rules`, `search_registry`, `get_component`) and live rendered Persian component
-- [ ] Implement Slide 5 Build Steps: MCP protocol architecture -> tool call execution visualization -> live Persian component output
-- [ ] Implement Slide 6 Hero Artifact: Interactive Before/After visual transformation card contrasting unstyled AI output with polished Letters design
-- [ ] Implement Slide 6 Build Steps: Generic AI baseline view -> step progression to reveal high-craft styling, micro-animations, and token consistency
-- [ ] Ensure all code and JSON payload snippets are formatted cleanly with zero unnecessary explanatory filler
+- [x] Implement Slide 5 Hero Artifact: Interactive MCP inspector card demonstrating `vibefarsi` tool calls (`get_design_rules`, `search_registry`, `get_component`) and live rendered Persian component
+- [x] Implement Slide 5 Build Steps: MCP protocol architecture -> tool call execution visualization -> live Persian component output
+- [x] Implement Slide 6 Hero Artifact: Interactive Before/After visual transformation card contrasting unstyled AI output with polished Letters design
+- [x] Implement Slide 6 Build Steps: Generic AI baseline view -> step progression to reveal high-craft styling, micro-animations, and token consistency
+- [x] Ensure all code and JSON payload snippets are formatted cleanly with zero unnecessary explanatory filler

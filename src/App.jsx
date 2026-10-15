@@ -25,6 +25,10 @@ import {
 } from './deck-engine.js';
 import Slide1ParadigmShift from './components/slides/Slide1ParadigmShift.jsx';
 import Slide2SkillsTerminal from './components/slides/Slide2SkillsTerminal.jsx';
+import Slide3GrillingFrontier from './components/slides/Slide3GrillingFrontier.jsx';
+import Slide4DesignGrounding from './components/slides/Slide4DesignGrounding.jsx';
+import Slide5McpVibeFarsi from './components/slides/Slide5McpVibeFarsi.jsx';
+import Slide6FrontendDesign from './components/slides/Slide6FrontendDesign.jsx';
 
 // Slide icon mapping for distinct visual identity
 const SLIDE_ICONS = [
@@ -182,7 +186,11 @@ export default function App() {
           <div className="slide-content-area">
             {slideIndex === 0 && <Slide1ParadigmShift stepIndex={stepIndex} />}
             {slideIndex === 1 && <Slide2SkillsTerminal stepIndex={stepIndex} />}
-            {slideIndex > 1 && (
+            {slideIndex === 2 && <Slide3GrillingFrontier stepIndex={stepIndex} />}
+            {slideIndex === 3 && <Slide4DesignGrounding stepIndex={stepIndex} />}
+            {slideIndex === 4 && <Slide5McpVibeFarsi stepIndex={stepIndex} />}
+            {slideIndex === 5 && <Slide6FrontendDesign stepIndex={stepIndex} />}
+            {slideIndex > 5 && (
               <div className="hero-artifact-placeholder">
                 <div className="artifact-status-header">
                   <span className="artifact-dot" />
