@@ -23,6 +23,11 @@ function copyCompanionPlugin() {
           }
         }
       }
+      const nojekyllSrc = path.resolve(__dirname, '.nojekyll');
+      const nojekyllDest = path.resolve(__dirname, 'dist', '.nojekyll');
+      if (fs.existsSync(nojekyllSrc)) {
+        fs.copyFileSync(nojekyllSrc, nojekyllDest);
+      }
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {

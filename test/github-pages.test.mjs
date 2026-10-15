@@ -63,4 +63,68 @@ test('08: GitHub Pages - Workflow file configuration and permissions', () => {
 
   // Pre-deployment test step
   assert.match(workflow, /npm test/, 'Workflow must run npm test before deployment');
+
+  // Build step and artifact packaging
+  assert.match(workflow, /npm run build/, 'Workflow must build the dual presentation and companion with npm run build');
+  assert.match(workflow, /path:\s*(?:dist|\.\/dist)/, 'Workflow must upload dist directory as the pages artifact');
+  assert.match(workflow, /npm ci/, 'Workflow must install dependencies using npm ci');
 });
+
+test('08: Dual Deployment - package.json defines test and build scripts', () => {
+  const pkgPath = path.join(rootDir, 'package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+
+  assert.ok(pkg.scripts, 'package.json must contain scripts');
+  assert.ok(pkg.scripts.test, 'package.json must contain a test script');
+  assert.ok(pkg.scripts.build, 'package.json must contain a build script');
+  assert.ok(pkg.scripts['test:companion'], 'package.json must contain a test:companion script');
+  assert.ok(pkg.scripts['test:deck'], 'package.json must contain a test:deck script');
+});
+
+test('08: Dual Deployment - End-to-end dist verification for root deck and companion', () => {
+  const distDir = path.join(rootDir, 'dist');
+  const distCompanionDir = path.join(distDir, 'companion');
+
+  assert.ok(fs.existsSync(distDir), 'dist/ directory must exist');
+  assert.ok(fs.existsSync(path.join(distDir, 'index.html')), 'dist/index.html (Presenter Deck entry) must exist');
+  assert.ok(fs.existsSync(path.join(distDir, '.nojekyll')), 'dist/.nojekyll must exist to prevent GitHub Pages Jekyll processing');
+  
+  assert.ok(fs.existsSync(path.join(distCompanionDir, 'index.html')), 'dist/companion/index.html must exist');
+  assert.ok(fs.existsSync(path.join(distCompanionDir, 'style.css')), 'dist/companion/style.css must exist');
+  assert.ok(fs.existsSync(path.join(distCompanionDir, 'carousel.js')), 'dist/companion/carousel.js must exist');
+
+  const rootHtml = fs.readFileSync(path.join(distDir, 'index.html'), 'utf8');
+  assert.match(rootHtml, /id=["']root["']/, 'dist/index.html must contain root mount element');
+
+  const companionHtml = fs.readFileSync(path.join(distCompanionDir, 'index.html'), 'utf8');
+  assert.match(companionHtml, /carousel\.js/, 'dist/companion/index.html must reference companion scripts');
+});
+
+test('08: Documentation - Root README.md documents architecture, shortcuts, and dual links', () => {
+  const readmePath = path.join(rootDir, 'README.md');
+  assert.ok(fs.existsSync(readmePath), 'Root README.md must exist');
+
+  const readme = fs.readFileSync(readmePath, 'utf8');
+
+  // Badges & high-craft presentation
+  assert.match(readme, /!\[.*\]\(.*\)|badge|shields\.io/i, 'README.md must include badges');
+
+  // Dual distribution architecture
+  assert.match(readme, /(?:Presenter Deck|\/companion\/|Reading Companion)/i, 'README.md must explain the dual distribution architecture');
+  assert.match(readme, /companion/i, 'README.md must mention companion subpath');
+
+  // Keyboard navigation shortcuts
+  assert.match(readme, /ArrowRight/i, 'README.md must document ArrowRight shortcut');
+  assert.match(readme, /ArrowLeft/i, 'README.md must document ArrowLeft shortcut');
+  assert.match(readme, /Space/i, 'README.md must document Space shortcut');
+  assert.match(readme, /F\b|Fullscreen/i, 'README.md must document F shortcut for fullscreen');
+
+  // Development and test commands
+  assert.match(readme, /npm run dev/i, 'README.md must document npm run dev');
+  assert.match(readme, /npm test/i, 'README.md must document npm test');
+  assert.match(readme, /npm run build/i, 'README.md must document npm run build');
+
+  // Direct links to both experiences
+  assert.match(readme, /(?:https?:\/\/|\.\/|http:\/\/localhost)/, 'README.md must contain direct links to experiences');
+});
+

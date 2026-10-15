@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const rootDir = process.cwd();
 
@@ -23,6 +24,10 @@ test('01: Presenter Deck Root - index.html has proper RTL, Vazirmatn, and root m
 test('01: Vite Configuration & Companion Static Bundling', () => {
   const distDir = path.join(rootDir, 'dist');
   const distCompanionDir = path.join(distDir, 'companion');
+
+  if (!fs.existsSync(path.join(distDir, 'index.html'))) {
+    execSync('npm run build', { stdio: 'pipe' });
+  }
 
   assert.ok(fs.existsSync(path.join(distDir, 'index.html')), 'dist/index.html must exist after build');
   assert.ok(fs.existsSync(path.join(distCompanionDir, 'index.html')), 'dist/companion/index.html must exist');

@@ -5,9 +5,10 @@ Configure the continuous deployment pipeline to test and build both the live Pre
 
 **Blocked by:** 07: Visual Craft, Motion Polish, and Touch Gestures
 
-**Status:** ready-for-agent
+**Status:** completed
 
-- [ ] Configure `npm test` script to execute both companion tests and React deck tests before building
-- [ ] Update `.github/workflows/deploy-pages.yml` to run tests, execute `npm run build` with static companion assets bundled to `dist/companion/`, and deploy to GitHub Pages
-- [ ] Create/update root `README.md` with high-craft badges, architecture explanation, presentation shortcuts (`ArrowRight`, `ArrowLeft`, `Space`, `F`), and direct links to both versions
-- [ ] Perform end-to-end verification of `npm run build` and ensure generated `dist/` contains valid root entry point and `/companion/` subpath
+- [x] Configure `npm test` script to execute both companion tests and React deck tests before building
+- [x] Update `.github/workflows/deploy-pages.yml` to run tests, execute `npm run build` with static companion assets bundled to `dist/companion/`, and deploy to GitHub Pages
+- [x] Create/update root `README.md` with high-craft badges, architecture explanation, presentation shortcuts (`ArrowRight`, `ArrowLeft`, `Space`, `F`), and direct links to both versions
+- [x] Perform end-to-end verification of `npm run build` and ensure generated `dist/` contains valid root entry point and `/companion/` subpath
+

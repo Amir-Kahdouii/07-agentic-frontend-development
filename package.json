@@ -7,7 +7,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "vite",
-    "test": "npm run build && node --test"
+    "test:companion": "node --test test/carousel-*.test.mjs test/slides-*.test.mjs test/visual-craft-and-responsiveness.test.mjs test/github-pages.test.mjs",
+    "test:deck": "node --test test/presenter-deck-*.test.mjs",
+    "test": "npm run test:companion && npm run test:deck && npm run build"
   },
   "dependencies": {
     "lucide-react": "^1.57.0",
