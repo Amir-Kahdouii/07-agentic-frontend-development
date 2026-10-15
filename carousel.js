@@ -141,9 +141,17 @@ export function updateCarouselUI(elements, state) {
       if (isActive) {
         slide.classList?.add('active-slide');
         slide.removeAttribute?.('aria-hidden');
+        if ('inert' in slide || typeof slide.inert !== 'undefined') {
+          slide.inert = false;
+        }
+        slide.removeAttribute?.('inert');
       } else {
         slide.classList?.remove('active-slide');
         slide.setAttribute?.('aria-hidden', 'true');
+        if ('inert' in slide || typeof slide.inert !== 'undefined') {
+          slide.inert = true;
+        }
+        slide.setAttribute?.('inert', '');
       }
     });
   }
