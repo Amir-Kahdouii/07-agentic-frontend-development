@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>توسعه فرانت‌اند با ایجنت‌های هوش مصنوعی | Frontend Development Using AI Agents</title>
+  <meta name="description" content="راهنمای عملی و گام‌به‌گام مهندسی نرم‌افزار برای ساخت رابط‌های کاربری چشم‌نواز و مدرن با هوش مصنوعی و متدولوژی Vibe Coding">
+  
+  <!-- Persian Typography: Vazirmatn via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <div class="brand-icon-box" aria-hidden="true">
+        <!-- Minimal surgical blue layer icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div class="brand-title-group">
+        <h1 class="brand-title">توسعه فرانت‌اند با هوش مصنوعی</h1>
+        <span class="brand-subtitle">متدولوژی و چرخه مهندسی رابط کاربری برای مهندسان نرم‌افزار</span>
+      </div>
+    </div>
+
+    <div class="badge-pill">
+      <span class="badge-dot" aria-hidden="true"></span>
+      <span>ارائه تعاملی در ۸ اسلاید</span>
+    </div>
+  </header>
+
+  <!-- Main Carousel Stage -->
+  <main class="main-stage">
+    <section class="carousel-card" aria-label="ارائه اسلایدهای فرانت‌اند با هوش مصنوعی" aria-roledescription="carousel">
+      <!-- Card Top Bar with Progress & Counter -->
+      <div class="carousel-top-bar">
+        <div id="slide-counter" class="slide-counter" aria-live="polite">
+          <svg class="slide-counter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="3" y1="9" x2="21" y2="9"></line>
+            <line x1="9" y1="21" x2="9" y2="9"></line>
+          </svg>
+          <span id="slide-counter-text">اسلاید ۱ از ۸</span>
+        </div>
+
+        <div class="carousel-progress-track" aria-hidden="true">
+          <div id="carousel-progress-fill" class="carousel-progress-fill"></div>
+        </div>
+
+        <div class="badge-pill" style="font-size: 12px;">
+          <span>راهنمای گام‌به‌گام</span>
+        </div>
+      </div>
+
+      <!-- Slide Track Viewport -->
+      <div class="carousel-viewport">
+        <div id="carousel-track" class="carousel-track">
+          <!-- Slide 1 Container (Placeholder Shell for Ticket 01) -->
+          <article class="slide-item" id="slide-1" data-slide-index="1" aria-label="اسلاید ۱ از ۸">
+            <div class="slide-content-placeholder">
+              <!-- Content will be populated in subsequent tickets -->
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Interactive Controls Footer -->
+      <footer class="carousel-footer">
+        <!-- Pagination Dots -->
+        <div id="carousel-dots" class="carousel-dots" role="tablist" aria-label="انتخاب اسلاید">
+          <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="رفتن به اسلاید ۱" data-index="1"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۲" data-index="2"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۳" data-index="3"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۴" data-index="4"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۵" data-index="5"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۶" data-index="6"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۷" data-index="7"></button>
+          <button class="carousel-dot" role="tab" aria-selected="false" aria-label="رفتن به اسلاید ۸" data-index="8"></button>
+        </div>
+
+        <!-- Keyboard hints -->
+        <div class="keyboard-hints" aria-hidden="true">
+          <span>کلیدهای جهت‌نما:</span>
+          <kbd class="kbd-badge">→</kbd>
+          <kbd class="kbd-badge">←</kbd>
+        </div>
+
+        <!-- Prev / Next Navigation Buttons (in RTL: Next points Left, Prev points Right) -->
+        <div class="carousel-buttons">
+          <button id="prev-btn" class="btn-pill-ghost" disabled aria-label="اسلاید قبلی">
+            <span>قبلی</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+
+          <button id="next-btn" class="btn-pill-primary" aria-label="اسلاید بعدی">
+            <span>بعدی</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
