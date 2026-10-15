@@ -19,8 +19,8 @@ test('03: Slide 1 - Content structure & paradigm comparison card', () => {
 
   // Headline & Subheadline
   assert.ok(
-    slide1Content.includes('پارادوکس فرانت‌اند') || slide1Content.includes('مهندسان نرم‌افزار'),
-    'Slide 1 must include headline regarding Frontend Paradox or Software Engineers'
+    slide1Content.includes('استفاده از ایجنت در توسعهٔ فرانت‌اند'),
+    'Slide 1 must include the selected agentic frontend-development title'
   );
   assert.ok(
     slide1Content.includes('ایجنت') || slide1Content.includes('هوش مصنوعی'),

@@ -202,7 +202,7 @@ test('07: All Clipboard Copy Triggers in HTML and Functionality', async () => {
 
   // Verify that all copyable items in HTML have valid data-copy
   const copyMatches = [...html.matchAll(/data-copy=["']([^"']+)["']/g)];
-  assert.ok(copyMatches.length >= 6, `Expected at least 6 data-copy attributes in index.html, found ${copyMatches.length}`);
+  assert.ok(copyMatches.length >= 5, `Expected at least 5 data-copy attributes in index.html, found ${copyMatches.length}`);
 
   for (const match of copyMatches) {
     const payload = match[1];

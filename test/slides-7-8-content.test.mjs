@@ -70,7 +70,7 @@ test('06: Slide 7 - Step 5: Quality Assurance, Code Review & Visual Polish', () 
   );
 });
 
-test('06: Slide 8 - Complete Engineering Playbook Cheat Sheet with Table, Links & CTA', () => {
+test('06: Slide 8 - Five-step frontend roadmap with table and CTA', () => {
   const htmlPath = path.join(rootDir, 'index.html');
   const html = fs.readFileSync(htmlPath, 'utf8');
 
@@ -85,10 +85,9 @@ test('06: Slide 8 - Complete Engineering Playbook Cheat Sheet with Table, Links 
     'Slide 8 placeholder must be replaced with full content'
   );
 
-  // Cheat Sheet / Playbook title
   assert.ok(
-    slide8Content.includes('چیت‌شیت') || slide8Content.includes('پلی‌بوک') || slide8Content.includes('Cheat Sheet') || slide8Content.includes('Playbook'),
-    'Slide 8 must introduce the engineering playbook cheat sheet'
+    slide8Content.includes('رودمپ پنج‌مرحله‌ای توسعهٔ فرانت‌اند با AI'),
+    'Slide 8 must use the requested five-step frontend roadmap title'
   );
 
   // Scannable comparison table / matrix
@@ -101,40 +100,9 @@ test('06: Slide 8 - Complete Engineering Playbook Cheat Sheet with Table, Links 
     'Slide 8 table/matrix must cover the full 5-step pipeline'
   );
 
-  // Key resources with copy actions
   assert.ok(
-    slide8Content.includes('mattpocock/skills'),
-    'Slide 8 must include resource link for mattpocock/skills'
-  );
-  assert.ok(
-    slide8Content.includes('styles.refero.design'),
-    'Slide 8 must include resource link for styles.refero.design'
-  );
-  assert.ok(
-    slide8Content.includes('vibefarsi.ir'),
-    'Slide 8 must include resource link for vibefarsi.ir'
-  );
-  assert.ok(
-    slide8Content.includes('anthropics/skills'),
-    'Slide 8 must include resource link for anthropics/skills'
-  );
-
-  // Copy buttons on Slide 8 for all 4 key resources
-  assert.ok(
-    slide8Content.includes('data-copy="npx skills add mattpocock/skills"') || slide8Content.includes('data-copy="mattpocock/skills"'),
-    'Slide 8 must provide copy action for mattpocock/skills'
-  );
-  assert.ok(
-    slide8Content.includes('data-copy="https://styles.refero.design"') || slide8Content.includes('data-copy="styles.refero.design"'),
-    'Slide 8 must provide copy action for styles.refero.design'
-  );
-  assert.ok(
-    slide8Content.includes('data-copy="https://vibefarsi.ir"') || slide8Content.includes('data-copy="vibefarsi.ir"'),
-    'Slide 8 must provide copy action for vibefarsi.ir'
-  );
-  assert.ok(
-    slide8Content.includes('data-copy="npx skills add anthropics/skills --skill frontend-design"') || slide8Content.includes('data-copy="anthropics/skills"'),
-    'Slide 8 must provide copy action for anthropics/skills'
+    !slide8Content.includes('playbook-resources-grid') && !slide8Content.includes('resource-card'),
+    'Slide 8 must not repeat the four resource cards'
   );
 
   // Strong Call-To-Action (CTA) for community feedback
@@ -144,7 +112,7 @@ test('06: Slide 8 - Complete Engineering Playbook Cheat Sheet with Table, Links 
   );
 });
 
-test('06: Clipboard interaction on Slide 8 resources - Copies quick commands and URLs', async () => {
+test('06: Clipboard interaction - Copies quick commands and URLs', async () => {
   const { initClipboardCopy } = await import('../carousel.js');
   assert.equal(typeof initClipboardCopy, 'function');
 
