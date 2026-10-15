@@ -64,17 +64,200 @@
       <!-- Slide Track Viewport -->
       <div class="carousel-viewport">
         <div id="carousel-track" class="carousel-track">
-          <!-- Slide 1 Container -->
+          <!-- Slide 1: The Software Engineer's Frontend Paradox -->
           <article class="slide-item active-slide" id="slide-1" data-slide-index="1" aria-label="اسلاید ۱ از ۸">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>پارادوکس فرانت‌اند برای مهندسان نرم‌افزار</span>
+                </div>
+                <h2 class="slide-headline">
+                  چگونه بدون تخصص UI، رابط‌های کاربری چشم‌نواز و پروداکشن بسازیم؟
+                </h2>
+                <p class="slide-subheadline">
+                  به عنوان مهندس نرم‌افزار، سر و کله زدن با جزئیات بی‌پایان CSS، تراز کردن پیکسل‌ها و کتابخانه‌های UI طاقت‌فرساست. پرامپت‌های سنتی هوش مصنوعی هم اغلب رابط‌هایی کلیشه‌ای و کدهای آشفته تولید می‌کنند. اما متدولوژی مهندسی با ایجنت‌ها این بازی را کاملاً دگرگون کرده است.
+                </p>
+              </header>
+
+              <!-- Paradigm Comparison Card Grid -->
+              <div class="paradigm-comparison-grid">
+                <!-- Card A: Chaotic Prompting Trap -->
+                <div class="comparison-card card-chaotic">
+                  <div class="comparison-card-header">
+                    <div class="comparison-badge chaotic-badge">
+                      <svg class="comparison-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                      </svg>
+                      <span>رویکرد سنتی: تله پرامپت تصادفی (Prompt &amp; Pray)</span>
+                    </div>
+                  </div>
+                  <ul class="comparison-list">
+                    <li class="comparison-item">
+                      <span class="bullet-cross" aria-hidden="true">✕</span>
+                      <div>
+                        <strong>خروجی‌های کلیشه‌ای و بدقواره:</strong>
+                        پالت‌های رنگی ناموزون، فونت‌های پیش‌فرض خسته‌کننده و ظاهری که داد می‌زند «با هوش مصنوعی سرهم‌بندی شده».
+                      </div>
+                    </li>
+                    <li class="comparison-item">
+                      <span class="bullet-cross" aria-hidden="true">✕</span>
+                      <div>
+                        <strong>کدهای اسپاگتی و وابستگی‌های سنگین:</strong>
+                        اضافه کردن ده‌ها پکیج npm متناقض، بدون استاندارد معماری و تغییر مداوم ساختار کدها.
+                      </div>
+                    </li>
+                    <li class="comparison-item">
+                      <span class="bullet-cross" aria-hidden="true">✕</span>
+                      <div>
+                        <strong>اتلاف ساعت‌ها زمان در دیباگ:</strong>
+                        دستکاری دستی استایل‌ها و شکستن چیدمان‌های ریسپانسیو و RTL با هر پرامپت بعدی.
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card B: Agentic Engineering Pipeline -->
+                <div class="comparison-card card-agentic">
+                  <div class="comparison-card-header">
+                    <div class="comparison-badge agentic-badge">
+                      <svg class="comparison-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                      </svg>
+                      <span>رویکرد نوین: پایپ‌لاین مهندسی با ایجنت‌ها</span>
+                    </div>
+                  </div>
+                  <ul class="comparison-list">
+                    <li class="comparison-item">
+                      <span class="bullet-check" aria-hidden="true">✓</span>
+                      <div>
+                        <strong>استخراج شفاف نیازمندی‌ها (Grilling):</strong>
+                        ایجنت قبل از نوشتن یک خط کد، تمام ابهامات و تصمیمات طراحی را با سوالات هدفمند قفل می‌کند.
+                      </div>
+                    </li>
+                    <li class="comparison-item">
+                      <span class="bullet-check" aria-hidden="true">✓</span>
+                      <div>
+                        <strong>مرزهای بصری قاطع و استاندارد (DESIGN.md):</strong>
+                        اعمال سیستم توکن‌های دقیق از پلتفرم‌های مرجع مثل Refero و VibeFarsi برای جلوگیری از دیفالت‌های بد AI.
+                      </div>
+                    </li>
+                    <li class="comparison-item">
+                      <span class="bullet-check" aria-hidden="true">✓</span>
+                      <div>
+                        <strong>مالکیت کد و خروجی سبک:</strong>
+                        ساخت رابط کاربری به صورت تیکت‌به‌تیکت با متدولوژی TDD، کامپوننت‌های بومی بدون کتابخانه‌های سنگین.
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </article>
 
-          <!-- Slide 2 Container -->
+          <!-- Slide 2: The Foundation — Installing Skills -->
           <article class="slide-item" id="slide-2" data-slide-index="2" aria-label="اسلاید ۲ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۱: پایه‌ریزی ابزارها</span>
+                </div>
+                <h2 class="slide-headline">
+                  اسکیل‌ها (Agent Skills)؛ تزریق تخصص عمیق به ایجنت
+                </h2>
+                <p class="slide-subheadline">
+                  اسکیل‌ها فایل‌های پروتکل و راهنماهای دانشی هستند که رفتار، استانداردهای کدنویسی و روش تفکر ایجنت را شکل می‌دهند. بدون اسکیل، ایجنت به حدسیات متکی است؛ اما با اسکیل، ایجنت طبق اصول مهندسان برتر دنیا تصمیم می‌گیرد.
+                </p>
+              </header>
+
+              <!-- Two Skills Terminal Blocks -->
+              <div class="skills-grid">
+                <!-- Skill 1: mattpocock/skills -->
+                <div class="skill-card">
+                  <div class="skill-card-top">
+                    <div class="skill-info">
+                      <div class="skill-tag-pill">
+                        <span class="skill-icon-terminal">⚡</span>
+                        <span>مهارت‌های پایه مهندسی</span>
+                      </div>
+                      <h3 class="skill-title">پکیج مت پوکاک (Matt Pocock Skills)</h3>
+                      <p class="skill-desc">
+                        شامل مهارت ضروری <code>grilling</code> (استخراج سخت‌گیرانه مشخصات و تصمیمات طراحی قبل از کدنویسی)، <code>tdd</code>، <code>code-review</code> و معماری ماژولار.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="terminal-block">
+                    <div class="terminal-bar">
+                      <div class="terminal-dots" aria-hidden="true">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                      </div>
+                      <span class="terminal-label">Terminal / Bash</span>
+                    </div>
+                    <div class="terminal-body">
+                      <div class="terminal-code-row" dir="ltr">
+                        <span class="terminal-prompt">$</span>
+                        <code class="terminal-command">npx skills add mattpocock/skills</code>
+                      </div>
+                      <button class="copy-btn btn-pill-primary" data-copy="npx skills add mattpocock/skills" aria-label="کپی دستور نصب مهارت‌های مت پوکاک">
+                        <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span>کپی دستور</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Skill 2: anthropics/skills --skill frontend-design -->
+                <div class="skill-card">
+                  <div class="skill-card-top">
+                    <div class="skill-info">
+                      <div class="skill-tag-pill">
+                        <span class="skill-icon-terminal">🎨</span>
+                        <span>طراحی و استانداردهای بصری</span>
+                      </div>
+                      <h3 class="skill-title">مهارت فرانت‌اند انتروپیک (Frontend-Design)</h3>
+                      <p class="skill-desc">
+                        دستورالعمل جامع آنتروپیک برای جلوگیری از دیفالت‌های کلیشه‌ای AI، تنظیم تایپوگرافی اصولی، ایجاد هارمونی رنگ‌ها، پیاده‌سازی انیمیشن‌های ظریف و ظرافت‌های مدرن وب.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="terminal-block">
+                    <div class="terminal-bar">
+                      <div class="terminal-dots" aria-hidden="true">
+                        <span class="terminal-dot dot-red"></span>
+                        <span class="terminal-dot dot-yellow"></span>
+                        <span class="terminal-dot dot-green"></span>
+                      </div>
+                      <span class="terminal-label">Terminal / Bash</span>
+                    </div>
+                    <div class="terminal-body">
+                      <div class="terminal-code-row" dir="ltr">
+                        <span class="terminal-prompt">$</span>
+                        <code class="terminal-command">npx skills add anthropics/skills --skill frontend-design</code>
+                      </div>
+                      <button class="copy-btn btn-pill-primary" data-copy="npx skills add anthropics/skills --skill frontend-design" aria-label="کپی دستور نصب مهارت طراحی فرانت‌اند">
+                        <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        <span>کپی دستور</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 

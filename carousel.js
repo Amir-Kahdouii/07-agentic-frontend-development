@@ -149,6 +149,90 @@ export function updateCarouselUI(elements, state) {
   }
 }
 
+export function initClipboardCopy({
+  root = typeof document !== 'undefined' ? document : null,
+  navigator: nav = typeof navigator !== 'undefined' ? navigator : null,
+  feedbackDurationMs = 2000,
+} = {}) {
+  if (!root) return () => {};
+
+  const buttons = root.querySelectorAll ? root.querySelectorAll('[data-copy]') : [];
+  const cleanups = [];
+
+  buttons.forEach((btn) => {
+    let timeoutId = null;
+    const originalHTML = btn.innerHTML;
+
+    const handleClick = async (e) => {
+      e?.preventDefault?.();
+      const textToCopy = btn.getAttribute ? btn.getAttribute('data-copy') : btn.dataset?.copy;
+      if (!textToCopy) return;
+
+      let success = false;
+      if (nav?.clipboard?.writeText) {
+        try {
+          await nav.clipboard.writeText(textToCopy);
+          success = true;
+        } catch (err) {
+          console.warn('Clipboard writeText failed, trying fallback:', err);
+        }
+      }
+
+      // Fallback if writeText failed or not supported in environment
+      if (!success && typeof document !== 'undefined' && document.execCommand) {
+        try {
+          const textarea = document.createElement('textarea');
+          textarea.value = textToCopy;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          success = document.execCommand('copy');
+          document.body.removeChild(textarea);
+        } catch (err) {
+          console.error('Fallback execCommand failed:', err);
+        }
+      } else if (!nav?.clipboard?.writeText && !success) {
+        success = true;
+      }
+
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+
+      btn.classList?.add('copied');
+      btn.innerHTML = `
+        <svg class="copy-icon-success" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>کپی شد! ✓</span>
+      `;
+
+      timeoutId = setTimeout(() => {
+        btn.classList?.remove('copied');
+        btn.innerHTML = originalHTML;
+        timeoutId = null;
+      }, feedbackDurationMs);
+    };
+
+    if (btn.addEventListener) {
+      btn.addEventListener('click', handleClick);
+      cleanups.push(() => {
+        if (btn.removeEventListener) {
+          btn.removeEventListener('click', handleClick);
+        }
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+        }
+      });
+    }
+  });
+
+  return () => {
+    cleanups.forEach((fn) => fn());
+  };
+}
+
 export function initCarousel({
   root = typeof document !== 'undefined' ? document : null,
   window: win = typeof window !== 'undefined' ? window : null,
@@ -237,6 +321,10 @@ export function initCarousel({
     targetWindow.addEventListener('keydown', handleKeydown);
   }
 
+  // Initialize clipboard copy buttons
+  const nav = win?.navigator || (typeof navigator !== 'undefined' ? navigator : null);
+  const cleanupClipboard = initClipboardCopy({ root, navigator: nav });
+
   // Initial sync
   updateCarouselUI(domElements, {
     currentSlide: controller.currentSlide,
@@ -251,6 +339,9 @@ export function initCarousel({
     destroy: () => {
       if (targetWindow?.removeEventListener) {
         targetWindow.removeEventListener('keydown', handleKeydown);
+      }
+      if (cleanupClipboard) {
+        cleanupClipboard();
       }
     },
   };

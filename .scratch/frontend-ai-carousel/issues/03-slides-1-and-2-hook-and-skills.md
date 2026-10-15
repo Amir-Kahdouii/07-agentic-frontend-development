@@ -8,10 +8,10 @@ Includes interactive one-click "Copy to Clipboard" buttons beside each terminal 
 
 **Blocked by:** 02: Slide Navigation & Interactive Controller
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Slide 1 content rendered with punchy headline, subheadline, and paradigm comparison card
-- [ ] Slide 2 content clearly explains what agent skills are and how they guide AI agents
-- [ ] Terminal command blocks for `mattpocock/skills` and `frontend-design` rendered cleanly
-- [ ] Dedicated "Copy" buttons next to each command copy the exact text to clipboard
-- [ ] Copied state shows instantaneous feedback ("کپی شد! ✓") for 2 seconds
+- [x] Slide 1 content rendered with punchy headline, subheadline, and paradigm comparison card
+- [x] Slide 2 content clearly explains what agent skills are and how they guide AI agents
+- [x] Terminal command blocks for `mattpocock/skills` and `frontend-design` rendered cleanly
+- [x] Dedicated "Copy" buttons next to each command copy the exact text to clipboard
+- [x] Copied state shows instantaneous feedback ("کپی شد! ✓") for 2 seconds
