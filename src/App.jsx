@@ -23,6 +23,8 @@ import {
   toPersianDigits,
   DEFAULT_SLIDES,
 } from './deck-engine.js';
+import Slide1ParadigmShift from './components/slides/Slide1ParadigmShift.jsx';
+import Slide2SkillsTerminal from './components/slides/Slide2SkillsTerminal.jsx';
 
 // Slide icon mapping for distinct visual identity
 const SLIDE_ICONS = [
@@ -176,47 +178,51 @@ export default function App() {
           <h1 className="slide-main-title">{currentSlide.title}</h1>
           <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
 
-          {/* Hero Artifact Simulation Container */}
+          {/* Hero Artifact Container */}
           <div className="slide-content-area">
-            <div className="hero-artifact-placeholder">
-              <div className="artifact-status-header">
-                <span className="artifact-dot" />
-                <span className="artifact-dot" />
-                <span className="artifact-dot" />
-                <span className="artifact-title">شبیه‌ساز گام‌های تعاملی اسلاید</span>
-              </div>
+            {slideIndex === 0 && <Slide1ParadigmShift stepIndex={stepIndex} />}
+            {slideIndex === 1 && <Slide2SkillsTerminal stepIndex={stepIndex} />}
+            {slideIndex > 1 && (
+              <div className="hero-artifact-placeholder">
+                <div className="artifact-status-header">
+                  <span className="artifact-dot" />
+                  <span className="artifact-dot" />
+                  <span className="artifact-dot" />
+                  <span className="artifact-title">شبیه‌ساز گام‌های تعاملی اسلاید</span>
+                </div>
 
-              <div className="artifact-body">
-                <p className="artifact-lead-text">
-                  اسلاید فعال: <strong>{currentSlide.title}</strong>
-                </p>
+                <div className="artifact-body">
+                  <p className="artifact-lead-text">
+                    اسلاید فعال: <strong>{currentSlide.title}</strong>
+                  </p>
 
-                <div className="build-steps-list">
-                  {Array.from({ length: totalSteps + 1 }).map((_, stepNum) => {
-                    const isPassed = stepNum <= stepIndex;
-                    const isCurrent = stepNum === stepIndex;
-                    return (
-                      <div
-                        key={stepNum}
-                        className={`build-step-item ${isPassed ? 'is-passed' : ''} ${
-                          isCurrent ? 'is-current' : ''
-                        }`}
-                      >
-                        <div className="build-step-marker">
-                          {toPersianDigits(stepNum)}
+                  <div className="build-steps-list">
+                    {Array.from({ length: totalSteps + 1 }).map((_, stepNum) => {
+                      const isPassed = stepNum <= stepIndex;
+                      const isCurrent = stepNum === stepIndex;
+                      return (
+                        <div
+                          key={stepNum}
+                          className={`build-step-item ${isPassed ? 'is-passed' : ''} ${
+                            isCurrent ? 'is-current' : ''
+                          }`}
+                        >
+                          <div className="build-step-marker">
+                            {toPersianDigits(stepNum)}
+                          </div>
+                          <div className="build-step-text">
+                            {stepNum === 0
+                              ? 'نمای کلی و تبیین مسئله اولیه'
+                              : `زیرمرحلهٔ شمارهٔ ${toPersianDigits(stepNum)}: افشا و متحرک‌سازی تدریجی مؤلفه`}
+                          </div>
+                          {isCurrent && <span className="current-step-tag">فعال</span>}
                         </div>
-                        <div className="build-step-text">
-                          {stepNum === 0
-                            ? 'نمای کلی و تبیین مسئله اولیه'
-                            : `زیرمرحلهٔ شمارهٔ ${toPersianDigits(stepNum)}: افشا و متحرک‌سازی تدریجی مؤلفه`}
-                        </div>
-                        {isCurrent && <span className="current-step-tag">فعال</span>}
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </article>
       </main>
