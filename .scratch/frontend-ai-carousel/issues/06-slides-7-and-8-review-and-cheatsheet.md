@@ -7,9 +7,9 @@ Complete content and layout for the seventh and eighth slides:
 
 **Blocked by:** 03: Slide 1 & Slide 2, 04: Slide 3 & Slide 4, 05: Slide 5 & Slide 6
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Slide 7 details the review and polish gate with practical QA checklist items
-- [ ] Slide 8 summarizes the 5-step pipeline into a clear, scannable comparison table/matrix
-- [ ] All resource links (`mattpocock/skills`, `styles.refero.design`, `vibefarsi.ir`, `anthropics/skills`) accessible with copy actions
-- [ ] Strong closing call-to-action (CTA) for community feedback
+- [x] Slide 7 details the review and polish gate with practical QA checklist items
+- [x] Slide 8 summarizes the 5-step pipeline into a clear, scannable comparison table/matrix
+- [x] All resource links (`mattpocock/skills`, `styles.refero.design`, `vibefarsi.ir`, `anthropics/skills`) accessible with copy actions
+- [x] Strong closing call-to-action (CTA) for community feedback

@@ -906,17 +906,407 @@
             </div>
           </article>
 
-          <!-- Slide 7 Container -->
+          <!-- Slide 7: Quality Assurance, Code Review & Visual Polish -->
           <article class="slide-item" id="slide-7" data-slide-index="7" aria-label="اسلاید ۷ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۵: تضمین کیفیت و بازبینی</span>
+                </div>
+                <h2 class="slide-headline">
+                  تضمین کیفیت (QA)، مهارت code-review و پولیش بصری؛ مرز میان پروتوتایپ و محصول نهایی
+                </h2>
+                <p class="slide-subheadline">
+                  توسعه فرانت‌اند با ایجنت بدون یک دروازه بازبینی سخت‌گیرانه، به ناپایداری و انباشت کدهای نامطمئن ختم می‌شود. با آزمون در بالاترین درز (Highest Seam)، اجرای خودکار مهارت <code>code-review</code> بر دو محور استانداردها و مشخصات، و بازرسی موشکافانه در مرورگر واقعی، خروجی را به سطحی پایدار و آماده پروداکشن برسانید.
+                </p>
+              </header>
+
+              <!-- Two Column Grid: Dual-Axis Review Gate vs QA Practical Checklist -->
+              <div class="qa-polish-grid">
+                <!-- Column 1: Dual-Axis Code Review Gate -->
+                <div class="qa-card review-gate-card">
+                  <div class="qa-card-header">
+                    <div class="qa-badge-row">
+                      <span class="status-indicator-dot pulse" aria-hidden="true"></span>
+                      <span class="qa-header-badge">مهارت تخصصی code-review</span>
+                    </div>
+                    <h3 class="qa-card-title">دروازه بازبینی دو محوره (Two-Axis Review Gate)</h3>
+                  </div>
+                  <p class="qa-card-desc">
+                    مهارت <code>code-review</code> به صورت موازی با دو ساب‌ایجنت مستقل، تغییرات کدهای فرانت‌اند را قبل از ادغام یا کامیت به دقت کالبدشکافی می‌کند:
+                  </p>
+
+                  <div class="review-axes-list">
+                    <!-- Axis 1: Standards -->
+                    <div class="review-axis-item axis-standards">
+                      <div class="axis-icon-box" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                      <div class="axis-content">
+                        <div class="axis-title-row">
+                          <span class="axis-tag">محور ۱: استانداردها (Standards)</span>
+                          <strong class="axis-name">معماری، سلامت کد و وفاداری به دیزاین</strong>
+                        </div>
+                        <ul class="axis-bullet-list">
+                          <li><strong>عدم وجود مقادیر جادویی (No Arbitrary CSS):</strong> تمام رنگ‌ها، فونت‌ها و فاصله‌ها باید مستقیماً از توکن‌های <code>DESIGN.md</code> خوانده شوند.</li>
+                          <li><strong>عمق ماژول‌ها و ایزولاسیون:</strong> متغیرها در کلوژرها محصور شده و اینترفیس‌های عمومی کاملاً مینیمال و تست‌پذیر باشند.</li>
+                          <li><strong>کدهای بدون پکیج‌های حجیم:</strong> استفاده از قابلیت‌های استاندارد وب و کامپوننت‌های بومی بدون کتابخانه‌های سنگین اضافی.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <!-- Axis 2: Spec Compliance -->
+                    <div class="review-axis-item axis-spec">
+                      <div class="axis-icon-box" aria-hidden="true">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                          <polyline points="14 2 14 8 20 8"></polyline>
+                          <line x1="16" y1="13" x2="8" y2="13"></line>
+                          <line x1="16" y1="17" x2="8" y2="17"></line>
+                          <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                      </div>
+                      <div class="axis-content">
+                        <div class="axis-title-row">
+                          <span class="axis-tag">محور ۲: مشخصات (Spec Compliance)</span>
+                          <strong class="axis-name">انطباق ۱۰۰٪ با تیکت و نیازمندی‌ها</strong>
+                        </div>
+                        <ul class="axis-bullet-list">
+                          <li><strong>معیارهای پذیرش تیکت:</strong> آیا تمام چک‌باکس‌های فایل تیکت به دقت پیاده‌سازی و راستی‌آزمایی شده‌اند؟</li>
+                          <li><strong>پوشش رفتاری و سناریوها:</strong> بررسی حالات مرزی (Boundary Cases)، کلیدهای کیبورد، فوکوس و استیت‌های تعاملی.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2: Practical QA Checklist -->
+                <div class="qa-card checklist-card">
+                  <div class="qa-card-header">
+                    <div class="qa-badge-row">
+                      <span class="qa-check-icon" aria-hidden="true">📋</span>
+                      <span class="qa-header-badge">فهرست بازرسی قبل از شیپ</span>
+                    </div>
+                    <h3 class="qa-card-title">چک‌لیست عملیاتی تضمین کیفیت (QA Checklist)</h3>
+                  </div>
+
+                  <div class="qa-checklist-items">
+                    <!-- Item 1 -->
+                    <div class="qa-check-box">
+                      <div class="check-box-header">
+                        <span class="check-status-badge">تست در بالاترین درز (Highest Seam)</span>
+                        <span class="check-target">Unit &amp; E2E</span>
+                      </div>
+                      <p class="check-box-desc">
+                        آزمون رفتار نهایی از نگاه کاربر، نه جزئیات داخلی. شبیه‌سازی کلیک‌ها، رویدادهای کیبورد و تست عملکرد کلیپ‌بورد در فایل‌های تست مجزا.
+                      </p>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="qa-check-box">
+                      <div class="check-box-header">
+                        <span class="check-status-badge">نقاط شکست ریسپانسیو (۳۶۰px تا 4K)</span>
+                        <span class="check-target">Mobile First</span>
+                      </div>
+                      <p class="check-box-desc">
+                        بررسی ساختار در صفحه نمایش ۳۶۰ پیکسلی کوچک‌ترین گوشی‌ها تا تبلت و دسکتاپ؛ تضمین عدم شکست متن، سرریز افقی (Zero Overflow) و لمس آسان.
+                      </p>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="qa-check-box">
+                      <div class="check-box-header">
+                        <span class="check-status-badge">بازرسی در مرورگر واقعی (Real Browser &amp; DevTools)</span>
+                        <span class="check-target">Browser Audit</span>
+                      </div>
+                      <p class="check-box-desc">
+                        بررسی رندر طبیعی فونت فارسی وزیرمتن، کنتراست رنگی مطابق با استانداردهای WCAG، عدم پرش چیدمان (Zero Layout Shift) و سلامت کنسول مرورگر.
+                      </p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="qa-check-box">
+                      <div class="check-box-header">
+                        <span class="check-status-badge">دسترس‌پذیری و پیمایش کیبورد (A11y)</span>
+                        <span class="check-target">WCAG 2.1 AA</span>
+                      </div>
+                      <p class="check-box-desc">
+                        پیمایش کامل بدون موس با Tab و کلیدهای جهت‌نما، استیت فوکوس با حلقه آبی جراحی (Surgical Blue Focus Ring) و برچسب‌های کامل صوتی برای صفحه‌خوان‌ها.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <!-- Slide 8 Container -->
+          <!-- Slide 8: The Complete Engineering Playbook Cheat Sheet -->
           <article class="slide-item" id="slide-8" data-slide-index="8" aria-label="اسلاید ۸ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>چیت‌شیت و نقشه راه جامع</span>
+                </div>
+                <h2 class="slide-headline">
+                  پلی‌بوک جامع مهندسی فرانت‌اند با هوش مصنوعی؛ از ایده خام تا محصول پایدار
+                </h2>
+                <p class="slide-subheadline">
+                  یک متدولوژی مهندسی کامل و تکرارپذیر برای ساخت رابط‌های کاربری چشم‌نواز. این ماتریس اجرایی و جعبه منابع کلیدی، کل چرخه ۵ مرحله‌ای را در یک نگاه در اختیارتان می‌گذارد.
+                </p>
+              </header>
+
+              <!-- Section 1: 5-Step Pipeline Matrix Table -->
+              <div class="playbook-matrix-wrapper">
+                <div class="matrix-header-bar">
+                  <div class="matrix-title-group">
+                    <span class="matrix-tag">Pipeline Matrix</span>
+                    <h3 class="matrix-heading">ماتریس خلاصه پایپ‌لاین ۵ مرحله‌ای توسعه</h3>
+                  </div>
+                  <span class="matrix-flow-pill">گردش کار تکرارپذیر مهندسی</span>
+                </div>
+
+                <div class="table-responsive-box">
+                  <table class="playbook-matrix-table">
+                    <thead>
+                      <tr>
+                        <th scope="col" class="th-step">گام پایپ‌لاین</th>
+                        <th scope="col" class="th-phase">فاز و ماموریت</th>
+                        <th scope="col" class="th-tools">ابزار و مهارت‌های کلیدی</th>
+                        <th scope="col" class="th-deliverables">دستاورد حیاتی</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row" class="step-cell">
+                          <span class="step-circle">۱</span>
+                          <span>گام ۱</span>
+                        </th>
+                        <td class="phase-cell">
+                          <strong>پایه‌ریزی ابزارها</strong>
+                          <span class="cell-sub">Tools Foundation</span>
+                        </td>
+                        <td class="tools-cell">
+                          <code class="code-pill">npx skills add</code>
+                          <span class="tool-name">mattpocock/skills &amp; anthropics/skills</span>
+                        </td>
+                        <td class="outcome-cell">
+                          تجهیز ایجنت به دانشنامه‌های مهندسی، معماری ماژولار و پروتکل‌های رسمی طراحی
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="step-cell">
+                          <span class="step-circle">۲</span>
+                          <span>گام ۲</span>
+                        </th>
+                        <td class="phase-cell">
+                          <strong>استخراج مشخصات</strong>
+                          <span class="cell-sub">Spec &amp; Grilling</span>
+                        </td>
+                        <td class="tools-cell">
+                          <code class="code-pill">grilling</code>
+                          <span class="tool-name">Decision Frontier Interview</span>
+                        </td>
+                        <td class="outcome-cell">
+                          رفع کامل ابهامات با سوالات متوالی تک‌سوالی و خلق مدل ذهنی مشترک قبل از نوشتن کد
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="step-cell">
+                          <span class="step-circle">۳</span>
+                          <span>گام ۳</span>
+                        </th>
+                        <td class="phase-cell">
+                          <strong>زمین‌گیر کردن استایل‌ها</strong>
+                          <span class="cell-sub">Aesthetic &amp; MCP</span>
+                        </td>
+                        <td class="tools-cell">
+                          <code class="code-pill">styles.refero.design</code>
+                          <span class="tool-name">vibefarsi.ir &amp; DESIGN.md</span>
+                        </td>
+                        <td class="outcome-cell">
+                          سند دترمینیستیک دیزاین سیستم، پالت اختصاصی و مالکیت مستقیم کامپوننت‌های بهینه RTL
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="step-cell">
+                          <span class="step-circle">۴</span>
+                          <span>گام ۴</span>
+                        </th>
+                        <td class="phase-cell">
+                          <strong>پیاده‌سازی تیکت‌ها</strong>
+                          <span class="cell-sub">Vertical Execution</span>
+                        </td>
+                        <td class="tools-cell">
+                          <code class="code-pill">frontend-design</code>
+                          <span class="tool-name">TDD + Vertical Slices</span>
+                        </td>
+                        <td class="outcome-cell">
+                          خلق رابط کاربری استودیویی بدون کلیشه‌های بد هوش مصنوعی و کدهای تمیز بدون وابستگی زائد
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row" class="step-cell">
+                          <span class="step-circle">۵</span>
+                          <span>گام ۵</span>
+                        </th>
+                        <td class="phase-cell">
+                          <strong>تضمین کیفیت و پولیش</strong>
+                          <span class="cell-sub">QA &amp; Code Review</span>
+                        </td>
+                        <td class="tools-cell">
+                          <code class="code-pill">code-review</code>
+                          <span class="tool-name">Highest Seam + Browser Audit</span>
+                        </td>
+                        <td class="outcome-cell">
+                          راستی‌آزمایی دولایه استانداردهای کد و انطباق با spec، پایداری ۳۶۰px و استانداردهای A11y
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Section 2: Key Resources Grid with Copy Actions -->
+              <div class="playbook-resources-grid">
+                <!-- Resource 1: mattpocock/skills -->
+                <div class="resource-card">
+                  <div class="resource-card-head">
+                    <span class="resource-icon">⚡</span>
+                    <div class="resource-meta">
+                      <h4 class="resource-name">mattpocock/skills</h4>
+                      <span class="resource-desc">پکیج اسکیل‌های پایه‌ای مهندسی نرم‌افزار (grilling, tdd, code-review)</span>
+                    </div>
+                  </div>
+                  <div class="resource-card-action">
+                    <code class="resource-code" dir="ltr">npx skills add mattpocock/skills</code>
+                    <button class="copy-btn btn-pill-primary" data-copy="npx skills add mattpocock/skills" aria-label="کپی دستور نصب مهارت‌های مت پوکاک">
+                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span>کپی دستور</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Resource 2: styles.refero.design -->
+                <div class="resource-card">
+                  <div class="resource-card-head">
+                    <span class="resource-icon">✨</span>
+                    <div class="resource-meta">
+                      <h4 class="resource-name">styles.refero.design</h4>
+                      <span class="resource-desc">پلتفرم استخراج توکن‌های استایل واقعی و تدوین سند DESIGN.md</span>
+                    </div>
+                  </div>
+                  <div class="resource-card-action">
+                    <a href="https://styles.refero.design" target="_blank" rel="noopener noreferrer" class="resource-link" dir="ltr">
+                      <span>styles.refero.design</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    <button class="copy-btn btn-pill-primary" data-copy="https://styles.refero.design" aria-label="کپی لینک پلتفرم رفرئو">
+                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span>کپی لینک</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Resource 3: vibefarsi.ir -->
+                <div class="resource-card">
+                  <div class="resource-card-head">
+                    <span class="resource-icon">🌐</span>
+                    <div class="resource-meta">
+                      <h4 class="resource-name">vibefarsi.ir</h4>
+                      <span class="resource-desc">سرور پروتکل MCP برای کامپوننت‌ها، تم‌ها و قوانین وب فارسی</span>
+                    </div>
+                  </div>
+                  <div class="resource-card-action">
+                    <a href="https://vibefarsi.ir" target="_blank" rel="noopener noreferrer" class="resource-link" dir="ltr">
+                      <span>vibefarsi.ir</span>
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                      </svg>
+                    </a>
+                    <button class="copy-btn btn-pill-primary" data-copy="https://vibefarsi.ir" aria-label="کپی آدرس سرور وایب‌فارسی">
+                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span>کپی آدرس</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Resource 4: anthropics/skills frontend-design -->
+                <div class="resource-card">
+                  <div class="resource-card-head">
+                    <span class="resource-icon">🎨</span>
+                    <div class="resource-meta">
+                      <h4 class="resource-name">anthropics/skills</h4>
+                      <span class="resource-desc">مهارت frontend-design برای تضمین استانداردهای بصری و تعاملی</span>
+                    </div>
+                  </div>
+                  <div class="resource-card-action">
+                    <code class="resource-code" dir="ltr">npx skills add anthropics/skills --skill frontend-design</code>
+                    <button class="copy-btn btn-pill-primary" data-copy="npx skills add anthropics/skills --skill frontend-design" aria-label="کپی دستور نصب مهارت فرانت‌اند دیزاین آنتروپیک">
+                      <svg class="copy-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span>کپی دستور</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Section 3: Strong Closing Community CTA -->
+              <div class="playbook-cta-banner">
+                <div class="cta-content-wrap">
+                  <div class="cta-pill-badge">
+                    <span class="cta-pulse-dot" aria-hidden="true"></span>
+                    <span>دیدگاه‌ها و تجربیات جامعه مهندسی</span>
+                  </div>
+                  <h3 class="cta-banner-title">
+                    نوبت شماست: متدولوژی شما در توسعه فرانت‌اند با هوش مصنوعی چیست؟
+                  </h3>
+                  <p class="cta-banner-desc">
+                    آیا در تیم‌تان از اسکیل‌های ایجنت، سیستم‌های توکن صریح یا سرورهای MCP استفاده می‌کنید؟ نظرات، تجربیات عملی و سوالات خود را با ما در میان بگذارید تا این پلی‌بوک مهندسی را غنی‌تر کنیم.
+                  </p>
+                </div>
+                <div class="cta-actions-row">
+                  <button class="btn-pill-primary cta-action-btn" data-copy="https://github.com/amirmahdikahdouii/07-frontend-development-using-ai" aria-label="کپی لینک مخزن گیت‌هاب برای اشتراک‌گذاری">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="18" cy="5" r="3"></circle>
+                      <circle cx="6" cy="12" r="3"></circle>
+                      <circle cx="18" cy="19" r="3"></circle>
+                      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    <span>اشتراک‌گذاری پلی‌بوک</span>
+                  </button>
+                  <a href="#slide-1" class="btn-pill-ghost cta-restart-btn" id="restart-deck-btn" aria-label="بازگشت به اسلاید اول و مرور مجدد">
+                    <span>مرور مجدد اسلایدها</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                      <polyline points="3 3 3 8 8 8"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </article>
         </div>

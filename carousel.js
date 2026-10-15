@@ -279,6 +279,15 @@ export function initCarousel({
     nextBtn.addEventListener('click', () => controller.next());
   }
 
+  // Attach restart button event if present
+  const restartBtn = root.getElementById ? root.getElementById('restart-deck-btn') : root.querySelector?.('#restart-deck-btn');
+  if (restartBtn?.addEventListener) {
+    restartBtn.addEventListener('click', (e) => {
+      e?.preventDefault?.();
+      controller.goToSlide(1);
+    });
+  }
+
   // Attach dot events
   if (dots.length > 0) {
     dots.forEach((dot) => {
