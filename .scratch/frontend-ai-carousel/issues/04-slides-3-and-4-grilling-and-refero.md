@@ -8,10 +8,10 @@ Includes copyable URL badge and visual breakdown of design token categories.
 
 **Blocked by:** 02: Slide Navigation & Interactive Controller
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] Slide 3 showcases the `grilling` skill with a visual example of the frontier Q&A format
-- [ ] Core benefits of shared understanding and design trees clearly highlighted
-- [ ] Slide 4 introduces `styles.refero.design` with a direct copyable link
-- [ ] Visual breakdown card displaying key tokens from `DESIGN.md` (colors, typography, radii, shadows)
-- [ ] Smooth transitions and responsive layout on both slides
+- [x] Slide 3 showcases the `grilling` skill with a visual example of the frontier Q&A format
+- [x] Core benefits of shared understanding and design trees clearly highlighted
+- [x] Slide 4 introduces `styles.refero.design` with a direct copyable link
+- [x] Visual breakdown card displaying key tokens from `DESIGN.md` (colors, typography, radii, shadows)
+- [x] Smooth transitions and responsive layout on both slides

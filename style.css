@@ -871,6 +871,685 @@ code, pre, [dir="ltr"], .ltr-text {
 }
 
 /* ==========================================================================
+   Slide 3: Grilling Skill, Frontier Q&A, and Decision Tree
+   ========================================================================== */
+
+.grilling-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: var(--spacing-24);
+  align-items: stretch;
+}
+
+/* Frontier Q&A Card */
+.frontier-dialog-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-20);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.dialog-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--spacing-12);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.dialog-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #2da44e;
+  box-shadow: 0 0 6px rgba(45, 164, 78, 0.6);
+  flex-shrink: 0;
+}
+
+.pulse {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+}
+
+.dialog-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.dialog-rule-badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-surgical-blue);
+  background-color: var(--color-surgical-blue-subtle);
+  border: 1px solid rgba(37, 151, 208, 0.2);
+  padding-block: 3px;
+  padding-inline: 10px;
+  border-radius: var(--radius-pill);
+}
+
+.grilling-dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.dialog-turn {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: flex-start;
+}
+
+.dialog-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.agent-avatar {
+  background-color: var(--color-obsidian);
+  color: var(--color-paper-white);
+  box-shadow: 0 2px 4px rgba(7, 7, 9, 0.2);
+}
+
+.user-avatar {
+  background-color: var(--color-surgical-blue);
+  color: var(--color-paper-white);
+  box-shadow: 0 2px 4px rgba(37, 151, 208, 0.25);
+}
+
+.dialog-bubble {
+  border-radius: 14px;
+  padding-block: 10px;
+  padding-inline: 14px;
+  max-width: 88%;
+}
+
+.agent-bubble {
+  background-color: #f7f9fa;
+  border: 1px solid #e2e8f0;
+}
+
+.user-bubble {
+  background-color: #eaf4fb;
+  border: 1px solid #cce4f7;
+}
+
+.bubble-sender {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-bottom: 2px;
+}
+
+.user-bubble .bubble-sender {
+  color: var(--color-surgical-blue-hover);
+}
+
+.bubble-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-obsidian);
+}
+
+.frontier-step {
+  margin-top: 4px;
+  background: linear-gradient(135deg, rgba(37, 151, 208, 0.06) 0%, rgba(215, 230, 245, 0.2) 100%);
+  border: 1px dashed var(--color-surgical-blue);
+  border-radius: 12px;
+  padding-block: 10px;
+  padding-inline: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.frontier-step-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+}
+
+.frontier-next-box {
+  font-size: 12.5px;
+  color: var(--color-obsidian);
+  line-height: 1.55;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.frontier-q-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-surgical-blue-hover);
+}
+
+/* Grilling Benefits Card */
+.grilling-benefits-card {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-20);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.benefits-header {
+  margin-bottom: var(--spacing-16);
+}
+
+.benefits-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 700;
+  padding-block: 3px;
+  padding-inline: 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 6px;
+}
+
+.benefits-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-14);
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+}
+
+.benefit-icon-wrapper {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-icon);
+  background-color: rgba(37, 151, 208, 0.09);
+  color: var(--color-surgical-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefit-content {
+  flex: 1;
+}
+
+.benefit-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+  margin-bottom: 2px;
+}
+
+.benefit-desc {
+  font-size: 12.5px;
+  color: var(--color-charcoal);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Slide 4: Refero Platform & DESIGN.md Token Breakdown
+   ========================================================================== */
+
+/* Refero Hero Banner */
+.refero-hero-banner {
+  background: linear-gradient(135deg, #f7fbff 0%, #edf5fc 100%);
+  border: 1px solid #d4e6f6;
+  border-radius: var(--radius-card);
+  padding: var(--spacing-16) var(--spacing-20);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  box-shadow: var(--shadow-subtle-3);
+  margin-bottom: var(--spacing-20);
+}
+
+.refero-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.refero-logo-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-paper-white);
+  border: 1px solid #cbe1f3;
+  padding-block: 2px;
+  padding-inline: 10px;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.refero-sparkle {
+  font-size: 12px;
+}
+
+.refero-banner-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.refero-banner-desc {
+  font-size: 12.5px;
+  color: var(--color-charcoal);
+  line-height: 1.5;
+}
+
+.refero-action-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex-shrink: 0;
+}
+
+.refero-direct-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-block: 7px;
+  padding-inline: 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid #b8d9f2;
+  background-color: var(--color-paper-white);
+  color: var(--color-surgical-blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.refero-direct-link:hover {
+  background-color: #eaf4fd;
+  border-color: var(--color-surgical-blue);
+  color: var(--color-surgical-blue-hover);
+  transform: translateY(-1px);
+}
+
+/* Tokens Breakdown Wrapper */
+.tokens-breakdown-wrapper {
+  background-color: var(--color-paper-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-20);
+  box-shadow: var(--shadow-card);
+}
+
+.tokens-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-16);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tokens-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.token-file-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  background-color: var(--color-obsidian);
+  color: var(--color-paper-white);
+  padding-block: 2px;
+  padding-inline: 8px;
+  border-radius: 5px;
+}
+
+.tokens-section-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.hallucination-prevention-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(37, 151, 208, 0.08);
+  border: 1px solid rgba(37, 151, 208, 0.22);
+  color: var(--color-surgical-blue);
+  border-radius: var(--radius-pill);
+  padding-block: 3px;
+  padding-inline: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.tokens-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-12);
+}
+
+.token-category-card {
+  background-color: #fafbfc;
+  border: 1px solid #e7ecf2;
+  border-radius: 12px;
+  padding: var(--spacing-14);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.token-category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  border-color: #cbdcf0;
+}
+
+.token-card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.token-cat-icon {
+  font-size: 16px;
+}
+
+.token-cat-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-obsidian);
+}
+
+.token-cat-desc {
+  font-size: 11px;
+  color: var(--color-charcoal);
+  line-height: 1.45;
+  min-height: 32px;
+}
+
+/* Color swatches list */
+.color-swatches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.swatch-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-paper-white);
+  border: 1px solid #eaedf2;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.swatch-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.swatch-bordered {
+  border: 1px solid #d4d8df;
+}
+
+.swatch-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.swatch-name {
+  font-size: 11px;
+  color: var(--color-obsidian);
+}
+
+.swatch-hex {
+  font-size: 10px;
+  color: var(--color-slate);
+  font-family: var(--font-mono);
+}
+
+/* Typography spec list */
+.type-spec-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.type-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-paper-white);
+  border: 1px solid #eaedf2;
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+
+.type-role-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  background-color: #eaf2fb;
+  color: var(--color-surgical-blue);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+}
+
+.type-role-desc {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.type-role-desc strong {
+  font-size: 10.5px;
+  color: var(--color-obsidian);
+  font-family: var(--font-mono);
+}
+
+.type-role-desc span {
+  font-size: 9.5px;
+  color: var(--color-slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Radii demo list */
+.radius-demo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.radius-demo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-paper-white);
+  border: 1px solid #eaedf2;
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+
+.radius-preview-pill {
+  border: 1.5px solid var(--color-surgical-blue);
+  background-color: rgba(37, 151, 208, 0.09);
+  border-radius: 100px;
+  padding: 1px 6px;
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-surgical-blue);
+  flex-shrink: 0;
+}
+
+.radius-preview-card {
+  border: 1.5px solid var(--color-obsidian);
+  background-color: rgba(7, 7, 9, 0.05);
+  border-radius: 6px;
+  padding: 1px 5px;
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-obsidian);
+  flex-shrink: 0;
+}
+
+.radius-preview-input {
+  border: 1.5px dashed var(--color-slate);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 9.5px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--color-charcoal);
+  flex-shrink: 0;
+}
+
+.radius-meta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.radius-meta strong {
+  font-size: 10.5px;
+  color: var(--color-obsidian);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.radius-meta span {
+  font-size: 9.5px;
+  color: var(--color-slate);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Shadow demo list */
+.shadow-demo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shadow-demo-item {
+  background-color: var(--color-paper-white);
+  border-radius: 8px;
+  padding: 7px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.item-subtle {
+  box-shadow: var(--shadow-subtle-2);
+  border: 1px solid #eef1f5;
+}
+
+.item-sky {
+  box-shadow: 0 4px 16px rgba(16, 55, 132, 0.08);
+  border: 1px solid #dce8f4;
+}
+
+.shadow-chip {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.chip-subtle {
+  background-color: #f0f2f5;
+  color: var(--color-charcoal);
+}
+
+.chip-sky {
+  background-color: #e5f1fb;
+  color: var(--color-surgical-blue);
+}
+
+.shadow-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.shadow-meta strong {
+  font-size: 10.5px;
+  color: var(--color-obsidian);
+}
+
+.shadow-meta code {
+  font-size: 9px;
+  color: var(--color-slate);
+  font-family: var(--font-mono);
+}
+
+/* ==========================================================================
    Responsive Adaptations
    ========================================================================== */
 
@@ -905,14 +1584,37 @@ code, pre, [dir="ltr"], .ltr-text {
   }
 
   .paradigm-comparison-grid,
-  .skills-grid {
+  .skills-grid,
+  .grilling-grid,
+  .tokens-cards-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-16);
   }
 
   .comparison-card,
-  .skill-card {
+  .skill-card,
+  .frontier-dialog-card,
+  .grilling-benefits-card,
+  .tokens-breakdown-wrapper {
     padding: var(--spacing-16);
+  }
+
+  .refero-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-14);
+    padding: var(--spacing-16);
+  }
+
+  .refero-action-row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .tokens-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .terminal-body {
@@ -934,3 +1636,4 @@ code, pre, [dir="ltr"], .ltr-text {
     display: none;
   }
 }
+

@@ -261,17 +261,360 @@
             </div>
           </article>
 
-          <!-- Slide 3 Container -->
+          <!-- Slide 3: Grilling Alignment & Decision Frontier -->
           <article class="slide-item" id="slide-3" data-slide-index="3" aria-label="اسلاید ۳ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۲: استخراج نیازمندی‌ها و شفاف‌سازی</span>
+                </div>
+                <h2 class="slide-headline">
+                  مهارت Grilling؛ کالبدشکافی فرضیات و ابهامات قبل از کدنویسی
+                </h2>
+                <p class="slide-subheadline">
+                  چرا نباید اجازه دهیم ایجنت حدس بزند؟ مهارت Grilling برگرفته از متدولوژی مت پوکاک، با مصاحبه سخت‌گیرانه و تک‌سوالی روی مرز تصمیمات (Decision Frontier)، یک مدل ذهنی مشترک ایجاد کرده و درخت تصمیمات طراحی را پیش از نوشتن اولین خط کد قفل می‌کند.
+                </p>
+              </header>
+
+              <!-- Two-column Grid: Q&A Simulation & Benefits Tree -->
+              <div class="grilling-grid">
+                <!-- Column 1: Simulated Frontier Q&A Dialog -->
+                <div class="frontier-dialog-card">
+                  <div class="dialog-card-header">
+                    <div class="dialog-title-wrapper">
+                      <span class="status-indicator-dot pulse" aria-hidden="true"></span>
+                      <h3 class="dialog-title">مصاحبه روی مرز تصمیمات (Frontier Q&A)</h3>
+                    </div>
+                    <span class="dialog-rule-badge">قانون: ۱ سوال در هر دور</span>
+                  </div>
+
+                  <div class="grilling-dialog">
+                    <!-- Turn 1: Agent Question -->
+                    <div class="dialog-turn agent-turn">
+                      <div class="dialog-avatar agent-avatar" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                          <circle cx="12" cy="5" r="2"></circle>
+                          <path d="M12 7v4"></path>
+                          <line x1="8" y1="16" x2="8" y2="16"></line>
+                          <line x1="16" y1="16" x2="16" y2="16"></line>
+                        </svg>
+                      </div>
+                      <div class="dialog-bubble agent-bubble">
+                        <div class="bubble-sender">ایجنت هوش مصنوعی (Agent)</div>
+                        <p class="bubble-text">
+                          برای مدیریت وضعیت کروسل، ترجیح شما ساخت کنترلر ایزوله بدون وابستگی (Vanilla JS Closure) است یا استفاده از کتابخانه‌های خارجی؟
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Turn 2: Developer Answer -->
+                    <div class="dialog-turn user-turn">
+                      <div class="dialog-avatar user-avatar" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </div>
+                      <div class="dialog-bubble user-bubble">
+                        <div class="bubble-sender">مهندس نرم‌افزار (Developer)</div>
+                        <p class="bubble-text">
+                          کنترلر سبک بدون وابستگی با متغیرهای محلی و متدهای خالص جاوااسکریپت.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Turn 3: Frontier Advanced -->
+                    <div class="dialog-turn frontier-step">
+                      <div class="frontier-step-badge">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>مرز تصمیم پیش رفت: شاخه بعدی درخت تصمیم فعال شد</span>
+                      </div>
+                      <div class="frontier-next-box">
+                        <span class="frontier-q-label">پرسش بعدی روی مرز:</span>
+                        <span>«در چیدمان راست‌به‌چپ (RTL)، کلیدهای جهت‌نما ArrowRight و ArrowLeft دقیقاً چه رفتاری داشته باشند؟»</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Column 2: Core Benefits & Decision Tree -->
+                <div class="grilling-benefits-card">
+                  <div class="benefits-header">
+                    <span class="benefits-badge-pill">
+                      <span class="tree-icon" aria-hidden="true">🌳</span>
+                      <span>قدرت درخت تصمیم‌گیری</span>
+                    </span>
+                    <h3 class="benefits-card-title">چرا مدل ذهنی مشترک همه چیز را تغییر می‌دهد؟</h3>
+                  </div>
+
+                  <ul class="benefits-list">
+                    <li class="benefit-item">
+                      <div class="benefit-icon-wrapper">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="m4.93 4.93 4.24 4.24"></path>
+                          <path d="m14.83 9.17 4.24-4.24"></path>
+                          <path d="m14.83 14.83 4.24 4.24"></path>
+                          <path d="m9.17 14.83-4.24 4.24"></path>
+                          <circle cx="12" cy="12" r="4"></circle>
+                        </svg>
+                      </div>
+                      <div class="benefit-content">
+                        <h4 class="benefit-title">مدل ذهنی مشترک (Shared Mental Model)</h4>
+                        <p class="benefit-desc">
+                          پیش از این که کدی نگاشته شود، ایجنت دقیقاً همان تصویری را از نتیجه، معماری و محدودیت‌ها دارد که شما دارید.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="benefit-item">
+                      <div class="benefit-icon-wrapper">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="7" height="7"></rect>
+                          <rect x="14" y="3" width="7" height="7"></rect>
+                          <rect x="14" y="14" width="7" height="7"></rect>
+                          <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                      </div>
+                      <div class="benefit-content">
+                        <h4 class="benefit-title">درخت تصمیم‌گیری شفاف (Design Tree)</h4>
+                        <p class="benefit-desc">
+                          به جای حدس زدن‌های تصادفی، تمام شاخه‌های مبهم یکی‌یکی حل شده و به مستندات یا تست‌های پروژه پیوند می‌خورند.
+                        </p>
+                      </div>
+                    </li>
+
+                    <li class="benefit-item">
+                      <div class="benefit-icon-wrapper">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="23 4 23 10 17 10"></polyline>
+                          <polyline points="1 20 1 14 7 14"></polyline>
+                          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                      </div>
+                      <div class="benefit-content">
+                        <h4 class="benefit-title">حذف بازنویسی و خطاهای حدسی</h4>
+                        <p class="benefit-desc">
+                          پیشگیری از چرخه خسته‌کننده «پرامپت بزن - غلط شد - دوباره پرامپت بزن». هر پاسخ دقیقا بار اول کار می‌کند.
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </article>
 
-          <!-- Slide 4 Container -->
+          <!-- Slide 4: Refero Design.md & Aesthetics Grounding -->
           <article class="slide-item" id="slide-4" data-slide-index="4" aria-label="اسلاید ۴ از ۸" aria-hidden="true">
-            <div class="slide-content-placeholder">
-              <!-- Content will be populated in subsequent tickets -->
+            <div class="slide-container">
+              <!-- Header -->
+              <header class="slide-header">
+                <div class="slide-badge-pill">
+                  <span class="badge-dot" aria-hidden="true"></span>
+                  <span>گام ۳: زمین‌گیر کردن استایل‌ها</span>
+                </div>
+                <h2 class="slide-headline">
+                  طراحی قطعی و ضدتوهم با styles.refero.design و DESIGN.md
+                </h2>
+                <p class="slide-subheadline">
+                  مدل‌های هوش مصنوعی بدون راهنمای بصری، دیفالت‌های زشت و جنریک تولید می‌کنند. با استخراج توکن‌های استایل از نمونه‌های واقعی در پلتفرم Refero و تدوین سند دترمینیستیک <code>DESIGN.md</code>، جلوی توهمات بصری ایجنت را بگیرید.
+                </p>
+              </header>
+
+              <!-- Refero URL Banner Card -->
+              <div class="refero-hero-banner">
+                <div class="refero-brand-info">
+                  <div class="refero-logo-pill">
+                    <span class="refero-sparkle">✨</span>
+                    <span class="refero-name">Refero Curated Styles</span>
+                  </div>
+                  <div class="refero-text-wrap">
+                    <h3 class="refero-banner-title">پایگاه الهام‌بخش استایل‌های پروداکشن وب</h3>
+                    <p class="refero-banner-desc">
+                      مرجع صدها وب‌سایت منتخب برای استخراج رنگ‌ها، تایپوگرافی، فاصله‌ها و سایه‌های استاندارد جهانی.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="refero-action-row">
+                  <a href="https://styles.refero.design" target="_blank" rel="noopener noreferrer" class="refero-direct-link" dir="ltr" aria-label="مشاهده وب‌سایت styles.refero.design">
+                    <span>styles.refero.design</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+
+                  <button class="copy-btn btn-pill-primary" data-copy="https://styles.refero.design" aria-label="کپی آدرس پلتفرم رفرئو">
+                    <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>کپی لینک پلتفرم</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Visual Breakdown Card: Key Tokens from DESIGN.md -->
+              <div class="tokens-breakdown-wrapper">
+                <div class="tokens-header-row">
+                  <div class="tokens-title-wrap">
+                    <span class="token-file-tag">DESIGN.md</span>
+                    <h3 class="tokens-section-title">تجزیه و تحلیل ۴ دسته‌بندی توکن‌های بنیادین</h3>
+                  </div>
+                  <span class="hallucination-prevention-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                    <span>سپر در برابر توهمات بصری ایجنت (Zero AI Hallucination)</span>
+                  </span>
+                </div>
+
+                <div class="tokens-cards-grid">
+                  <!-- Token 1: Colors -->
+                  <div class="token-category-card">
+                    <div class="token-card-header">
+                      <span class="token-cat-icon">🎨</span>
+                      <h4 class="token-cat-title">۱. رنگ‌ها (Colors)</h4>
+                    </div>
+                    <p class="token-cat-desc">
+                      پالت کنترل‌شده با یک رنگ تاکیدی شاخص و تیره به جای مشکی خالص:
+                    </p>
+                    <div class="color-swatches-list">
+                      <div class="swatch-item">
+                        <span class="swatch-box" style="background-color: #070709;"></span>
+                        <div class="swatch-meta">
+                          <strong class="swatch-name">Obsidian</strong>
+                          <code class="swatch-hex" dir="ltr">#070709</code>
+                        </div>
+                      </div>
+                      <div class="swatch-item">
+                        <span class="swatch-box" style="background-color: #2597d0;"></span>
+                        <div class="swatch-meta">
+                          <strong class="swatch-name">Surgical Blue</strong>
+                          <code class="swatch-hex" dir="ltr">#2597d0</code>
+                        </div>
+                      </div>
+                      <div class="swatch-item">
+                        <span class="swatch-box swatch-bordered" style="background-color: #ffffff;"></span>
+                        <div class="swatch-meta">
+                          <strong class="swatch-name">Paper White</strong>
+                          <code class="swatch-hex" dir="ltr">#ffffff</code>
+                        </div>
+                      </div>
+                      <div class="swatch-item">
+                        <span class="swatch-box" style="background-color: #f5f5f5;"></span>
+                        <div class="swatch-meta">
+                          <strong class="swatch-name">Cloud Gray</strong>
+                          <code class="swatch-hex" dir="ltr">#f5f5f5</code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Token 2: Typography -->
+                  <div class="token-category-card">
+                    <div class="token-card-header">
+                      <span class="token-cat-icon">🔤</span>
+                      <h4 class="token-cat-title">۲. تایپوگرافی (Typography)</h4>
+                    </div>
+                    <p class="token-cat-desc">
+                      سلسله‌مراتب صریح، هارمونی مقیاس و اصلاح فواصل حروف فارسی:
+                    </p>
+                    <div class="type-spec-list">
+                      <div class="type-spec-item">
+                        <span class="type-role-badge">Display</span>
+                        <div class="type-role-desc">
+                          <strong>80px / Line-Height: 0.9</strong>
+                          <span>تیترهای عظیم برای جلب توجه اولیه</span>
+                        </div>
+                      </div>
+                      <div class="type-spec-item">
+                        <span class="type-role-badge">Heading</span>
+                        <div class="type-role-desc">
+                          <strong>44px / 28px</strong>
+                          <span>سرفصل‌های خوانا با فونت هندسی</span>
+                        </div>
+                      </div>
+                      <div class="type-spec-item">
+                        <span class="type-role-badge">Body</span>
+                        <div class="type-role-desc">
+                          <strong>16px / Line-Height: 1.8</strong>
+                          <span>خوانایی بی‌نقص با صفر کردن فاصله حروف فارسی</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Token 3: Border Radii -->
+                  <div class="token-category-card">
+                    <div class="token-card-header">
+                      <span class="token-cat-icon">📐</span>
+                      <h4 class="token-cat-title">۳. گردی گوشه‌ها (Border Radii)</h4>
+                    </div>
+                    <p class="token-cat-desc">
+                      دسته‌بندی دقیق شعاع المان‌ها برای ایجاد ریتم بصری هماهنگ:
+                    </p>
+                    <div class="radius-demo-list">
+                      <div class="radius-demo-item">
+                        <div class="radius-preview-pill">100px</div>
+                        <div class="radius-meta">
+                          <strong>دکمه‌ها و تگ‌های کپسولی (Pills)</strong>
+                          <span>حالت کپسولی با حاشیه کاملاً گرد</span>
+                        </div>
+                      </div>
+                      <div class="radius-demo-item">
+                        <div class="radius-preview-card">18px</div>
+                        <div class="radius-meta">
+                          <strong>کارت‌های اصلی محتوا (Cards)</strong>
+                          <span>گردی مدرن و چشم‌نواز بدنه کارت‌ها</span>
+                        </div>
+                      </div>
+                      <div class="radius-demo-item">
+                        <div class="radius-preview-input">12px</div>
+                        <div class="radius-meta">
+                          <strong>ورودی‌ها و کادرهای فرعی (Inputs)</strong>
+                          <span>تعادل ساختاری المان‌های تعاملی</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Token 4: Shadows & Elevation -->
+                  <div class="token-category-card">
+                    <div class="token-card-header">
+                      <span class="token-cat-icon">☁️</span>
+                      <h4 class="token-cat-title">۴. سایه‌ها و عمق (Shadows)</h4>
+                    </div>
+                    <p class="token-cat-desc">
+                      سایه‌های چندلایه اتمسفریک با ته‌رنگ آبی ملایم به جای مشکی سنگین:
+                    </p>
+                    <div class="shadow-demo-list">
+                      <div class="shadow-demo-item item-subtle">
+                        <div class="shadow-chip chip-subtle">Subtle</div>
+                        <div class="shadow-meta">
+                          <strong>سایه نامحسوس روزمره</strong>
+                          <code dir="ltr">rgba(36, 36, 40, 0.08) 0 1px 2px</code>
+                        </div>
+                      </div>
+                      <div class="shadow-demo-item item-sky">
+                        <div class="shadow-chip chip-sky">Atmospheric Sky</div>
+                        <div class="shadow-meta">
+                          <strong>سایه اتمسفریک شناور کارت‌ها</strong>
+                          <code dir="ltr">rgba(16, 55, 132, 0.04) 0 17px 37px</code>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
 
