@@ -1,132 +1,289 @@
-import React from 'react';
-import { BookOpen, Presentation, Sparkles, Layers } from 'lucide-react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import {
+  BookOpen,
+  Presentation,
+  Sparkles,
+  Maximize2,
+  Minimize2,
+  ChevronRight,
+  ChevronLeft,
+  ArrowRight,
+  ArrowLeft,
+  Layers,
+  Terminal,
+  MessageSquare,
+  Palette,
+  Cpu,
+  CheckCircle2,
+  Compass,
+  FileCode2,
+} from 'lucide-react';
+import {
+  createDeckController,
+  toPersianDigits,
+  DEFAULT_SLIDES,
+} from './deck-engine.js';
+
+// Slide icon mapping for distinct visual identity
+const SLIDE_ICONS = [
+  Layers,
+  Terminal,
+  MessageSquare,
+  Palette,
+  Cpu,
+  FileCode2,
+  CheckCircle2,
+  Compass,
+];
 
 export default function App() {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+  }, []);
+
+  // Initialize central DeckController instance
+  const controller = useMemo(() => {
+    return createDeckController({
+      slides: DEFAULT_SLIDES,
+      onFullscreenToggle: toggleFullscreen,
+    });
+  }, [toggleFullscreen]);
+
+  // Synchronize React state with DeckController
+  const [deckState, setDeckState] = useState(() => controller.getState());
+
+  useEffect(() => {
+    const unsubscribe = controller.subscribe((newState) => {
+      setDeckState(newState);
+    });
+    return unsubscribe;
+  }, [controller]);
+
+  // Fullscreen change listener
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
+  // Keyboard navigation listener (ArrowRight, Space, ArrowLeft, PageDown, PageUp, F)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      controller.handleKeyDown(e);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [controller]);
+
+  const {
+    slideIndex,
+    stepIndex,
+    currentSlide,
+    totalSlides,
+    totalSteps,
+    canGoNext,
+    canGoPrev,
+  } = deckState;
+
+  const SlideIcon = SLIDE_ICONS[slideIndex] || Sparkles;
+
   return (
-    <div className="deck-root">
+    <div
+      className={`deck-root ${isFullscreen ? 'is-fullscreen' : ''}`}
+      data-fullscreen={isFullscreen}
+      data-slide-index={slideIndex}
+      data-step-index={stepIndex}
+    >
       <div className="deck-atmospheric-bar" />
-      
+
+      {/* Header */}
       <header className="deck-header">
         <div className="deck-brand">
           <Presentation size={22} color="var(--color-surgical-blue)" />
           <span className="deck-title">توسعه فرانت‌اند با هوش مصنوعی</span>
-          <span className="deck-badge">Presenter Deck</span>
+          <span className="deck-badge">{currentSlide.badge || 'ارائه زنده'}</span>
         </div>
 
-        <a
-          href="./companion/"
-          className="companion-link-btn"
-          id="companion-link-btn"
-          title="مشاهده نسخه همراه متنی و جامع"
-        >
-          <BookOpen size={16} color="var(--color-surgical-blue)" />
-          <span>همراه متنی (Companion)</span>
-        </a>
+        <div className="deck-header-actions">
+          {/* Fullscreen Toggle */}
+          <button
+            type="button"
+            className="deck-action-btn"
+            id="fullscreen-toggle-btn"
+            onClick={toggleFullscreen}
+            title={isFullscreen ? 'خروج از حالت تمام‌صفحه (F)' : 'ارائه در حالت تمام‌صفحه (F)'}
+            aria-label="حالت تمام صفحه"
+          >
+            {isFullscreen ? (
+              <Minimize2 size={16} color="var(--color-surgical-blue)" />
+            ) : (
+              <Maximize2 size={16} color="var(--color-surgical-blue)" />
+            )}
+            <span className="deck-key-hint">F</span>
+          </button>
+
+          {/* Reading Companion Badge */}
+          <a
+            href="./companion/"
+            className="companion-link-btn"
+            id="companion-link-btn"
+            title="مشاهده نسخه همراه متنی و جامع"
+          >
+            <BookOpen size={16} color="var(--color-surgical-blue)" />
+            <span>همراه متنی (Companion)</span>
+          </a>
+        </div>
       </header>
 
+      {/* Main Presentation Canvas */}
       <main className="deck-canvas">
-        <article className="slide-frame" id="presenter-deck-container">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            <span
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.375rem',
-                padding: '0.25rem 0.75rem',
-                borderRadius: 'var(--radius-pill)',
-                backgroundColor: 'var(--color-sky-tint)',
-                color: 'var(--color-surgical-blue)',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-              }}
-            >
-              <Sparkles size={14} />
-              <span>ارائه زنده تعاملی</span>
+        <article
+          className="slide-frame"
+          id="presenter-deck-container"
+          data-slide-index={slideIndex}
+          data-step-index={stepIndex}
+          data-total-steps={totalSteps}
+        >
+          {/* Top category label */}
+          <div className="slide-top-bar">
+            <span className="slide-category-badge">
+              <SlideIcon size={14} />
+              <span>{currentSlide.badge}</span>
+            </span>
+
+            <span className="slide-step-counter-pill">
+              مرحلهٔ {toPersianDigits(stepIndex)} از {toPersianDigits(totalSteps)}
             </span>
           </div>
 
-          <h1
-            style={{
-              fontSize: '2.5rem',
-              fontWeight: 800,
-              color: 'var(--color-obsidian)',
-              lineHeight: 1.25,
-              marginBottom: '1rem',
-              letterSpacing: 0,
-            }}
-          >
-            توسعهٔ مهندسی فرانت‌اند با ایجنت‌های هوش مصنوعی
-          </h1>
+          {/* Title and subtitle */}
+          <h1 className="slide-main-title">{currentSlide.title}</h1>
+          <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
 
-          <p
-            style={{
-              fontSize: '1.125rem',
-              color: 'var(--color-charcoal)',
-              lineHeight: 1.8,
-              maxWidth: '720px',
-              marginBottom: '2.5rem',
-            }}
-          >
-            پلتفرم ارائه‌محور تعاملی با گام‌های انیمیشنی معکوس‌پذیر (Build Steps)، شبیه‌سازهای بلادرنگ و ابزارهای پیشرفته برای ارائه‌دهندگان صحنه و سازندگان محتوا.
-          </p>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.25rem',
-              marginTop: '1.5rem',
-            }}
-          >
-            <div
-              style={{
-                padding: '1.5rem',
-                borderRadius: '12px',
-                backgroundColor: 'var(--color-cloud-gray)',
-                border: '1px solid rgba(0, 0, 0, 0.04)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                <Layers size={18} color="var(--color-surgical-blue)" />
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-obsidian)' }}>
-                  معماری دوگانه (Dual-Distribution)
-                </h3>
+          {/* Hero Artifact Simulation Container */}
+          <div className="slide-content-area">
+            <div className="hero-artifact-placeholder">
+              <div className="artifact-status-header">
+                <span className="artifact-dot" />
+                <span className="artifact-dot" />
+                <span className="artifact-dot" />
+                <span className="artifact-title">شبیه‌ساز گام‌های تعاملی اسلاید</span>
               </div>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-charcoal)', lineHeight: 1.7 }}>
-                ارائهٔ مدرن مبتنی بر React در ریشه پروژه و همراه مطالعه متنی کامل در پوشهٔ <code>/companion/</code>.
-              </p>
-            </div>
 
-            <div
-              style={{
-                padding: '1.5rem',
-                borderRadius: '12px',
-                backgroundColor: 'var(--color-cloud-gray)',
-                border: '1px solid rgba(0, 0, 0, 0.04)',
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                <Sparkles size={18} color="var(--color-surgical-blue)" />
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--color-obsidian)' }}>
-                  طراحی منطبق بر Letters و VibeFarsi
-                </h3>
+              <div className="artifact-body">
+                <p className="artifact-lead-text">
+                  اسلاید فعال: <strong>{currentSlide.title}</strong>
+                </p>
+
+                <div className="build-steps-list">
+                  {Array.from({ length: totalSteps + 1 }).map((_, stepNum) => {
+                    const isPassed = stepNum <= stepIndex;
+                    const isCurrent = stepNum === stepIndex;
+                    return (
+                      <div
+                        key={stepNum}
+                        className={`build-step-item ${isPassed ? 'is-passed' : ''} ${
+                          isCurrent ? 'is-current' : ''
+                        }`}
+                      >
+                        <div className="build-step-marker">
+                          {toPersianDigits(stepNum)}
+                        </div>
+                        <div className="build-step-text">
+                          {stepNum === 0
+                            ? 'نمای کلی و تبیین مسئله اولیه'
+                            : `زیرمرحلهٔ شمارهٔ ${toPersianDigits(stepNum)}: افشا و متحرک‌سازی تدریجی مؤلفه`}
+                        </div>
+                        {isCurrent && <span className="current-step-tag">فعال</span>}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-              <p style={{ fontSize: '0.875rem', color: 'var(--color-charcoal)', lineHeight: 1.7 }}>
-                تایپوگرافی بدون فاصله بیرونی وزیرمتن، پالت رنگی کلینیکال لترز، و چیدمان استاندارد راست‌به‌چپ (RTL).
-              </p>
             </div>
           </div>
         </article>
       </main>
 
+      {/* Presentation Footer */}
       <footer className="deck-footer">
-        <div>
-          <span>اسلاید: </span>
-          <strong id="slide-indicator" style={{ color: 'var(--color-obsidian)' }}>۱ / ۸</strong>
+        {/* Persian Numeral Slide Counter */}
+        <div className="deck-counter-wrapper">
+          <span className="deck-counter-label">اسلاید: </span>
+          <strong id="slide-indicator" className="deck-counter-value">
+            {toPersianDigits(slideIndex + 1)} / {toPersianDigits(totalSlides)}
+          </strong>
         </div>
 
-        <div style={{ fontSize: '0.8125rem', color: 'var(--color-slate)' }}>
-          برای حرکت میان اسلایدها و مراحل از کلیدهای جهت‌نما استفاده کنید
+        {/* Segmented Step Ticks */}
+        <div
+          className="deck-step-ticks-container"
+          id="deck-step-ticks"
+          data-step-index={stepIndex}
+          data-total-steps={totalSteps}
+        >
+          <div className="step-ticks-group">
+            {totalSteps > 0 &&
+              Array.from({ length: totalSteps }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`step-tick ${i < stepIndex ? 'is-active' : ''}`}
+                  data-active={i < stepIndex}
+                  title={`مرحلهٔ ${toPersianDigits(i + 1)} از ${toPersianDigits(totalSteps)}`}
+                />
+              ))}
+          </div>
+          <span className="step-ticks-label">
+            {totalSteps > 0
+              ? `گام ${toPersianDigits(stepIndex)} از ${toPersianDigits(totalSteps)}`
+              : 'بدون زیرمرحله'}
+          </span>
+        </div>
+
+        {/* Navigation Controls and Keyboard Hints */}
+        <div className="deck-navigation-bar">
+          <div className="deck-key-hints">
+            <span>جهت‌نما / Space / F</span>
+          </div>
+
+          <div className="deck-nav-buttons">
+            <button
+              type="button"
+              className="deck-nav-btn"
+              onClick={() => controller.prev()}
+              disabled={!canGoPrev}
+              title="مرحله قبلی (ArrowLeft)"
+              aria-label="مرحله قبلی"
+            >
+              <ChevronRight size={18} />
+            </button>
+            <button
+              type="button"
+              className="deck-nav-btn"
+              onClick={() => controller.next()}
+              disabled={!canGoNext}
+              title="مرحله بعدی (ArrowRight یا Space)"
+              aria-label="مرحله بعدی"
+            >
+              <ChevronLeft size={18} />
+            </button>
+          </div>
         </div>
       </footer>
     </div>

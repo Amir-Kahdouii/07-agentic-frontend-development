@@ -5,13 +5,13 @@ A robust, centralized presentation state machine governing bidirectional intra-s
 
 **Blocked by:** 01: Companion Migration and React Vite Project Setup
 
-**Status:** ready-for-agent
+**Status:** closed
 
-- [ ] Implement central `DeckController` managing `[slideIndex, stepIndex]` state
-- [ ] Wire forward navigation (`ArrowRight`, `Space`, `PageDown`) to increment build step before advancing slide
-- [ ] Wire reverse navigation (`ArrowLeft`, `PageUp`) to decrement build step before retreating slide
-- [ ] Render segmented `Step Ticks` in the footer matching the active slide's step count and current progress
-- [ ] Display Persian numeral slide counter (e.g. `۱ / ۸` to `۸ / ۸`) formatted with Persian digits
-- [ ] Implement keyboard shortcut `F` to toggle browser full-screen presentation mode
-- [ ] Include a permanent, high-craft corner badge linking to the Reading Companion (`/companion/`)
-- [ ] Add unit tests verifying bidirectional navigation sequence and keyboard event dispatching
+- [x] Implement central `DeckController` managing `[slideIndex, stepIndex]` state
+- [x] Wire forward navigation (`ArrowRight`, `Space`, `PageDown`) to increment build step before advancing slide
+- [x] Wire reverse navigation (`ArrowLeft`, `PageUp`) to decrement build step before retreating slide
+- [x] Render segmented `Step Ticks` in the footer matching the active slide's step count and current progress
+- [x] Display Persian numeral slide counter (e.g. `۱ / ۸` to `۸ / ۸`) formatted with Persian digits
+- [x] Implement keyboard shortcut `F` to toggle browser full-screen presentation mode
+- [x] Include a permanent, high-craft corner badge linking to the Reading Companion (`/companion/`)
+- [x] Add unit tests verifying bidirectional navigation sequence and keyboard event dispatching
