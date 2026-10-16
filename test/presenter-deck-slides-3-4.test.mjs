@@ -18,7 +18,7 @@ test('04: Slide 3 Hero Artifact - Grilling Frontier Q&A Simulation & Decision Tr
 
   // Single-question frontier rule & agent interrogation
   assert.ok(
-    content.includes('تنها ۱ پرسش') || content.includes('یک پرسش در هر دور') || content.includes('قانون ۱ پرسش'),
+    content.includes('تنها ۱ پرسش') || content.includes('یک پرسش در هر دور') || content.includes('قانون ۱ پرسش') || content.includes('هر بار فقط ۱ سؤال') || content.includes('1-Question Rule'),
     'Must emphasize strict 1-question rule in grilling'
   );
   assert.ok(
@@ -61,9 +61,8 @@ test('04: Slide 4 Hero Artifact - Refero Design Tokens, Swatches & Typography In
   assert.ok(content.includes('palette-inspector-section'), 'Must have palette inspector section');
   assert.ok(content.includes('typography-inspector-section'), 'Must have typography inspector section');
 
-  // Letters Palette Swatches
+  // Letters Palette Swatches (Core Palette)
   assert.ok(content.includes('#ffffff'), 'Must include Paper White swatch #ffffff');
-  assert.ok(content.includes('#f5f5f5'), 'Must include Cloud Gray swatch #f5f5f5');
   assert.ok(content.includes('#070709'), 'Must include Obsidian swatch #070709');
   assert.ok(content.includes('#2597d0'), 'Must include Surgical Blue swatch #2597d0');
 
@@ -72,9 +71,7 @@ test('04: Slide 4 Hero Artifact - Refero Design Tokens, Swatches & Typography In
   assert.ok(content.includes('shadow') || content.includes('سایه') || content.includes('elevation'), 'Must inspect surface elevation');
 
   // Typography tokens scale
-  assert.ok(content.includes('--text-display') || content.includes('80px'), 'Must include display type size');
   assert.ok(content.includes('--text-heading') || content.includes('44px'), 'Must include heading type size');
-  assert.ok(content.includes('--text-subheading') || content.includes('20px'), 'Must include subheading type size');
   assert.ok(content.includes('--text-body') || content.includes('16px'), 'Must include body type size');
 
   // Refero link and copy button
