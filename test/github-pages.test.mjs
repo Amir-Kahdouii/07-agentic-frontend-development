@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const rootDir = process.cwd();
 const companionDir = path.join(rootDir, 'companion');
@@ -84,6 +85,10 @@ test('08: Dual Deployment - package.json defines test and build scripts', () => 
 test('08: Dual Deployment - End-to-end dist verification for root deck and companion', () => {
   const distDir = path.join(rootDir, 'dist');
   const distCompanionDir = path.join(distDir, 'companion');
+
+  if (!fs.existsSync(distDir) || !fs.existsSync(path.join(distDir, 'index.html'))) {
+    execSync('npm run build', { stdio: 'pipe' });
+  }
 
   assert.ok(fs.existsSync(distDir), 'dist/ directory must exist');
   assert.ok(fs.existsSync(path.join(distDir, 'index.html')), 'dist/index.html (Presenter Deck entry) must exist');
