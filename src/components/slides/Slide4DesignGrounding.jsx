@@ -21,22 +21,14 @@ const COLOR_SWATCHES = [
     name: 'Obsidian',
     hex: '#070709',
     token: '--color-obsidian',
-    role: 'متن اصلی و دکمه‌های تیره',
+    role: 'متن و دکمه‌های تیره',
     textDark: false,
   },
   {
     name: 'Paper White',
     hex: '#ffffff',
     token: '--color-paper-white',
-    role: 'سطح اصلی کانواس و پس‌زمینه کارت‌ها',
-    textDark: true,
-    borderNeeded: true,
-  },
-  {
-    name: 'Cloud Gray',
-    hex: '#f5f5f5',
-    token: '--color-cloud-gray',
-    role: 'سطوح ثانویه، کارت‌های مجزا و تفاوت لایه‌ها',
+    role: 'پس‌زمینه و کارت‌ها',
     textDark: true,
     borderNeeded: true,
   },
@@ -44,65 +36,27 @@ const COLOR_SWATCHES = [
     name: 'Surgical Blue',
     hex: '#2597d0',
     token: '--color-surgical-blue',
-    role: 'تأکید جراحی، آیکون‌ها، نشانگرها و وضعیت‌های فعال',
-    textDark: false,
-  },
-  {
-    name: 'Sky Tint',
-    hex: '#d7e6f5',
-    token: '--color-sky-tint',
-    role: 'ته‌رنگ سایه‌های اتمسفری و بوردرهای ملایم',
-    textDark: true,
-  },
-  {
-    name: 'Charcoal',
-    hex: '#60606c',
-    token: '--color-charcoal',
-    role: 'متن ثانویه، توضیحات و برچسب‌های کم‌اهمیت‌تر',
+    role: 'تأکیدها و وضعیت‌های فعال',
     textDark: false,
   },
 ];
 
 const TYPOGRAPHY_TOKENS = [
   {
-    role: 'display',
-    token: '--text-display',
-    size: '80px',
-    lineHeight: '0.9',
-    sample: 'طراحی متمایز فرانت‌اند',
-    weight: 'سیاه (Black)',
-  },
-  {
     role: 'heading',
     token: '--text-heading',
     size: '44px',
     lineHeight: '1.1',
-    sample: 'مهندسی ایجنت‌محور و پایدار',
+    sample: 'قبل از طراحی، مسیر را روشن کن',
     weight: 'برجسته (Bold)',
-  },
-  {
-    role: 'subheading',
-    token: '--text-subheading',
-    size: '20px',
-    lineHeight: '1.4',
-    sample: 'زمینه‌سازی استانداردهای بصری در DESIGN.md',
-    weight: 'نیمه‌برجسته (Medium)',
   },
   {
     role: 'body',
     token: '--text-body',
     size: '16px',
     lineHeight: '1.49',
-    sample: 'متن خوانا با فونت وزیرمتن و فاصله حروف صفر (letter-spacing: 0)',
+    sample: 'متن فارسی خوانا با فاصله‌حروف صفر',
     weight: 'عادی (Regular)',
-  },
-  {
-    role: 'caption',
-    token: '--text-caption',
-    size: '12px',
-    lineHeight: '1.2',
-    sample: 'برچسب متاداده، توکن‌های سیستمی و توضیحات کمکی',
-    weight: 'سبک (Light)',
   },
 ];
 
@@ -144,12 +98,12 @@ export default function Slide4DesignGrounding({ stepIndex = 0 }) {
         <div className="refero-info">
           <div className="refero-title-row">
             <Palette size={18} color="var(--color-surgical-blue)" />
-            <strong className="refero-brand-name">مرجع الهام سبک: Refero Design Systems</strong>
-            <span className="refero-theme-badge">سبک: Letters (سفید پاک، تأکید جراحی)</span>
+            <strong className="refero-brand-name">رفرنس طراحی: Refero Design Systems</strong>
+            <span className="refero-theme-badge">Letters؛ سفید ساده با یک آبیِ تأکیدی</span>
           </div>
           <p className="refero-tagline">
-            سایت مرجع سبک‌شناسی و معماری طراحی UI — مبنای استخراج دقیق توکن‌ها در{' '}
-            <code dir="ltr">DESIGN.md</code> جهت مهار توهم هوش مصنوعی
+            از Refero چند رفرنس می‌گیریم و قواعدشان را در <code dir="ltr">DESIGN.md</code>{' '}
+            می‌نویسیم تا ایجنت با همان مسیر جلو برود.
           </p>
         </div>
 
@@ -191,7 +145,7 @@ export default function Slide4DesignGrounding({ stepIndex = 0 }) {
           <div className="section-header">
             <div className="section-title-wrap">
               <Sparkles size={16} color="var(--color-surgical-blue)" />
-              <h3 className="section-title">پالت اصلی Letters (۹۹٪ مونوکروم + آبی جراحی)</h3>
+              <h3 className="section-title">پالت کوچک Letters؛ سه رنگ اصلی</h3>
             </div>
             <span className="section-step-indicator">
               گام ۰: رنگ‌ها و گوشه‌ها
@@ -242,30 +196,30 @@ export default function Slide4DesignGrounding({ stepIndex = 0 }) {
             <div className="geometry-card radius-18-card">
               <div className="geom-header">
                 <Box size={14} color="var(--color-surgical-blue)" />
-                <span className="geom-label">شعاع گوشه‌ها (Border Radius)</span>
+                <span className="geom-label">فاصله‌گذاری</span>
               </div>
               <div className="geom-visual">
                 <div className="radius-pill-demo">
-                  <span className="radius-spec">18px کارت‌ها / 100px دکمه‌ها</span>
+                  <span className="radius-spec">فاصلهٔ ثابت بین بخش‌ها و داخل کارت‌ها</span>
                 </div>
               </div>
               <span className="geom-desc">
-                استفاده اختصاصی از <code dir="ltr">--radius-card: 18px</code> برای ایجاد حسی سبک و بالینی
+                فاصله‌های ثابت، صفحه را مرتب و قابل‌خواندن نگه می‌دارند
               </span>
             </div>
 
             <div className="geometry-card elevation-card">
               <div className="geom-header">
                 <Layers size={14} color="var(--color-surgical-blue)" />
-                <span className="geom-label">سایه‌ها و برآمدگی (Elevation)</span>
+                <span className="geom-label">گوشه‌ها و سایه</span>
               </div>
               <div className="geom-visual">
                 <div className="shadow-box-demo">
-                  <span className="shadow-spec">سایه ملایم با ته‌رنگ آسمانی</span>
+                  <span className="shadow-spec">گوشه نرم، سایه ملایم</span>
                 </div>
               </div>
               <span className="geom-desc">
-                سایه با ته‌رنگ آبی آسمانی (<code dir="ltr">--color-sky-tint</code>) به جای سایه خاکستری کدر
+                گوشه‌های <code dir="ltr">18px</code> و سایه سبک، کارت‌ها را از هم جدا می‌کنند
               </span>
             </div>
           </div>
@@ -281,7 +235,7 @@ export default function Slide4DesignGrounding({ stepIndex = 0 }) {
           <div className="section-header">
             <div className="section-title-wrap">
               <Type size={16} color="var(--color-surgical-blue)" />
-              <h3 className="section-title">مقیاس تایپوگرافی (Vazirmatn & Letters)</h3>
+              <h3 className="section-title">تایپوگرافی (Vazirmatn & Letters)</h3>
             </div>
             <span className="section-step-indicator">
               گام ۱: تایپوگرافی
@@ -342,9 +296,9 @@ export default function Slide4DesignGrounding({ stepIndex = 0 }) {
             <ShieldCheck size={18} color="#16a34a" />
           </div>
           <div className="summary-content">
-            <strong className="summary-title">چرا زمینه‌سازی بصری (Design Grounding) حیاتی است؟</strong>
+            <strong className="summary-title">Design Grounding چه کمکی می‌کند؟</strong>
             <p className="summary-desc">
-              بدون توکن‌های صریح در <code dir="ltr">DESIGN.md</code>، ایجنت‌های هوش مصنوعی به سمت قالب‌های کلیشه‌ای (زمینه‌های کرم کثیف، گرادیانت‌های بنفش SaaS، و سایه‌های سنگین) سقوط می‌کنند. استناد به Refero و توکن‌های مشخص، خروجی بصری را در کلاس جهانی تضمین می‌کند.
+              اگر این قواعد را در <code dir="ltr">DESIGN.md</code> ننویسیم، ایجنت ممکن است سراغ ظاهرهای تکراری برود. Refero و توکن‌های مشخص کمک می‌کنند خروجی به چیزی که می‌خواهیم نزدیک‌تر بماند.
             </p>
           </div>
         </div>

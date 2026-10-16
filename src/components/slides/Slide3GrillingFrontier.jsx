@@ -38,17 +38,17 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
         <div className="grilling-header-meta">
           <HelpCircle size={18} color="var(--color-surgical-blue)" />
           <span className="grilling-header-title">
-            مهارت Grilling: مصاحبه ساختاریافته در مرز تصمیم‌گیری
+            Grilling: سؤال‌کردن تا تصمیم روشن شود
           </span>
         </div>
         <div className="grilling-badges-group">
-          <span className="grilling-rule-badge" title="پرهیز از بمباران سوالات و ابهام‌زدایی گام‌به‌گام">
+          <span className="grilling-rule-badge" title="سؤال‌ها را یکی‌یکی می‌پرسیم تا ابهام جمع شود">
             <Lock size={12} />
-            <span>تنها ۱ پرسش در هر دور (Strict 1-Question Rule)</span>
+            <span>هر بار فقط ۱ سؤال (Strict 1-Question Rule)</span>
           </span>
           <span className="grilling-frontier-badge">
             <ShieldCheck size={12} />
-            <span>مرز تصمیم‌گیری (Decision Frontier)</span>
+            <span>جایی که باید تصمیم بگیریم (Decision Frontier)</span>
           </span>
         </div>
       </div>
@@ -60,10 +60,10 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
           <div className="panel-header">
             <div className="panel-header-title">
               <MessageSquare size={16} color="var(--color-surgical-blue)" />
-              <span>مصاحبه تک‌سوالی برای تثبیت مشخصات (Spec Watertight)</span>
+              <span>یک سؤال در هر نوبت تا Spec روشن شود</span>
             </div>
             <span className="interview-round-tag">
-              دور مصاحبه: {toPersianDigits(1)}
+              نوبت: {toPersianDigits(1)}
             </span>
           </div>
 
@@ -75,22 +75,22 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
                   <div className="avatar-box agent-avatar">
                     <Bot size={15} color="var(--color-surgical-blue)" />
                   </div>
-                  <strong className="sender-name">ایجنت هوشمند (Agent)</strong>
-                  <span className="sender-role-pill">طراح معماری</span>
+                  <strong className="sender-name">ایجنت (Agent)</strong>
+                  <span className="sender-role-pill">معماری</span>
                 </div>
                 <span className="chat-timestamp">پرسش شمارهٔ ۱</span>
               </div>
 
               <div className="chat-bubble-content">
                 <p className="question-lead">
-                  برای پیاده‌سازی کنترلر ارائه‌دهنده (Deck Engine)، آیا ناوبری باید{' '}
-                  <strong className="text-highlight">کاملاً دوطرفه (Reversible)</strong> باشد
-                  و با کلیدهای برگشت (<kbd>ArrowLeft</kbd> / <kbd>PageUp</kbd>) انیمیشن‌های
-                  میکرو را گام‌به‌گام معکوس کند، یا پرش مستقیم به اسلاید قبلی ترجیح داده می‌شود؟
+                  برای کنترلر ارائه (<span dir="ltr">Deck Engine</span>)، ناوبری را{' '}
+                  <strong className="text-highlight">دوطرفه و برگشت‌پذیر (Reversible)</strong>{' '}
+                  می‌خواهیم؟ یعنی با <kbd>ArrowLeft</kbd> یا <kbd>PageUp</kbd> هر انیمیشن
+                  قدم‌به‌قدم برگردد؛ یا یک‌باره به اسلاید قبل برویم؟
                 </p>
 
                 <div className="question-frontier-target">
-                  <span className="target-label">مرز تصمیم مورد نظر:</span>
+                  <span className="target-label">تصمیمی که باید روشن شود:</span>
                   <code dir="ltr">[currentSlide, stepIndex] State Machine</code>
                 </div>
               </div>
@@ -104,22 +104,21 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
                     <div className="avatar-box user-avatar">
                       <User size={15} color="var(--color-obsidian)" />
                     </div>
-                    <strong className="sender-name">مهندس توسعه‌دهنده (Human)</strong>
-                    <span className="sender-role-pill role-human">پاسخ‌دهنده</span>
+                    <strong className="sender-name">توسعه‌دهنده (Human)</strong>
+                    <span className="sender-role-pill role-human">پاسخ</span>
                   </div>
-                  <span className="chat-timestamp">تایید فرضیه</span>
+                  <span className="chat-timestamp">تأیید تصمیم</span>
                 </div>
 
                 <div className="chat-bubble-content">
                   <p className="answer-text">
-                    بله، دقیقاً دوطرفه و برگشت‌پذیر باشد. با فشردن <kbd>ArrowLeft</kbd> یا{' '}
-                    <kbd>PageUp</kbd> باید آخرین انیمیشن مرحله به عقب برگردد، و اگر در ابتدای
-                    اسلاید بودیم، به آخرین گام اسلاید پیشین بازگردیم تا وضعیت ارائه روی استیج هرگز
-                    مختل نشود.
+                    بله، دوطرفه و برگشت‌پذیر. با <kbd>ArrowLeft</kbd> یا <kbd>PageUp</kbd>{' '}
+                    باید آخرین انیمیشن یک قدم عقب برود. اگر ابتدای اسلاید بودیم، به آخرین گام
+                    اسلاید قبل برگردیم؛ این‌طوری جریان ارائه به‌هم نمی‌ریزد.
                   </p>
                   <div className="answer-meta-pill">
                     <Check size={13} color="var(--color-surgical-blue)" />
-                    <span>تایید شفاف نیازمندی بدون ابهام</span>
+                    <span>نیاز روشن شد</span>
                   </div>
                 </div>
               </div>
@@ -127,7 +126,7 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
               <div className="chat-placeholder-waiting">
                 <span className="waiting-spinner-dot" />
                 <span className="waiting-hint-text">
-                  در انتظار پاسخ توسعه‌دهنده... (کلید بعدی جهت افشای پاسخ)
+                  منتظر پاسخ توسعه‌دهنده… (برای دیدن پاسخ، مرحله بعد را بزنید)
                 </span>
               </div>
             )}
@@ -137,11 +136,11 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
               <div className="chat-bubble chat-bubble-settlement animate-fade-in">
                 <div className="settlement-header">
                   <CheckCircle2 size={16} color="#16a34a" />
-                  <strong>مرز تصمیم‌گیری تثبیت شد (Frontier Resolved)</strong>
+                  <strong>تصمیم روشن شد (Frontier Resolved)</strong>
                 </div>
                 <p className="settlement-text">
-                  تصمیم قطعی شد. رفتار دوطرفه در مشخصات فنی (<code dir="ltr">ADR 0004</code>)
-                  ثبت گردید. اکنون مسیر اجرای کد بدون ریسک دوباره‌کاری باز (Unblocked) است.
+                  رفتار دوطرفه را در مشخصات فنی (<code dir="ltr">ADR 0004</code>) ثبت کردیم.
+                  حالا می‌شود بدون حدس‌زدن و دوباره‌کاری سراغ کد رفت.
                 </p>
               </div>
             )}
@@ -153,10 +152,10 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
           <div className="panel-header">
             <div className="panel-header-title">
               <GitBranch size={16} color="var(--color-surgical-blue)" />
-              <span>درخت تصمیم‌گیری زنده (Decision Tree)</span>
+              <span>درخت تصمیم (Decision Tree)</span>
             </div>
             <span className={`tree-status-pill ${isSettled ? 'status-settled' : 'status-open'}`}>
-              {isSettled ? 'تثبیت‌شده ✓' : 'در حال سنجش...'}
+              {isSettled ? 'تثبیت شد ✓' : 'تصمیم باز است…'}
             </span>
           </div>
 
@@ -167,8 +166,8 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
                 <HelpCircle size={16} color="var(--color-surgical-blue)" />
               </div>
               <div className="node-content">
-                <span className="node-eyebrow">گره تصمیم شمارهٔ ۱</span>
-                <strong className="node-title">معماری ناوبری و ماشین وضعیت ارائه</strong>
+                <span className="node-eyebrow">تصمیم ۱</span>
+                <strong className="node-title">ناوبری و وضعیت ارائه</strong>
               </div>
             </div>
 
@@ -197,24 +196,24 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
                     ) : (
                       <Sparkles size={13} color="var(--color-surgical-blue)" />
                     )}
-                    <span>شاخه انتخابی: ماشین وضعیت دوطرفه</span>
+                    <span>راه انتخابی: وضعیت دوطرفه</span>
                   </div>
                   {isSettled && <span className="branch-resolved-badge">تثبیت‌شده ✓</span>}
                 </div>
 
                 <h4 className="branch-title">کنترلر برگشت‌پذیر (Reversible Steps)</h4>
                 <p className="branch-desc">
-                  نگه‌داشتن دقیق وضعیت، گام‌های خرد رو به عقب و جلوگیری از پرش ناگهانی روی صحنه
+                  وضعیت را نگه می‌داریم، مرحله‌ها را قدم‌به‌قدم عقب می‌بریم و روی صحنه ناگهان نمی‌پریم
                 </p>
 
                 <div className="branch-meta-items">
                   <div className="meta-item">
                     <span className="meta-dot dot-green" />
-                    <span>انطباق ۱۰۰٪ با نیاز ارائه‌دهنده</span>
+                    <span>با نیاز ارائه‌دهنده هم‌خوان است</span>
                   </div>
                   <div className="meta-item">
                     <span className="meta-dot dot-green" />
-                    <span>آزمون‌پذیری قطعی با TDD</span>
+                    <span>با TDD می‌شود تستش کرد</span>
                   </div>
                 </div>
               </div>
@@ -232,24 +231,24 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
                 <div className="branch-header">
                   <div className="branch-tag rejected-tag">
                     <XCircle size={13} color="var(--color-slate)" />
-                    <span>شاخه مردود: پرش ساده یک‌طرفه</span>
+                    <span>راه کنارگذاشته‌شده: پرش یک‌طرفه</span>
                   </div>
                   {isSettled && <span className="branch-pruned-badge">کنار گذاشته شد ✕</span>}
                 </div>
 
-                <h4 className="branch-title">پرش یک‌باره به اسلاید قبل</h4>
+                <h4 className="branch-title">یک‌باره برو به اسلاید قبل</h4>
                 <p className="branch-desc">
-                  فقدان حافظه برای گام‌های قبلی، شکنندگی در برابر اشتباهات کلیکر و سردرگمی مخاطب
+                  مرحله‌های قبلی یادش نمی‌ماند؛ با یک اشتباه کلیکر، ارائه و ذهن مخاطب به‌هم می‌ریزد
                 </p>
 
                 <div className="branch-meta-items">
                   <div className="meta-item">
                     <span className="meta-dot dot-gray" />
-                    <span>اصطکاک شدید روی استیج زنده</span>
+                    <span>روی صحنه دردسر می‌سازد</span>
                   </div>
                   <div className="meta-item">
                     <span className="meta-dot dot-gray" />
-                    <span>ریسک بازنویسی و اتلاف توکن</span>
+                    <span>احتمال بازنویسی و اتلاف توکن</span>
                   </div>
                 </div>
               </div>
@@ -259,12 +258,12 @@ export default function Slide3GrillingFrontier({ stepIndex = 0 }) {
           {/* Decision Tree Footer State */}
           <div className="tree-footer-bar">
             <div className="tree-outcome-info">
-              <span className="outcome-label">دستاورد گریلینگ:</span>
+              <span className="outcome-label">خروجی Grilling:</span>
               <strong className="outcome-val">
-                {isStep0 && 'طرح پرسش جراحی در مرز مبهم قبل از نوشتن کد'}
-                {isStep1 && 'تطابق مدل ذهنی توسعه‌دهنده با ایجنت'}
-                {isStep2 && 'حذف ۱۰۰٪ ابهام؛ مشخصات مهر و موم شد و آماده آزمون است'}
-                {isStep3 && 'شاخه قطعی در مشخصات مستند شد؛ کدنویسی با اطمینان کامل'}
+                {isStep0 && 'سؤال دقیق، درست روی ابهامِ قبل از کدنویسی'}
+                {isStep1 && 'ایجنت و توسعه‌دهنده از یک تصمیم حرف می‌زنند'}
+                {isStep2 && 'ابهام بسته شد؛ Spec آمادهٔ تست است'}
+                {isStep3 && 'تصمیم در مشخصات ثبت شد؛ حالا می‌شود کدنویسی را شروع کرد'}
               </strong>
             </div>
           </div>

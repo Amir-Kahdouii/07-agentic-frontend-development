@@ -20,41 +20,27 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
 
   return (
     <div
-      className={`paradigm-comparison-matrix step-${stepIndex} ${
-        isStep1 ? 'is-active-manual' : ''
-      } ${isStep2 ? 'is-active-agentic' : ''}`}
+      className={`paradigm-comparison-matrix step-${stepIndex} ${isStep1 ? 'is-active-manual' : ''
+        } ${isStep2 ? 'is-active-agentic' : ''}`}
       data-step={stepIndex}
     >
-      {/* Top Paradigm Indicator Bar */}
-      <div className="paradigm-header-bar">
-        <div className="paradigm-header-meta">
-          <ArrowLeftRight size={18} color="var(--color-surgical-blue)" />
-          <span className="paradigm-header-title">مقایسه دو پارادایم توسعه فرانت‌اند</span>
-        </div>
-        <div className="paradigm-step-badge">
-          {isStep0 && 'گام ۰: تبیین دوراهی پیش رو'}
-          {isStep1 && 'گام ۱: اصطکاک و تله‌های پرامپت دستی'}
-          {isStep2 && 'گام ۲: راهکار پایدار مهندسی ایجنت‌محور'}
-        </div>
-      </div>
 
       {/* Side-by-Side Comparison Container */}
       <div className="paradigm-cards-grid">
         {/* Card 1: Fragile Manual Prompting */}
         <div
-          className={`comparison-card manual-prompting-card ${
-            isStep1 ? 'highlight-manual is-spotlight' : ''
-          } ${isStep2 ? 'is-subdued' : ''}`}
+          className={`comparison-card manual-prompting-card ${isStep1 ? 'highlight-manual is-spotlight' : ''
+            } ${isStep2 ? 'is-subdued' : ''}`}
         >
           <div className="card-header">
             <div className="badge-wrapper">
               <span className="card-badge badge-manual">
                 <Flame size={14} />
-                <span>پرامپت تصادفی (Prompt & Pray)</span>
+                <span>پرامپت نویسی سنتی (Prompt Engineering)</span>
               </span>
             </div>
             <h3 className="card-title">توسعهٔ شانسی و ناپایدار</h3>
-            <p className="card-tagline">درخواست‌های طولانی، بدون ابزار تخصصی و فاقد آزمون</p>
+            <p className="card-tagline">درخواست‌های طولانی، بدون ابزار تخصصی و بدون تست</p>
           </div>
 
           <div className="friction-points-list">
@@ -63,8 +49,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <XCircle size={18} className="text-danger" />
               </div>
               <div className="point-content">
-                <strong className="point-label">توهم و خطای معماری</strong>
-                <p className="point-desc">نادیده گرفتن الگوهای پروژه و تولید کدهای منسوخ یا نامعتبر</p>
+                <strong className="point-label">Hallucination</strong>
+                <p className="point-desc">توسعه بدون درک جزئیات و توهم زدن مدل در تصمیم گیری</p>
               </div>
             </div>
 
@@ -74,7 +60,7 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
               </div>
               <div className="point-content">
                 <strong className="point-label">اتلاف توکن و فراموشی بافت</strong>
-                <p className="point-desc">بازنویسی مداوم کل فایل‌ها به جای ویرایش جراحی و دقیق</p>
+                <p className="point-desc">بازنویسی مداوم کل فایل‌ها به جای ویرایش جزئی و دقیق</p>
               </div>
             </div>
 
@@ -83,8 +69,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <AlertTriangle size={18} className="text-danger" />
               </div>
               <div className="point-content">
-                <strong className="point-label">کد تست‌نشده و شکست کامیت</strong>
-                <p className="point-desc">فقدان گیت‌های خودکار ارزیابی و بروز خطاهای پنهان در اجرا</p>
+                <strong className="point-label">توسعه بدون تست</strong>
+                <p className="point-desc">موجب اشتباهات در طراحی UI و کامپوننت ها میشود.</p>
               </div>
             </div>
 
@@ -93,8 +79,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <Flame size={18} className="text-danger" />
               </div>
               <div className="point-content">
-                <strong className="point-label">شکنندگی و عدم تکرارپذیری</strong>
-                <p className="point-desc">وابستگی ۱۰۰٪ به فرمول پرامپت و ناتوانی در انتقال به تیم</p>
+                <strong className="point-label">عدم تکرارپذیری</strong>
+                <p className="point-desc">ممکن است نتوانید متد توسعه را در تیم یا به صورت شخصی تکرار کنید.</p>
               </div>
             </div>
           </div>
@@ -106,19 +92,18 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
 
         {/* Card 2: Structured Agentic Workflow */}
         <div
-          className={`comparison-card agentic-workflow-card ${
-            isStep2 ? 'highlight-agentic is-spotlight' : ''
-          } ${isStep0 ? 'is-waiting' : ''} ${isStep1 ? 'is-muted-preview' : ''}`}
+          className={`comparison-card agentic-workflow-card ${isStep2 ? 'highlight-agentic is-spotlight' : ''
+            } ${isStep0 ? 'is-waiting' : ''} ${isStep1 ? 'is-muted-preview' : ''}`}
         >
           <div className="card-header">
             <div className="badge-wrapper">
               <span className="card-badge badge-agentic">
                 <Sparkles size={14} />
-                <span>مهندسی ایجنت‌محور (Agentic Workflow)</span>
+                <span>کار با ایجنت (Agentic Workflow)</span>
               </span>
             </div>
-            <h3 className="card-title">خط لولهٔ قطعی و سیستماتیک</h3>
-            <p className="card-tagline">مهارت‌های کپسوله‌شده، آزمون پیش‌دستانه و استانداردهای سخت‌گیرانه</p>
+            <h3 className="card-title">یک مسیر روشن برای توسعه</h3>
+            <p className="card-tagline">مهارت، سؤال، تست و بازبینی؛ به‌جای حدس‌زدن در هر قدم</p>
           </div>
 
           <div className="friction-points-list">
@@ -127,8 +112,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <Layers size={18} className="text-success" />
               </div>
               <div className="point-content">
-                <strong className="point-label">مهارت‌های تخصصی (Skills)</strong>
-                <p className="point-desc">هدایت ایجنت با دستورالعمل‌های رسمی و استاندارد مخزن</p>
+                <strong className="point-label">مهارت‌های آمادهٔ استفاده (Skills)</strong>
+                <p className="point-desc">ایجنت با راهنمای روشن و قواعد همان پروژه جلو می‌رود.</p>
               </div>
             </div>
 
@@ -137,8 +122,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <ShieldCheck size={18} className="text-success" />
               </div>
               <div className="point-content">
-                <strong className="point-label">گیت‌های اعتبارسنجی کیفی (TDD)</strong>
-                <p className="point-desc">سنجش خودکار رفتار کد و جلوگیری از ورود خطاهای رگرسیون</p>
+                <strong className="point-label">تست از همان اول (TDD)</strong>
+                <p className="point-desc">رفتار کد را زود می‌سنجیم تا خطاها پیش از رگرسیون دیده شوند.</p>
               </div>
             </div>
 
@@ -147,8 +132,8 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <Zap size={18} className="text-success" />
               </div>
               <div className="point-content">
-                <strong className="point-label">مصاحبه Grilling پیش از اجرا</strong>
-                <p className="point-desc">تثبیت ۱۰۰٪ مرز تصمیم‌گیری قبل از نوشتن حتی یک خط کد</p>
+                <strong className="point-label">سؤال‌های درست پیش از اجرا (Grilling)</strong>
+                <p className="point-desc">قبل از کدنویسی، ابهام‌های تصمیم را یکی‌یکی روشن می‌کنیم.</p>
               </div>
             </div>
 
@@ -157,14 +142,14 @@ export default function Slide1ParadigmShift({ stepIndex = 0 }) {
                 <CheckCircle2 size={18} className="text-success" />
               </div>
               <div className="point-content">
-                <strong className="point-label">بازتولیدپذیری قطعی و خودکار</strong>
-                <p className="point-desc">توسعه قابل اتکا، همسو با استاندارد شرکت و یکپارچه در مخزن</p>
+                <strong className="point-label">روشی که می‌شود تکرارش کرد</strong>
+                <p className="point-desc">تیم می‌تواند همان مسیر را با قواعد مشترک در مخزن ادامه دهد.</p>
               </div>
             </div>
           </div>
 
           <div className="card-footer-status status-success">
-            <span>نتیجه: کد تمیز، آماده برای استقرار و بازبینی شفاف</span>
+            <span>نتیجه: کد تمیزتر، بازبینی روشن‌تر و مسیر آماده‌تر برای استقرار</span>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ letter-spacing: 0;`;
         <div className="transformation-title-wrap">
           <Sparkles size={18} color="var(--color-surgical-blue)" />
           <strong className="transformation-heading">
-            تبدیل بصری: از خروجی خام و کلیشه‌ای هوش مصنوعی به طراحی در کلاس جهانی
+            از خروجی پیش‌فرض AI تا طراحی با هویت
           </strong>
         </div>
 
@@ -73,30 +73,30 @@ letter-spacing: 0;`;
             type="button"
             className={`mode-toggle-btn ${currentMode === 'before' ? 'is-active' : ''}`}
             onClick={() => setActiveMode('before')}
-            title="مشاهده دیفالت هوش مصنوعی"
+            title="دیدن خروجی پیش‌فرض AI"
           >
             <AlertTriangle size={13} color="#e11d48" />
-            <span>خروجی خام و کلیشه‌ای (Generic AI)</span>
+            <span>خروجی پیش‌فرض AI (Generic AI)</span>
           </button>
 
           <button
             type="button"
             className={`mode-toggle-btn ${currentMode === 'compare' ? 'is-active' : ''}`}
             onClick={() => setActiveMode('compare')}
-            title="نمای مقایسه دوگانه"
+            title="دیدن دو خروجی کنار هم"
           >
             <Sliders size={13} color="var(--color-surgical-blue)" />
-            <span>مقایسه دوگانه (Side-by-Side)</span>
+            <span>مقایسه (Side-by-Side)</span>
           </button>
 
           <button
             type="button"
             className={`mode-toggle-btn ${currentMode === 'after' ? 'is-active' : ''}`}
             onClick={() => setActiveMode('after')}
-            title="مشاهده طراحی مهندسی‌شده با Letters"
+            title="دیدن طراحی Letters"
           >
             <CheckCircle2 size={13} color="#16a34a" />
-            <span>طراحی Letters (High-Craft)</span>
+            <span>طراحی Letters</span>
           </button>
         </div>
       </div>
@@ -112,7 +112,7 @@ letter-spacing: 0;`;
           >
             <div className="card-critique-badge">
               <AlertTriangle size={14} color="#e11d48" />
-              <span>دیفالت هوش مصنوعی: کلیشه‌های تکراری (Clichés)</span>
+              <span>خروجی پیش‌فرض AI؛ چند الگوی تکراری</span>
             </div>
 
             {/* Simulated Unstyled / AI Cliché Component */}
@@ -143,16 +143,16 @@ letter-spacing: 0;`;
             {/* Critique Flaws Callouts */}
             <div className="critique-flaws-list">
               <span className="flaw-pill">
-                <strong>سایه‌های کدر:</strong> سایه سنگین سیاه و خاکستری تیره (rgba 0,0,0,0.3)
+                <strong>سایه‌های کدر:</strong> سایه‌های سنگین و تیره
               </span>
               <span className="flaw-pill">
-                <strong>گرادیانت:</strong> پس‌زمینه رنگین‌کمانی یا بنفش ارغوانی کلیشه‌ای
+                <strong>گرادیانت:</strong> بنفش و رنگین‌کمانیِ تکراری
               </span>
               <span className="flaw-pill">
-                <strong>فونت دیفالت:</strong> فونت سیستمی لاتین با اعداد انگلیسی و خطوط نامتقارن
+                <strong>فونت پیش‌فرض:</strong> فونت لاتین، اعداد انگلیسی و چینش نامرتب
               </span>
               <span className="flaw-pill">
-                <strong>کارت‌های یکنواخت:</strong> تقسیم‌بندی صلب بدون سلسله‌مراتب بصری مشخص
+                <strong>کارت‌های شبیه‌هم:</strong> بدون اولویت بصری روشن
               </span>
             </div>
           </div>
@@ -167,7 +167,7 @@ letter-spacing: 0;`;
           >
             <div className="card-craft-badge">
               <CheckCircle2 size={14} color="#16a34a" />
-              <span>اجرای دقیق با مهارت Frontend-Design و DESIGN.md</span>
+              <span>با skill Frontend-Design و DESIGN.md</span>
             </div>
 
             {/* Pristine Letters-styled Interactive Component */}
@@ -189,16 +189,16 @@ letter-spacing: 0;`;
                     +{toPersianDigits(interactiveCounter)}٪
                   </div>
                   <div className="letters-stat-details">
-                    <span className="letters-stat-badge">رشد بهینه‌سازی</span>
-                    <span className="letters-stat-sub">
-                      تطابق ۱۰۰٪ با متغیرهای <code dir="ltr">DESIGN.md</code>
+                  <span className="letters-stat-badge">یک نمونهٔ بهینه‌سازی</span>
+                  <span className="letters-stat-sub">
+                      هماهنگ با متغیرهای <code dir="ltr">DESIGN.md</code>
                     </span>
                   </div>
                 </div>
 
-                <h4 className="letters-card-title">معماری مبتنی بر توکن و زیبایی‌شناسی عمیق</h4>
+                <h4 className="letters-card-title">یک کارت ساده، با قواعد روشن</h4>
                 <p className="letters-card-desc">
-                  استفاده هدفمند از رنگ ابسیدین (<code dir="ltr">#070709</code>)، آبی جراحی (<code dir="ltr">#2597d0</code>)، گوشه‌های ۱۸px و فونت وزیرمتن با رعایت سخت‌گیرانه <code dir="ltr">letter-spacing: 0</code>.
+                  رنگ‌های پایه، گوشهٔ <code dir="ltr">18px</code> و وزیرمتن با <code dir="ltr">letter-spacing: 0</code> را آگاهانه استفاده می‌کنیم.
                 </p>
 
                 {/* Interactive Micro-Interaction Area */}
@@ -209,10 +209,10 @@ letter-spacing: 0;`;
                     onClick={() =>
                       setInteractiveCounter((prev) => (prev >= 99 ? 85 : prev + 1))
                     }
-                    title="تست میکروتعامل و انیمیشن روان"
+                    title="امتحان تعامل"
                   >
                     <Zap size={13} color="var(--color-surgical-blue)" />
-                    <span>آزمایش میکروتعامل (+۱٪)</span>
+                    <span>امتحان تعامل (+۱٪)</span>
                   </button>
 
                   <button
@@ -231,16 +231,16 @@ letter-spacing: 0;`;
             {/* Craft Merits Callouts */}
             <div className="craft-merits-list">
               <span className="merit-pill">
-                <strong>پالت دقیق Letters:</strong> زمینه سفید پاک، متن ابسیدین و تأکید جراحی (<code dir="ltr">#2597d0</code>)
+                <strong>پالت Letters:</strong> سفید، ابسیدین و یک آبی برای تأکید (<code dir="ltr">#2597d0</code>)
               </span>
               <span className="merit-pill">
-                <strong>تایپوگرافی بومی:</strong> فونت وزیرمتن، ارقام فارسی بومی و <code dir="ltr">letter-spacing: 0</code>
+                <strong>تایپوگرافی فارسی:</strong> وزیرمتن، اعداد فارسی و <code dir="ltr">letter-spacing: 0</code>
               </span>
               <span className="merit-pill">
-                <strong>هندسه و سایه:</strong> شعاع گوشه ۱۸px (<code dir="ltr">--radius-card</code>) با ته‌رنگ آسمانی
+                <strong>گوشه و سایه:</strong> شعاع <code dir="ltr">18px</code> و سایهٔ ملایم
               </span>
               <span className="merit-pill">
-                <strong>میکروتعاملات زنده:</strong> انیمیشن‌های روان و معنی‌دار به جای ترنزیشن‌های تکراری
+                <strong>تعامل‌های کوچک:</strong> انیمیشن برای بازخورد، نه تزئین
               </span>
             </div>
           </div>
@@ -254,9 +254,9 @@ letter-spacing: 0;`;
             <CheckCircle2 size={18} color="#16a34a" />
           </div>
           <div className="summary-body-text">
-            <strong className="summary-title">تضمین کیفیت خروجی مهارت frontend-design:</strong>
+            <strong className="summary-title">خروجی skill Frontend-Design:</strong>
             <p className="summary-p">
-              با تزریق فایل DESIGN.md و فراخوانی مهارت frontend-design، ایجنت به یک طراح ارشد با سلیقه متمایز تبدیل می‌شود که از پیش‌فرض‌های خام هوش مصنوعی فاصله گرفته و کدی درخور تولید تحویل می‌دهد.
+              <code dir="ltr">DESIGN.md</code> قواعد را مشخص می‌کند. skill Frontend-Design کمک می‌کند ایجنت همان قواعد را در UI اجرا کند و از ظاهرهای پیش‌فرض فاصله بگیرد.
             </p>
           </div>
         </div>

@@ -2274,6 +2274,13 @@ body {
   font-weight: 600;
 }
 
+.mcp-protocol-panel .step-tag-badge {
+  min-width: 8.75rem;
+  flex: 0 0 auto;
+  text-align: center;
+  white-space: nowrap;
+}
+
 .component-badge-letters {
   font-size: 0.6875rem;
   padding: 0.2rem 0.55rem;
@@ -4233,5 +4240,4 @@ code {
     min-height: 44px;
   }
 }
-
 

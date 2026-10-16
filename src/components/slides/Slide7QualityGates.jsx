@@ -25,20 +25,20 @@ const GATES_DATA = [
   {
     id: 'standards',
     gateNumber: 1,
-    title: 'گیت ۱: انطباق با استانداردها (Standards Verification)',
+    title: 'چک ۱: استانداردهای پروژه (Standards)',
     agent: 'code-review',
     agentRole: 'ایجنت تخصصی بازبینی استانداردهای معماری و قواعد مخزن',
     description:
-      'بررسی پایبندی کد به توکن‌های DESIGN.md، ماژول‌های عمیق، ساختار منطقی RTL و پرهیز از تایپ‌کست‌های ناامن.',
+      'می‌بینیم کد با DESIGN.md، قواعد RTL و ساختار پروژه هماهنگ است.',
     metrics: [
-      { label: 'پایبندی به معماری', value: '۱۰۰٪' },
+      { label: 'هم‌خوانی با قواعد', value: '۱۰۰٪' },
       { label: 'خطاهای استاتیک', value: '۰ خطا' },
-      { label: 'زمان پردازش ایجنت', value: '۰٫۸ ثانیه' },
+      { label: 'زمان بررسی', value: '۰٫۸ ثانیه' },
     ],
     checks: [
-      'تطابق کامل رنگ‌ها و فواصل با توکن‌های پالت Letters',
-      'به‌کارگیری خصوصیات منطقی CSS جهت راست‌به‌چپ بومی',
-      'فقدان کست‌های غیراستاندارد TypeScript و عدم تخریب اینترفیس‌ها',
+      'رنگ‌ها و فاصله‌ها با توکن‌های Letters یکی هستند',
+      'CSS با خصوصیت‌های منطقی RTL نوشته شده',
+      'TypeScript کست ناامن ندارد و اینترفیس‌ها سالم مانده‌اند',
     ],
     logOutput: `[code-review agent] Standards audit passed cleanly:
   ✔ No arbitrary hardcoded color hex values found
@@ -49,20 +49,20 @@ const GATES_DATA = [
   {
     id: 'spec',
     gateNumber: 2,
-    title: 'گیت ۲: تطابق کامل با مشخصات (Spec Verification)',
+    title: 'چک ۲: آیا با Spec می‌خواند؟',
     agent: 'spec-review',
     agentRole: 'ایجنت تخصصی تطابق خط به خط کدهای توسعه‌یافته با تیکت و مشخصات',
     description:
-      'ارزیابی و انطباق خروجی نهایی با موارد مندرج در تیکت‌های .scratch/ و آزمون‌های TDD از پیش طراحی‌شده.',
+      'خروجی را با تیکت‌های .scratch/ و تست‌های TDD کنار هم می‌گذاریم.',
     metrics: [
-      { label: 'معیارهای برآورده‌شده', value: '۵ از ۵' },
-      { label: 'پوشش آزمون‌های TDD', value: '۱۰۰٪' },
-      { label: 'انطباق با رفتار کاربر', value: 'تأیید کامل' },
+      { label: 'معیارهای پاس‌شده', value: '۵ از ۵' },
+      { label: 'پوشش TDD', value: '۱۰۰٪' },
+      { label: 'رفتار مورد انتظار', value: 'تأیید شد' },
     ],
     checks: [
-      'پیاده‌سازی دقیق تمامی گام‌های افشای تدریجی (Build Steps)',
-      'پوشش کامل حالات مرزی (Edge Cases) و ناوبری دوطرفه برگشت‌پذیر',
-      'پاس شدن بی‌قیدوشرط تمام تست‌های سوئیت یکپارچه‌سازی',
+      'همهٔ گام‌های نمایش (Build Steps) اجرا شده‌اند',
+      'حالت‌های مرزی و ناوبری دوطرفه پوشش دارند',
+      'تست‌های یکپارچه پاس شده‌اند',
     ],
     logOutput: `[spec-review agent] Spec checklist verification:
   ✔ Issue criteria 5/5 verified against spec.md
@@ -73,20 +73,20 @@ const GATES_DATA = [
   {
     id: 'responsive',
     gateNumber: 3,
-    title: 'گیت ۳: آزمون ریسپانسیو و پایش بصری (Cross-Device Audit)',
+    title: 'چک ۳: روی صفحه‌های مختلف',
     agent: 'responsive-audit',
     agentRole: 'ایجنت تخصصی راستی‌آزمایی در ویوپورت‌های استاندارد موبایل و دسکتاپ',
     description:
-      'آزمون رندرینگ در عرض‌های ۳۷۵px (موبایل)، ۷۶۸px (تبلت) و ۱۴۴۰px (دسکتاپ) بدون پرش چیدمان و با تایپوگرافی دقیق.',
+      'خروجی را در ۳۷۵px، ۷۶۸px و ۱۴۴۰px می‌بینیم؛ دنبال به‌هم‌ریختگی یا متن ناخوانا می‌گردیم.',
     metrics: [
-      { label: 'تعداد نماهای بررسی‌شده', value: '۳ ویوپورت' },
-      { label: 'تغییر ناخواسته چیدمان (CLS)', value: '۰٫۰۰' },
-      { label: 'تایپوگرافی وزیرمتن', value: 'فاصله صفر' },
+      { label: 'اندازه‌های بررسی‌شده', value: '۳ ویوپورت' },
+      { label: 'پرش چیدمان (CLS)', value: '۰٫۰۰' },
+      { label: 'وزیرمتن', value: 'فاصله‌حروف صفر' },
     ],
     checks: [
-      'موبایل (۳۷۵px): چیدمان تک‌ستونه روان با اسکرول ارگونومیک',
-      'تبلت (۷۶۸px): سازمان‌دهی انعطاف‌پذیر پنل‌ها و ابعاد لمسی بهینه',
-      'دسکتاپ (۱۴۴۰px): نمایش کامل ماتریس اطلاعات با نهایت تعادل بصری',
+      'موبایل (۳۷۵px): تک‌ستونه و قابل اسکرول',
+      'تبلت (۷۶۸px): پنل‌ها و هدف‌های لمسی جا می‌شوند',
+      'دسکتاپ (۱۴۴۰px): اطلاعات کامل و خوانا می‌مانند',
     ],
     logOutput: `[responsive-audit agent] Viewport matrix simulation:
   ✔ Mobile (375px): 1-column fluid flow, 0 layout shifts, touch targets > 44px
@@ -143,10 +143,10 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
           <ShieldCheck size={20} color="var(--color-surgical-blue)" />
           <div className="qa-header-text">
             <h3 className="qa-main-heading">
-              شبکهٔ ارزیابی موازی ایجنت‌ها (Parallel Sub-Agent Quality Gates)
+              سه چک آخر، قبل از کامیت
             </h3>
             <p className="qa-sub-heading">
-              قبل از هر کامیت نهایی، سه گیت اعتبارسنجی مستقل به‌صورت خودکار اجرا می‌شوند
+              قبل از کامیت، کد را از نظر قواعد پروژه، Spec و نمایش بررسی می‌کنیم.
             </p>
           </div>
         </div>
@@ -156,7 +156,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
             type="button"
             className="copy-report-btn"
             onClick={handleCopyReport}
-            title="کپی گزارش کیفی"
+            title="کپی گزارش"
           >
             {copiedLog ? (
               <>
@@ -166,7 +166,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
             ) : (
               <>
                 <Copy size={14} />
-                <span className="copy-label">کپی گزارش کیفی</span>
+                <span className="copy-label">کپی گزارش</span>
               </>
             )}
           </button>
@@ -178,7 +178,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
               <span className={`qa-dot ${isGate3Passed ? 'is-passed' : 'is-pending'}`} />
             </span>
             <span className="qa-progress-text">
-              {toPersianDigits(passedCount)} از ۳ گیت تأیید شده
+              {toPersianDigits(passedCount)} از ۳ چک انجام شد
             </span>
           </div>
         </div>
@@ -208,16 +208,16 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
                 {/* Gate Status Icon */}
                 <div className="gate-status-col">
                   {isPassed ? (
-                    <div className="gate-icon-badge passed" title="گیت با موفقیت تأیید شد">
+                    <div className="gate-icon-badge passed" title="چک انجام شد">
                       <CheckCircle2 size={20} color="#10b981" />
                     </div>
                   ) : (
-                    <div className="gate-icon-badge pending" title="در انتظار بررسی ایجنت">
+                    <div className="gate-icon-badge pending" title="منتظر بررسی">
                       <Clock size={18} color="#f59e0b" />
                     </div>
                   )}
                   <span className="gate-number-tag">
-                    گام {toPersianDigits(gate.gateNumber)}
+                    چک {toPersianDigits(gate.gateNumber)}
                   </span>
                 </div>
 
@@ -268,12 +268,12 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
                     {isPassed ? (
                       <>
                         <CheckCheck size={14} />
-                        <span>تأیید شد (Passed)</span>
+                        <span>انجام شد</span>
                       </>
                     ) : (
                       <>
                         <Clock size={14} />
-                        <span>در انتظار اجرا</span>
+                        <span>در نوبت اجرا</span>
                       </>
                     )}
                   </div>
@@ -281,7 +281,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
                   <button
                     type="button"
                     className="toggle-log-btn"
-                    aria-label="مشاهده لاگ ارزیابی ایجنت"
+                    aria-label="دیدن لاگ ایجنت"
                   >
                     {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
@@ -292,7 +292,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
               {isExpanded && (
                 <div className="gate-expanded-details">
                   <div className="gate-checks-list">
-                    <strong className="checks-heading">موارد بررسی‌شده توسط ایجنت:</strong>
+                    <strong className="checks-heading">چیزهایی که چک شد:</strong>
                     <ul>
                       {gate.checks.map((check, cIdx) => (
                         <li key={cIdx} className="check-item">
@@ -305,7 +305,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
 
                   <div className="gate-log-terminal">
                     <div className="terminal-header">
-                      <span className="terminal-title">خروجی کنسول ایجنت {gate.agent}</span>
+                      <span className="terminal-title">خروجی ایجنت {gate.agent}</span>
                       <span className="terminal-badge">JSON-RPC / CLI Output</span>
                     </div>
                     <pre className="terminal-code">
@@ -332,13 +332,13 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
         <div className="verdict-content">
           <h4 className="verdict-title">
             {allPassed
-              ? 'تأیید نهایی خط لوله: آمادهٔ ادغام و استقرار (Pipeline Passed / Ready to Merge)'
-              : 'خط لوله کنترل کیفی در حال پردازش گیت‌های موازی'}
+              ? 'سه چک انجام شد؛ آمادهٔ merge'
+              : 'چک‌ها هنوز کامل نشده‌اند'}
           </h4>
           <p className="verdict-desc">
             {allPassed
-              ? 'تمامی ۳ گیت اعتبارسنجی (استانداردها، مشخصات و واکنش‌گرایی) با موفقیت پاس شدند. محصول عاری از خطا و آماده ارسال به پروداکشن است.'
-              : `در حال حاضر ${toPersianDigits(passedCount)} از ۳ گیت اعتبارسنجی تکمیل شده است. با زدن کلید جهت‌نمای راست یا Space گیت بعدی را ارزیابی کنید.`}
+              ? 'قواعد پروژه، Spec و نمایش در اندازه‌های مختلف بررسی شده‌اند. حالا می‌شود با خیال روشن‌تری merge و deploy کرد.'
+              : `فعلاً ${toPersianDigits(passedCount)} از ۳ چک انجام شده. با ArrowRight یا Space چک بعدی را ببین.`}
           </p>
         </div>
 
@@ -346,7 +346,7 @@ Pipeline Verdict: ${allPassed ? 'READY TO MERGE & DEPLOY' : 'IN PROGRESS'}`;
           {allPassed ? (
             <span className="verdict-tag passed">
               <Sparkles size={14} />
-              <span>آمادهٔ ادغام در main</span>
+              <span>آمادهٔ merge در main</span>
             </span>
           ) : (
             <span className="verdict-tag progress">

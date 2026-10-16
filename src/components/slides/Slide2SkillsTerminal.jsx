@@ -69,7 +69,7 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
               <span className="term-prompt">agent@workstation:~$</span>
               <span className="term-cursor" />
               <span className="term-hint" dir="rtl">
-                👈 جهت اجرای اولین دستور و افزودن مهارت‌ها، کلید «مرحله بعد» (یا جهت‌نما) را بزنید
+                برای اجرای اولین دستور و اضافه‌کردن skillها، «مرحله بعد» یا جهت‌نما را بزنید
               </span>
             </div>
           )}
@@ -168,7 +168,7 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
           <div className="badge-header-info">
             <Package size={16} color="var(--color-surgical-blue)" />
             <h4 className="badge-header-title">
-              مهارت‌های نصب‌شده در پروژه ({toPersianDigits(4)} مهارت استاندارد)
+              skillهای نصب‌شده در پروژه ({toPersianDigits(4)} skill آماده)
             </h4>
           </div>
           <span className="skills-path-pill" dir="ltr">
@@ -187,8 +187,8 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
                 tdd
               </span>
             </div>
-            <strong className="skill-label">توسعه مبتنی بر آزمون</strong>
-            <p className="skill-keyword">چرخه Red-Green-Refactor، گیت اعتبارسنجی پیش از کامیت</p>
+            <strong className="skill-label">توسعه با تست</strong>
+            <p className="skill-keyword">چرخهٔ Red-Green-Refactor؛ چک پیش از کامیت</p>
           </div>
 
           {/* Badge 2: Code Review */}
@@ -201,8 +201,8 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
                 code-review
               </span>
             </div>
-            <strong className="skill-label">بازبینی دومرحله‌ای</strong>
-            <p className="skill-keyword">سنجش استانداردها (Standards) و انطباق مشخصات (Spec)</p>
+            <strong className="skill-label">بازبینی در دو نگاه</strong>
+            <p className="skill-keyword">هم استانداردها را می‌سنجیم، هم تطابق با Spec را</p>
           </div>
 
           {/* Badge 3: Grilling */}
@@ -215,8 +215,8 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
                 grilling
               </span>
             </div>
-            <strong className="skill-label">مصاحبه تصمیم‌گیری</strong>
-            <p className="skill-keyword">پرسش تک‌سوالی برای تثبیت مرز تصمیم قبل از تولید کد</p>
+            <strong className="skill-label">روشن‌کردن تصمیم پیش از کد</strong>
+            <p className="skill-keyword">هر بار یک سؤال تا مرز تصمیم شفاف شود</p>
           </div>
 
           {/* Badge 4: Frontend Design */}
@@ -229,8 +229,8 @@ export default function Slide2SkillsTerminal({ stepIndex = 0 }) {
                 frontend-design
               </span>
             </div>
-            <strong className="skill-label">طراحی متمایز بصری</strong>
-            <p className="skill-keyword">اجتناب از قالب‌های کلیشه‌ای هوش مصنوعی و ارتقای حس پرمیوم</p>
+            <strong className="skill-label">طراحی با هویت</strong>
+            <p className="skill-keyword">فاصله‌گرفتن از ظاهر تکراری AI و ساختن خروجی پخته‌تر</p>
           </div>
         </div>
       </div>

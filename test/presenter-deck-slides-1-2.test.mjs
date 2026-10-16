@@ -19,19 +19,19 @@ test('03: Slide 1 Hero Artifact - Component Structure & Paradigm Comparison', ()
   // Badges: red/warning for manual and surgical blue for agentic
   assert.ok(content.includes('badge-manual'), 'badge-manual class must exist');
   assert.ok(content.includes('badge-agentic'), 'badge-agentic class must exist');
-  assert.ok(content.includes('پرامپت تصادفی (Prompt & Pray)'), 'Must include manual prompt badge title');
-  assert.ok(content.includes('مهندسی ایجنت‌محور (Agentic Workflow)'), 'Must include agentic workflow badge title');
+  assert.ok(content.includes('پرامپت نویسی سنتی (Prompt Engineering)'), 'Must include manual prompt badge title');
+  assert.ok(content.includes('کار با ایجنت (Agentic Workflow)'), 'Must include agentic workflow badge title');
 
   // Friction points vs Structured pillars
-  assert.ok(content.includes('توهم و خطای معماری'), 'Must mention hallucinations/architecture error');
+  assert.ok(content.includes('Hallucination'), 'Must mention hallucinations/architecture error');
   assert.ok(content.includes('اتلاف توکن و فراموشی بافت'), 'Must mention token waste/context decay');
-  assert.ok(content.includes('کد تست‌نشده و شکست کامیت'), 'Must mention untested code/commit failures');
-  assert.ok(content.includes('شکنندگی و عدم تکرارپذیری'), 'Must mention fragility/non-repeatability');
+  assert.ok(content.includes('توسعه بدون تست'), 'Must mention untested code/commit failures');
+  assert.ok(content.includes('عدم تکرارپذیری'), 'Must mention fragility/non-repeatability');
 
-  assert.ok(content.includes('مهارت‌های تخصصی (Skills)'), 'Must mention specialized skills');
-  assert.ok(content.includes('گیت‌های اعتبارسنجی کیفی (TDD)'), 'Must mention TDD quality gates');
-  assert.ok(content.includes('مصاحبه Grilling پیش از اجرا'), 'Must mention Grilling interview');
-  assert.ok(content.includes('بازتولیدپذیری قطعی و خودکار'), 'Must mention deterministic reproducibility');
+  assert.ok(content.includes('مهارت‌های آمادهٔ استفاده (Skills)'), 'Must mention specialized skills');
+  assert.ok(content.includes('تست از همان اول (TDD)'), 'Must mention TDD quality gates');
+  assert.ok(content.includes('سؤال‌های درست پیش از اجرا (Grilling)'), 'Must mention Grilling interview');
+  assert.ok(content.includes('روشی که می‌شود تکرارش کرد'), 'Must mention deterministic reproducibility');
 
   // Build steps progressive disclosure
   assert.ok(content.includes('is-active-manual'), 'Must support step 1 active manual styling');

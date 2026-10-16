@@ -24,8 +24,8 @@ const MCP_TOOLS = [
   {
     id: 'search_registry',
     name: 'search_registry',
-    label: 'جستجوی رجیستری',
-    description: 'یافتن کامپوننت‌های بومی راست‌به‌چپ بر اساس دسته‌بندی و برچسب',
+    label: 'جست‌وجو در رجیستری',
+    description: 'کامپوننت‌های RTL را با دسته و برچسب پیدا می‌کند.',
     request: {
       jsonrpc: '2.0',
       method: 'tools/call',
@@ -53,8 +53,8 @@ const MCP_TOOLS = [
   {
     id: 'get_component',
     name: 'get_component',
-    label: 'دریافت سورس کامپوننت',
-    description: 'واکشی کدهای تمیز JSX/CSS کامپوننت جهت تزریق مستقیم به پروژه',
+    label: 'گرفتن کد کامپوننت',
+    description: 'JSX و CSS کامپوننت را برای استفاده مستقیم در پروژه می‌گیرد.',
     request: {
       jsonrpc: '2.0',
       method: 'tools/call',
@@ -76,8 +76,8 @@ const MCP_TOOLS = [
   {
     id: 'get_design_rules',
     name: 'get_design_rules',
-    label: 'دریافت قوانین طراحی',
-    description: 'دریافت توکن‌ها، قوانین تایپوگرافی فارسی و ساختار منطقی RTL',
+    label: 'گرفتن قواعد طراحی',
+    description: 'توکن‌ها، تایپوگرافی فارسی و قواعد RTL را می‌گیرد.',
     request: {
       jsonrpc: '2.0',
       method: 'tools/call',
@@ -102,8 +102,8 @@ const MCP_TOOLS = [
   {
     id: 'scaffold_page',
     name: 'scaffold_page',
-    label: 'اسکلت‌بندی صفحه',
-    description: 'تولید ساختار اولیه صفحه منطبق بر استانداردهای فرانت‌اند فارسی',
+    label: 'ساختن اسکلت صفحه',
+    description: 'یک صفحهٔ شروع، هماهنگ با فرانت‌اند فارسی می‌سازد.',
     request: {
       jsonrpc: '2.0',
       method: 'tools/call',
@@ -144,9 +144,9 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
 
   const handleCopyComponentCode = useCallback(() => {
     const codeSnippet = `<MetricCardRtl
-  title="صرفه‌جویی زمان توسعه"
+  title="کارت آمار فارسی"
   value="+${toPersianDigits(89)}٪"
-  subtitle="مهندسی ایجنت‌محور فرانت‌اند"
+  subtitle="یک نمونهٔ خروجی با ایجنت"
 />`;
     if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(codeSnippet).then(() => {
@@ -171,7 +171,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
         <div className="mcp-server-meta">
           <div className="mcp-server-indicator">
             <span className="live-pulse-dot" />
-            <strong className="mcp-server-name">سرور پروتکل کانتکست مدل (MCP): vibefarsi.ir</strong>
+            <strong className="mcp-server-name">سرور MCP: vibefarsi.ir</strong>
           </div>
           <span className="mcp-protocol-pill">JSON-RPC 2.0 / MCP Protocol</span>
         </div>
@@ -186,7 +186,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
             aria-label="کپی آدرس سرور https://vibefarsi.ir"
           >
             {copiedUrl ? <Check size={14} /> : <Copy size={14} />}
-            <span>{copiedUrl ? 'کپی شد! ✓' : 'کپی آدرس سرور'}</span>
+            <span>{copiedUrl ? 'کپی شد! ✓' : 'کپی آدرس'}</span>
           </button>
 
           <a
@@ -213,13 +213,13 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
           <div className="panel-header">
             <div className="panel-title-group">
               <Cpu size={16} color="var(--color-surgical-blue)" />
-              <h3 className="panel-heading">بازرس ابزارهای MCP (Tool Inspector)</h3>
+              <h3 className="panel-heading">ابزارهای MCP</h3>
             </div>
             <span className="step-tag-badge">
-              {stepIndex === 0 && 'گام ۰: اتصال و معماری'}
-              {stepIndex === 1 && 'گام ۱: اجرای Tool Call'}
-              {stepIndex === 2 && 'گام ۲: واکشی سورس کد'}
-              {stepIndex >= 3 && 'گام ۳: رندر خروجی بومی'}
+              {stepIndex === 0 && 'گام ۰: اتصال'}
+              {stepIndex === 1 && 'گام ۱: اجرای ابزار'}
+              {stepIndex === 2 && 'گام ۲: گرفتن کد'}
+              {stepIndex >= 3 && 'گام ۳: دیدن خروجی فارسی'}
             </span>
           </div>
 
@@ -253,7 +253,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
           <div className="json-payload-viewer">
             <div className="payload-box request-payload">
               <div className="payload-box-header">
-                <span className="box-tag tag-request">درخواست (tools/call)</span>
+                <span className="box-tag tag-request">درخواست</span>
                 <span className="payload-method" dir="ltr">tools/call/{activeTool.name}</span>
               </div>
               <pre className="code-payload" dir="ltr">
@@ -264,7 +264,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
             {isStep1 && (
               <div className="payload-box response-payload animate-fade-in">
                 <div className="payload-box-header">
-                  <span className="box-tag tag-response">پاسخ سرور (Result 200 OK)</span>
+                  <span className="box-tag tag-response">پاسخ سرور</span>
                   <span className="response-time">زمان پاسخ: {toPersianDigits(42)} میلی‌ثانیه</span>
                 </div>
                 <pre className="code-payload" dir="ltr">
@@ -284,9 +284,9 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
           <div className="panel-header">
             <div className="panel-title-group">
               <Sparkles size={16} color="var(--color-surgical-blue)" />
-              <h3 className="panel-heading">پیش‌نمایش زنده کامپوننت بومی فارسی</h3>
+              <h3 className="panel-heading">خروجی کامپوننت فارسی</h3>
             </div>
-            <span className="component-badge-letters">طراحی به سبک Letters</span>
+            <span className="component-badge-letters">سبک Letters</span>
           </div>
 
           {/* Rendered Persian Card Container */}
@@ -296,7 +296,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
                 <div className="card-badge-wrap">
                   <span className="card-category-pill">
                     <Activity size={12} />
-                    <span>آمار شاخص کلیدی</span>
+                    <span>کارت آمار</span>
                   </span>
                   <span className="component-source-tag">MetricCardRtl</span>
                 </div>
@@ -308,7 +308,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
                   title="تست تعامل دکمه"
                 >
                   <TrendingUp size={14} />
-                  <span>{isInteractiveLiked ? 'ثبت شد ✓' : 'تعاملی'}</span>
+                  <span>{isInteractiveLiked ? 'ثبت شد ✓' : 'امتحان دکمه'}</span>
                 </button>
               </div>
 
@@ -316,11 +316,11 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
               <div className="metric-main-display">
                 <div className="metric-number-group">
                   <span className="metric-value-huge">+{toPersianDigits(89)}٪</span>
-                  <span className="metric-trend-badge">رشد راندمان با ایجنت</span>
+                  <span className="metric-trend-badge">یک نمونهٔ خروجی با ایجنت</span>
                 </div>
-                <h4 className="metric-title-text">صرفه‌جویی در زمان توسعه فرانت‌اند</h4>
+                <h4 className="metric-title-text">یک کارت آمار فارسی، آمادهٔ استفاده</h4>
                 <p className="metric-desc-text">
-                  تولید و اعتبارسنجی کامپوننت‌های منطبق بر تایپوگرافی فارسی، بدون وابستگی سنگین کتابخانه‌های آماده.
+                  یک کامپوننت RTL با تایپوگرافی فارسی؛ سورسش مستقیم داخل پروژه می‌آید.
                 </p>
               </div>
 
@@ -328,22 +328,22 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
               <div className="metric-sub-grid">
                 <div className="sub-metric-item">
                   <span className="sub-metric-value">{toPersianDigits(32)}</span>
-                  <span className="sub-metric-label">کامپوننت بومی RTL</span>
+                  <span className="sub-metric-label">کامپوننت RTL</span>
                 </div>
                 <div className="sub-metric-item">
                   <span className="sub-metric-value">{toPersianDigits(4)}٫{toPersianDigits(9)} / {toPersianDigits(5)}</span>
-                  <span className="sub-metric-label">رضایت توسعه‌دهنده</span>
+                  <span className="sub-metric-label">امتیاز نمونه</span>
                 </div>
                 <div className="sub-metric-item">
                   <span className="sub-metric-value">۰ kb</span>
-                  <span className="sub-metric-label">حجم بسته اضافی npm</span>
+                  <span className="sub-metric-label">وابستگی npm اضافه</span>
                 </div>
               </div>
 
               {/* Micro-Progress Bar */}
               <div className="metric-progress-wrapper">
                 <div className="progress-labels">
-                  <span>میزان پیشرفت گام‌های اجرایی</span>
+                  <span>پیشرفت نمونهٔ اجرا</span>
                   <span dir="ltr">{toPersianDigits(89)}%</span>
                 </div>
                 <div className="progress-track">
@@ -355,7 +355,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
               <div className="card-footer-banner">
                 <div className="ownership-info">
                   <CheckCircle2 size={15} color="#16a34a" />
-                  <strong>مالکیت مستقیم کد (بدون وابستگی npm)</strong>
+                  <strong>کد داخل پروژه می‌ماند؛ بدون وابستگی npm</strong>
                 </div>
                 <button
                   type="button"
@@ -364,7 +364,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
                   title="کپی قطعه‌کد کامپوننت"
                 >
                   {copiedCode ? <Check size={13} /> : <Copy size={13} />}
-                  <span>{copiedCode ? 'کپی شد! ✓' : 'کپی کدهای JSX'}</span>
+                  <span>{copiedCode ? 'کپی شد! ✓' : 'کپی JSX'}</span>
                 </button>
               </div>
             </div>
@@ -374,7 +374,7 @@ export default function Slide5McpVibeFarsi({ stepIndex = 0 }) {
           <div className="component-philosophy-callout">
             <Box size={15} color="var(--color-surgical-blue)" />
             <p>
-              <strong>فلسفه کپی-پیست بومی:</strong> به جای نصب پکیج‌های حجیم با باگ‌های احتمالی راست‌به‌چپ، ایجنت سورس تمیز و سبک را دریافت و درون پروژه مدیریت می‌کند.
+              <strong>کد را خود پروژه نگه می‌دارد:</strong> به‌جای یک پکیج حجیم که شاید در RTL مشکل داشته باشد، سورس سبک را می‌گیریم و همان‌جا در پروژه نگه می‌داریم.
             </p>
           </div>
         </div>
